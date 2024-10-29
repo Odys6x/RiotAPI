@@ -1,6 +1,6 @@
 [
     {
-        "championName": "Garen",
+        "championName": "Darius",
         "isBot": false,
         "isDead": false,
         "items": [
@@ -8,385 +8,35 @@
                 "canUse": true,
                 "consumable": false,
                 "count": 1,
-                "displayName": "Stridebreaker",
-                "itemID": 6631,
-                "price": 750,
-                "rawDescription": "GeneratedTip_Item_6631_Description",
-                "rawDisplayName": "Item_6631_Name",
+                "displayName": "Tiamat",
+                "itemID": 3077,
+                "price": 500,
+                "rawDescription": "GeneratedTip_Item_3077_Description",
+                "rawDisplayName": "Item_3077_Name",
                 "slot": 0
             },
             {
                 "canUse": false,
                 "consumable": false,
                 "count": 1,
-                "displayName": "Berserker's Greaves",
-                "itemID": 3006,
-                "price": 300,
-                "rawDescription": "GeneratedTip_Item_3006_Description",
-                "rawDisplayName": "Item_3006_Name",
-                "slot": 1
-            },
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Mortal Reminder",
-                "itemID": 3033,
+                "displayName": "Phage",
+                "itemID": 3044,
                 "price": 350,
-                "rawDescription": "GeneratedTip_Item_3033_Description",
-                "rawDisplayName": "Item_3033_Name",
-                "slot": 2
+                "rawDescription": "GeneratedTip_Item_3044_Description",
+                "rawDisplayName": "Item_3044_Name",
+                "slot": 1
             },
             {
                 "canUse": false,
                 "consumable": false,
                 "count": 1,
-                "displayName": "Phantom Dancer",
-                "itemID": 3046,
-                "price": 950,
-                "rawDescription": "GeneratedTip_Item_3046_Description",
-                "rawDisplayName": "Item_3046_Name",
-                "slot": 3
-            },
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Cloak of Agility",
-                "itemID": 1018,
+                "displayName": "Plated Steelcaps",
+                "itemID": 3047,
                 "price": 600,
-                "rawDescription": "GeneratedTip_Item_1018_Description",
-                "rawDisplayName": "Item_1018_Name",
-                "slot": 4
-            },
-            {
-                "canUse": true,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Stealth Ward",
-                "itemID": 3340,
-                "price": 0,
-                "rawDescription": "GeneratedTip_Item_3340_Description",
-                "rawDisplayName": "Item_3340_Name",
-                "slot": 6
-            }
-        ],
-        "level": 17,
-        "position": "TOP",
-        "rawChampionName": "game_character_displayname_Garen",
-        "rawSkinName": "game_character_skin_displayname_Garen_13",
-        "respawnTimer": 0.0,
-        "riotId": "youraa#000",
-        "riotIdGameName": "youraa",
-        "riotIdTagLine": "000",
-        "runes": {
-            "keystone": {
-                "displayName": "Phase Rush",
-                "id": 8230,
-                "rawDescription": "perk_tooltip_PhaseRush",
-                "rawDisplayName": "perk_displayname_PhaseRush"
-            },
-            "primaryRuneTree": {
-                "displayName": "Sorcery",
-                "id": 8200,
-                "rawDescription": "perkstyle_tooltip_7202",
-                "rawDisplayName": "perkstyle_displayname_7202"
-            },
-            "secondaryRuneTree": {
-                "displayName": "Resolve",
-                "id": 8400,
-                "rawDescription": "perkstyle_tooltip_7204",
-                "rawDisplayName": "perkstyle_displayname_7204"
-            }
-        },
-        "scores": {
-            "assists": 3,
-            "creepScore": 240,
-            "deaths": 2,
-            "kills": 5,
-            "wardScore": 25.15085220336914
-        },
-        "skinID": 13,
-        "skinName": "God-King Garen",
-        "summonerName": "youraa#000",
-        "summonerSpells": {
-            "summonerSpellOne": {
-                "displayName": "Ignite",
-                "rawDescription": "GeneratedTip_SummonerSpell_SummonerDot_Description",
-                "rawDisplayName": "GeneratedTip_SummonerSpell_SummonerDot_DisplayName"
-            },
-            "summonerSpellTwo": {
-                "displayName": "Flash",
-                "rawDescription": "GeneratedTip_SummonerSpell_SummonerFlash_Description",
-                "rawDisplayName": "GeneratedTip_SummonerSpell_SummonerFlash_DisplayName"
-            }
-        },
-        "team": "ORDER"
-    },
-    {
-        "championName": "Fiddlesticks",
-        "isBot": false,
-        "isDead": false,
-        "items": [
-            {
-                "canUse": true,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Zhonya's Hourglass",
-                "itemID": 3157,
-                "price": 450,
-                "rawDescription": "GeneratedTip_Item_3157_Description",
-                "rawDisplayName": "Item_3157_Name",
-                "slot": 0
-            },
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Malignance",
-                "itemID": 3118,
-                "price": 650,
-                "rawDescription": "GeneratedTip_Item_3118_Description",
-                "rawDisplayName": "Item_3118_Name",
-                "slot": 1
-            },
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Shadowflame",
-                "itemID": 4645,
-                "price": 900,
-                "rawDescription": "GeneratedTip_Item_4645_Description",
-                "rawDisplayName": "Item_4645_Name",
+                "rawDescription": "GeneratedTip_Item_3047_Description",
+                "rawDisplayName": "Item_3047_Name",
                 "slot": 2
             },
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Amplifying Tome",
-                "itemID": 1052,
-                "price": 400,
-                "rawDescription": "GeneratedTip_Item_1052_Description",
-                "rawDisplayName": "Item_1052_Name",
-                "slot": 3
-            },
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Sorcerer's Shoes",
-                "itemID": 3020,
-                "price": 800,
-                "rawDescription": "GeneratedTip_Item_3020_Description",
-                "rawDisplayName": "Item_3020_Name",
-                "slot": 5
-            },
-            {
-                "canUse": true,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Scarecrow Effigy",
-                "itemID": 3330,
-                "price": 0,
-                "rawDescription": "GeneratedTip_Item_3330_Description",
-                "rawDisplayName": "Item_3330_Name",
-                "slot": 6
-            }
-        ],
-        "level": 15,
-        "position": "JUNGLE",
-        "rawChampionName": "game_character_displayname_FiddleSticks",
-        "rawSkinName": "game_character_skin_displayname_FiddleSticks_9",
-        "respawnTimer": 0.0,
-        "riotId": "doge#frfr",
-        "riotIdGameName": "doge",
-        "riotIdTagLine": "frfr",
-        "runes": {
-            "keystone": {
-                "displayName": "Dark Harvest",
-                "id": 8128,
-                "rawDescription": "perk_tooltip_DarkHarvest",
-                "rawDisplayName": "perk_displayname_DarkHarvest"
-            },
-            "primaryRuneTree": {
-                "displayName": "Domination",
-                "id": 8100,
-                "rawDescription": "perkstyle_tooltip_7200",
-                "rawDisplayName": "perkstyle_displayname_7200"
-            },
-            "secondaryRuneTree": {
-                "displayName": "Inspiration",
-                "id": 8300,
-                "rawDescription": "perkstyle_tooltip_7203",
-                "rawDisplayName": "perkstyle_displayname_7203"
-            }
-        },
-        "scores": {
-            "assists": 9,
-            "creepScore": 170,
-            "deaths": 4,
-            "kills": 4,
-            "wardScore": 52.585411071777344
-        },
-        "skinID": 9,
-        "skinName": "Praetorian Fiddlesticks",
-        "summonerName": "doge#frfr",
-        "summonerSpells": {
-            "summonerSpellOne": {
-                "displayName": "Primal Smite",
-                "rawDescription": "GeneratedTip_SummonerSpell_SummonerSmiteAvatarUtility_Description",
-                "rawDisplayName": "GeneratedTip_SummonerSpell_SummonerSmiteAvatarUtility_DisplayName"
-            },
-            "summonerSpellTwo": {
-                "displayName": "Flash",
-                "rawDescription": "GeneratedTip_SummonerSpell_SummonerFlash_Description",
-                "rawDisplayName": "GeneratedTip_SummonerSpell_SummonerFlash_DisplayName"
-            }
-        },
-        "team": "ORDER"
-    },
-    {
-        "championName": "Orianna",
-        "isBot": false,
-        "isDead": false,
-        "items": [
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Doran's Ring",
-                "itemID": 1056,
-                "price": 400,
-                "rawDescription": "GeneratedTip_Item_1056_Description",
-                "rawDisplayName": "Item_1056_Name",
-                "slot": 0
-            },
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Stormsurge",
-                "itemID": 4646,
-                "price": 900,
-                "rawDescription": "GeneratedTip_Item_4646_Description",
-                "rawDisplayName": "Item_4646_Name",
-                "slot": 1
-            },
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Sorcerer's Shoes",
-                "itemID": 3020,
-                "price": 800,
-                "rawDescription": "GeneratedTip_Item_3020_Description",
-                "rawDisplayName": "Item_3020_Name",
-                "slot": 2
-            },
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Luden's Companion",
-                "itemID": 6655,
-                "price": 550,
-                "rawDescription": "GeneratedTip_Item_6655_Description",
-                "rawDisplayName": "Item_6655_Name",
-                "slot": 3
-            },
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Shadowflame",
-                "itemID": 4645,
-                "price": 900,
-                "rawDescription": "GeneratedTip_Item_4645_Description",
-                "rawDisplayName": "Item_4645_Name",
-                "slot": 4
-            },
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Needlessly Large Rod",
-                "itemID": 1058,
-                "price": 1200,
-                "rawDescription": "GeneratedTip_Item_1058_Description",
-                "rawDisplayName": "Item_1058_Name",
-                "slot": 5
-            },
-            {
-                "canUse": true,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Stealth Ward",
-                "itemID": 3340,
-                "price": 0,
-                "rawDescription": "GeneratedTip_Item_3340_Description",
-                "rawDisplayName": "Item_3340_Name",
-                "slot": 6
-            }
-        ],
-        "level": 16,
-        "position": "MIDDLE",
-        "rawChampionName": "game_character_displayname_Orianna",
-        "rawSkinName": "game_character_skin_displayname_Orianna_5",
-        "respawnTimer": 0.0,
-        "riotId": "\u713c\u304d\u305d\u3070\u30d1\u30f3#410",
-        "riotIdGameName": "\u713c\u304d\u305d\u3070\u30d1\u30f3",
-        "riotIdTagLine": "410",
-        "runes": {
-            "keystone": {
-                "displayName": "Summon Aery",
-                "id": 8214,
-                "rawDescription": "perk_tooltip_SummonAery",
-                "rawDisplayName": "perk_displayname_SummonAery"
-            },
-            "primaryRuneTree": {
-                "displayName": "Sorcery",
-                "id": 8200,
-                "rawDescription": "perkstyle_tooltip_7202",
-                "rawDisplayName": "perkstyle_displayname_7202"
-            },
-            "secondaryRuneTree": {
-                "displayName": "Precision",
-                "id": 8000,
-                "rawDescription": "perkstyle_tooltip_7201",
-                "rawDisplayName": "perkstyle_displayname_7201"
-            }
-        },
-        "scores": {
-            "assists": 9,
-            "creepScore": 200,
-            "deaths": 1,
-            "kills": 4,
-            "wardScore": 25.75341033935547
-        },
-        "skinID": 5,
-        "skinName": "Winter Wonder Orianna",
-        "summonerName": "\u713c\u304d\u305d\u3070\u30d1\u30f3#410",
-        "summonerSpells": {
-            "summonerSpellOne": {
-                "displayName": "Flash",
-                "rawDescription": "GeneratedTip_SummonerSpell_SummonerFlash_Description",
-                "rawDisplayName": "GeneratedTip_SummonerSpell_SummonerFlash_DisplayName"
-            },
-            "summonerSpellTwo": {
-                "displayName": "Unleashed Teleport",
-                "rawDescription": "GeneratedTip_SummonerSpell_S12_SummonerTeleportUpgrade_Description",
-                "rawDisplayName": "GeneratedTip_SummonerSpell_S12_SummonerTeleportUpgrade_DisplayName"
-            }
-        },
-        "team": "ORDER"
-    },
-    {
-        "championName": "Kai'Sa",
-        "isBot": false,
-        "isDead": false,
-        "items": [
             {
                 "canUse": false,
                 "consumable": false,
@@ -396,62 +46,18 @@
                 "price": 450,
                 "rawDescription": "GeneratedTip_Item_1055_Description",
                 "rawDisplayName": "Item_1055_Name",
-                "slot": 0
-            },
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Statikk Shiv",
-                "itemID": 3087,
-                "price": 650,
-                "rawDescription": "GeneratedTip_Item_3087_Description",
-                "rawDisplayName": "Item_3087_Name",
-                "slot": 1
-            },
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Berserker's Greaves",
-                "itemID": 3006,
-                "price": 300,
-                "rawDescription": "GeneratedTip_Item_3006_Description",
-                "rawDisplayName": "Item_3006_Name",
-                "slot": 2
-            },
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Amplifying Tome",
-                "itemID": 1052,
-                "price": 400,
-                "rawDescription": "GeneratedTip_Item_1052_Description",
-                "rawDisplayName": "Item_1052_Name",
                 "slot": 3
             },
             {
                 "canUse": false,
                 "consumable": false,
                 "count": 1,
-                "displayName": "Kraken Slayer",
-                "itemID": 6672,
-                "price": 425,
-                "rawDescription": "GeneratedTip_Item_6672_Description",
-                "rawDisplayName": "Item_6672_Name",
+                "displayName": "Dagger",
+                "itemID": 1042,
+                "price": 250,
+                "rawDescription": "GeneratedTip_Item_1042_Description",
+                "rawDisplayName": "Item_1042_Name",
                 "slot": 4
-            },
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Nashor's Tooth",
-                "itemID": 3115,
-                "price": 600,
-                "rawDescription": "GeneratedTip_Item_3115_Description",
-                "rawDisplayName": "Item_3115_Name",
-                "slot": 5
             },
             {
                 "canUse": true,
@@ -465,20 +71,20 @@
                 "slot": 6
             }
         ],
-        "level": 14,
-        "position": "BOTTOM",
-        "rawChampionName": "game_character_displayname_Kaisa",
-        "rawSkinName": "game_character_skin_displayname_Kaisa_0",
+        "level": 10,
+        "position": "",
+        "rawChampionName": "game_character_displayname_Darius",
+        "rawSkinName": "game_character_skin_displayname_Darius_0",
         "respawnTimer": 0.0,
         "riotId": "Odys6x#6969",
         "riotIdGameName": "Odys6x",
         "riotIdTagLine": "6969",
         "runes": {
             "keystone": {
-                "displayName": "Press the Attack",
-                "id": 8005,
-                "rawDescription": "perk_tooltip_PressTheAttack",
-                "rawDisplayName": "perk_displayname_PressTheAttack"
+                "displayName": "Conqueror",
+                "id": 8010,
+                "rawDescription": "perk_tooltip_Conqueror",
+                "rawDisplayName": "perk_displayname_Conqueror"
             },
             "primaryRuneTree": {
                 "displayName": "Precision",
@@ -487,146 +93,22 @@
                 "rawDisplayName": "perkstyle_displayname_7201"
             },
             "secondaryRuneTree": {
-                "displayName": "Inspiration",
-                "id": 8300,
-                "rawDescription": "perkstyle_tooltip_7203",
-                "rawDisplayName": "perkstyle_displayname_7203"
-            }
-        },
-        "scores": {
-            "assists": 4,
-            "creepScore": 190,
-            "deaths": 4,
-            "kills": 8,
-            "wardScore": 20.05611801147461
-        },
-        "skinID": 0,
-        "skinName": "",
-        "summonerName": "Odys6x#6969",
-        "summonerSpells": {
-            "summonerSpellOne": {
-                "displayName": "Heal",
-                "rawDescription": "GeneratedTip_SummonerSpell_SummonerHeal_Description",
-                "rawDisplayName": "GeneratedTip_SummonerSpell_SummonerHeal_DisplayName"
-            },
-            "summonerSpellTwo": {
-                "displayName": "Flash",
-                "rawDescription": "GeneratedTip_SummonerSpell_SummonerFlash_Description",
-                "rawDisplayName": "GeneratedTip_SummonerSpell_SummonerFlash_DisplayName"
-            }
-        },
-        "team": "ORDER"
-    },
-    {
-        "championName": "Lulu",
-        "isBot": false,
-        "isDead": false,
-        "items": [
-            {
-                "canUse": true,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Shurelya's Battlesong",
-                "itemID": 2065,
-                "price": 400,
-                "rawDescription": "GeneratedTip_Item_2065_Description",
-                "rawDisplayName": "Item_2065_Name",
-                "slot": 0
-            },
-            {
-                "canUse": true,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Locket of the Iron Solari",
-                "itemID": 3190,
-                "price": 700,
-                "rawDescription": "GeneratedTip_Item_3190_Description",
-                "rawDisplayName": "Item_3190_Name",
-                "slot": 1
-            },
-            {
-                "canUse": true,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Solstice Sleigh",
-                "itemID": 3876,
-                "price": 0,
-                "rawDescription": "GeneratedTip_Item_3876_Description",
-                "rawDisplayName": "Item_3876_Name",
-                "slot": 2
-            },
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Ionian Boots of Lucidity",
-                "itemID": 3158,
-                "price": 350,
-                "rawDescription": "GeneratedTip_Item_3158_Description",
-                "rawDisplayName": "Item_3158_Name",
-                "slot": 3
-            },
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Ruby Crystal",
-                "itemID": 1028,
-                "price": 400,
-                "rawDescription": "GeneratedTip_Item_1028_Description",
-                "rawDisplayName": "Item_1028_Name",
-                "slot": 5
-            },
-            {
-                "canUse": true,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Oracle Lens",
-                "itemID": 3364,
-                "price": 0,
-                "rawDescription": "GeneratedTip_Item_3364_Description",
-                "rawDisplayName": "Item_3364_Name",
-                "slot": 6
-            }
-        ],
-        "level": 13,
-        "position": "UTILITY",
-        "rawChampionName": "game_character_displayname_Lulu",
-        "rawSkinName": "game_character_skin_displayname_Lulu_0",
-        "respawnTimer": 0.0,
-        "riotId": "\u4e00\u767e\u5757\u90fd\u4e0d\u7ed9\u6211#\u7ed9\u6211\u4e00\u767e\u5757",
-        "riotIdGameName": "\u4e00\u767e\u5757\u90fd\u4e0d\u7ed9\u6211",
-        "riotIdTagLine": "\u7ed9\u6211\u4e00\u767e\u5757",
-        "runes": {
-            "keystone": {
-                "displayName": "Summon Aery",
-                "id": 8214,
-                "rawDescription": "perk_tooltip_SummonAery",
-                "rawDisplayName": "perk_displayname_SummonAery"
-            },
-            "primaryRuneTree": {
                 "displayName": "Sorcery",
                 "id": 8200,
                 "rawDescription": "perkstyle_tooltip_7202",
                 "rawDisplayName": "perkstyle_displayname_7202"
-            },
-            "secondaryRuneTree": {
-                "displayName": "Resolve",
-                "id": 8400,
-                "rawDescription": "perkstyle_tooltip_7204",
-                "rawDisplayName": "perkstyle_displayname_7204"
             }
         },
         "scores": {
-            "assists": 15,
-            "creepScore": 30,
-            "deaths": 2,
-            "kills": 0,
-            "wardScore": 75.61299896240234
+            "assists": 0,
+            "creepScore": 70,
+            "deaths": 4,
+            "kills": 7,
+            "wardScore": 0.0
         },
         "skinID": 0,
         "skinName": "",
-        "summonerName": "\u4e00\u767e\u5757\u90fd\u4e0d\u7ed9\u6211#\u7ed9\u6211\u4e00\u767e\u5757",
+        "summonerName": "Odys6x#6969",
         "summonerSpells": {
             "summonerSpellOne": {
                 "displayName": "Ignite",
@@ -642,9 +124,9 @@
         "team": "ORDER"
     },
     {
-        "championName": "Gragas",
-        "isBot": false,
-        "isDead": true,
+        "championName": "Maokai",
+        "isBot": true,
+        "isDead": false,
         "items": [
             {
                 "canUse": false,
@@ -661,428 +143,34 @@
                 "canUse": false,
                 "consumable": false,
                 "count": 1,
-                "displayName": "Rod of Ages",
-                "itemID": 6657,
-                "price": 450,
-                "rawDescription": "GeneratedTip_Item_6657_Description",
-                "rawDisplayName": "Item_6657_Name",
+                "displayName": "Hollow Radiance",
+                "itemID": 6664,
+                "price": 650,
+                "rawDescription": "GeneratedTip_Item_6664_Description",
+                "rawDisplayName": "Item_6664_Name",
                 "slot": 1
-            },
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Cosmic Drive",
-                "itemID": 4629,
-                "price": 450,
-                "rawDescription": "GeneratedTip_Item_4629_Description",
-                "rawDisplayName": "Item_4629_Name",
-                "slot": 2
-            },
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Sorcerer's Shoes",
-                "itemID": 3020,
-                "price": 800,
-                "rawDescription": "GeneratedTip_Item_3020_Description",
-                "rawDisplayName": "Item_3020_Name",
-                "slot": 3
-            },
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Amplifying Tome",
-                "itemID": 1052,
-                "price": 400,
-                "rawDescription": "GeneratedTip_Item_1052_Description",
-                "rawDisplayName": "Item_1052_Name",
-                "slot": 4
-            },
-            {
-                "canUse": true,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Oracle Lens",
-                "itemID": 3364,
-                "price": 0,
-                "rawDescription": "GeneratedTip_Item_3364_Description",
-                "rawDisplayName": "Item_3364_Name",
-                "slot": 6
-            }
-        ],
-        "level": 15,
-        "position": "TOP",
-        "rawChampionName": "game_character_displayname_Gragas",
-        "rawSkinName": "game_character_skin_displayname_Gragas_0",
-        "respawnTimer": 1.9414520263671875,
-        "riotId": "RumSter#555",
-        "riotIdGameName": "RumSter",
-        "riotIdTagLine": "555",
-        "runes": {
-            "keystone": {
-                "displayName": "Phase Rush",
-                "id": 8230,
-                "rawDescription": "perk_tooltip_PhaseRush",
-                "rawDisplayName": "perk_displayname_PhaseRush"
-            },
-            "primaryRuneTree": {
-                "displayName": "Sorcery",
-                "id": 8200,
-                "rawDescription": "perkstyle_tooltip_7202",
-                "rawDisplayName": "perkstyle_displayname_7202"
-            },
-            "secondaryRuneTree": {
-                "displayName": "Inspiration",
-                "id": 8300,
-                "rawDescription": "perkstyle_tooltip_7203",
-                "rawDisplayName": "perkstyle_displayname_7203"
-            }
-        },
-        "scores": {
-            "assists": 2,
-            "creepScore": 160,
-            "deaths": 4,
-            "kills": 2,
-            "wardScore": 21.983901977539062
-        },
-        "skinID": 0,
-        "skinName": "",
-        "summonerName": "RumSter#555",
-        "summonerSpells": {
-            "summonerSpellOne": {
-                "displayName": "Flash",
-                "rawDescription": "GeneratedTip_SummonerSpell_SummonerFlash_Description",
-                "rawDisplayName": "GeneratedTip_SummonerSpell_SummonerFlash_DisplayName"
-            },
-            "summonerSpellTwo": {
-                "displayName": "Unleashed Teleport",
-                "rawDescription": "GeneratedTip_SummonerSpell_S12_SummonerTeleportUpgrade_Description",
-                "rawDisplayName": "GeneratedTip_SummonerSpell_S12_SummonerTeleportUpgrade_DisplayName"
-            }
-        },
-        "team": "CHAOS"
-    },
-    {
-        "championName": "Kayn",
-        "isBot": false,
-        "isDead": false,
-        "items": [
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Opportunity",
-                "itemID": 6701,
-                "price": 925,
-                "rawDescription": "GeneratedTip_Item_6701_Description",
-                "rawDisplayName": "Item_6701_Name",
-                "slot": 0
-            },
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Hubris",
-                "itemID": 6697,
-                "price": 950,
-                "rawDescription": "GeneratedTip_Item_6697_Description",
-                "rawDisplayName": "Item_6697_Name",
-                "slot": 1
-            },
-            {
-                "canUse": true,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Youmuu's Ghostblade",
-                "itemID": 3142,
-                "price": 150,
-                "rawDescription": "GeneratedTip_Item_3142_Description",
-                "rawDisplayName": "Item_3142_Name",
-                "slot": 2
-            },
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Serrated Dirk",
-                "itemID": 3134,
-                "price": 300,
-                "rawDescription": "GeneratedTip_Item_3134_Description",
-                "rawDisplayName": "Item_3134_Name",
-                "slot": 4
-            },
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Synchronized Souls",
-                "itemID": 3013,
-                "price": 0,
-                "rawDescription": "GeneratedTip_Item_3013_Description",
-                "rawDisplayName": "Item_3013_Name",
-                "slot": 5
-            },
-            {
-                "canUse": true,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Oracle Lens",
-                "itemID": 3364,
-                "price": 0,
-                "rawDescription": "GeneratedTip_Item_3364_Description",
-                "rawDisplayName": "Item_3364_Name",
-                "slot": 6
-            }
-        ],
-        "level": 14,
-        "position": "JUNGLE",
-        "rawChampionName": "game_character_displayname_Kayn",
-        "rawSkinName": "game_character_skin_displayname_Kayn_9",
-        "respawnTimer": 0.0,
-        "riotId": "mochigum#bubz",
-        "riotIdGameName": "mochigum",
-        "riotIdTagLine": "bubz",
-        "runes": {
-            "keystone": {
-                "displayName": "First Strike",
-                "id": 8369,
-                "rawDescription": "perk_tooltip_FirstStrike",
-                "rawDisplayName": "perk_displayname_FirstStrike"
-            },
-            "primaryRuneTree": {
-                "displayName": "Inspiration",
-                "id": 8300,
-                "rawDescription": "perkstyle_tooltip_7203",
-                "rawDisplayName": "perkstyle_displayname_7203"
-            },
-            "secondaryRuneTree": {
-                "displayName": "Domination",
-                "id": 8100,
-                "rawDescription": "perkstyle_tooltip_7200",
-                "rawDisplayName": "perkstyle_displayname_7200"
-            }
-        },
-        "scores": {
-            "assists": 2,
-            "creepScore": 60,
-            "deaths": 9,
-            "kills": 5,
-            "wardScore": 15.951284408569336
-        },
-        "skinID": 9,
-        "skinName": "Prestige Nightbringer Kayn",
-        "summonerName": "mochigum#bubz",
-        "summonerSpells": {
-            "summonerSpellOne": {
-                "displayName": "Primal Smite",
-                "rawDescription": "GeneratedTip_SummonerSpell_SummonerSmiteAvatarOffensive_Description",
-                "rawDisplayName": "GeneratedTip_SummonerSpell_SummonerSmiteAvatarOffensive_DisplayName"
-            },
-            "summonerSpellTwo": {
-                "displayName": "Flash",
-                "rawDescription": "GeneratedTip_SummonerSpell_SummonerFlash_Description",
-                "rawDisplayName": "GeneratedTip_SummonerSpell_SummonerFlash_DisplayName"
-            }
-        },
-        "team": "CHAOS"
-    },
-    {
-        "championName": "Cassiopeia",
-        "isBot": false,
-        "isDead": false,
-        "items": [
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Blackfire Torch",
-                "itemID": 2503,
-                "price": 700,
-                "rawDescription": "GeneratedTip_Item_2503_Description",
-                "rawDisplayName": "Item_2503_Name",
-                "slot": 0
-            },
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Liandry's Torment",
-                "itemID": 6653,
-                "price": 800,
-                "rawDescription": "GeneratedTip_Item_6653_Description",
-                "rawDisplayName": "Item_6653_Name",
-                "slot": 1
-            },
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Needlessly Large Rod",
-                "itemID": 1058,
-                "price": 1200,
-                "rawDescription": "GeneratedTip_Item_1058_Description",
-                "rawDisplayName": "Item_1058_Name",
-                "slot": 2
             },
             {
                 "canUse": true,
                 "consumable": true,
                 "count": 1,
-                "displayName": "Elixir of Sorcery",
-                "itemID": 2139,
-                "price": 500,
-                "rawDescription": "GeneratedTip_Item_2139_Description",
-                "rawDisplayName": "Item_2139_Name",
-                "slot": 3
-            },
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Tear of the Goddess",
-                "itemID": 3070,
-                "price": 400,
-                "rawDescription": "GeneratedTip_Item_3070_Description",
-                "rawDisplayName": "Item_3070_Name",
-                "slot": 5
-            },
-            {
-                "canUse": true,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Farsight Alteration",
-                "itemID": 3363,
-                "price": 0,
-                "rawDescription": "GeneratedTip_Item_3363_Description",
-                "rawDisplayName": "Item_3363_Name",
-                "slot": 6
-            }
-        ],
-        "level": 14,
-        "position": "MIDDLE",
-        "rawChampionName": "game_character_displayname_Cassiopeia",
-        "rawSkinName": "game_character_skin_displayname_Cassiopeia_21",
-        "respawnTimer": 0.0,
-        "riotId": "Dephany H#Twins",
-        "riotIdGameName": "Dephany H",
-        "riotIdTagLine": "Twins",
-        "runes": {
-            "keystone": {
-                "displayName": "Electrocute",
-                "id": 8112,
-                "rawDescription": "perk_tooltip_Electrocute",
-                "rawDisplayName": "perk_displayname_Electrocute"
-            },
-            "primaryRuneTree": {
-                "displayName": "Domination",
-                "id": 8100,
-                "rawDescription": "perkstyle_tooltip_7200",
-                "rawDisplayName": "perkstyle_displayname_7200"
-            },
-            "secondaryRuneTree": {
-                "displayName": "Precision",
-                "id": 8000,
-                "rawDescription": "perkstyle_tooltip_7201",
-                "rawDisplayName": "perkstyle_displayname_7201"
-            }
-        },
-        "scores": {
-            "assists": 1,
-            "creepScore": 140,
-            "deaths": 4,
-            "kills": 2,
-            "wardScore": 27.135648727416992
-        },
-        "skinID": 21,
-        "skinName": "Coven Cassiopeia",
-        "summonerName": "Dephany H#Twins",
-        "summonerSpells": {
-            "summonerSpellOne": {
-                "displayName": "Flash",
-                "rawDescription": "GeneratedTip_SummonerSpell_SummonerFlash_Description",
-                "rawDisplayName": "GeneratedTip_SummonerSpell_SummonerFlash_DisplayName"
-            },
-            "summonerSpellTwo": {
-                "displayName": "Ignite",
-                "rawDescription": "GeneratedTip_SummonerSpell_SummonerDot_Description",
-                "rawDisplayName": "GeneratedTip_SummonerSpell_SummonerDot_DisplayName"
-            }
-        },
-        "team": "CHAOS"
-    },
-    {
-        "championName": "Jhin",
-        "isBot": false,
-        "isDead": false,
-        "items": [
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "B. F. Sword",
-                "itemID": 1038,
-                "price": 1300,
-                "rawDescription": "GeneratedTip_Item_1038_Description",
-                "rawDisplayName": "Item_1038_Name",
-                "slot": 0
-            },
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Boots of Swiftness",
-                "itemID": 3009,
-                "price": 700,
-                "rawDescription": "GeneratedTip_Item_3009_Description",
-                "rawDisplayName": "Item_3009_Name",
-                "slot": 1
-            },
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Statikk Shiv",
-                "itemID": 3087,
-                "price": 650,
-                "rawDescription": "GeneratedTip_Item_3087_Description",
-                "rawDisplayName": "Item_3087_Name",
+                "displayName": "Control Ward",
+                "itemID": 2055,
+                "price": 75,
+                "rawDescription": "GeneratedTip_Item_2055_Description",
+                "rawDisplayName": "Item_2055_Name",
                 "slot": 2
             },
             {
                 "canUse": false,
                 "consumable": false,
                 "count": 1,
-                "displayName": "Rapid Firecannon",
-                "itemID": 3094,
-                "price": 850,
-                "rawDescription": "GeneratedTip_Item_3094_Description",
-                "rawDisplayName": "Item_3094_Name",
+                "displayName": "Boots",
+                "itemID": 1001,
+                "price": 300,
+                "rawDescription": "GeneratedTip_Item_1001_Description",
+                "rawDisplayName": "Item_1001_Name",
                 "slot": 3
-            },
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Cloak of Agility",
-                "itemID": 1018,
-                "price": 600,
-                "rawDescription": "GeneratedTip_Item_1018_Description",
-                "rawDisplayName": "Item_1018_Name",
-                "slot": 4
-            },
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Pickaxe",
-                "itemID": 1037,
-                "price": 875,
-                "rawDescription": "GeneratedTip_Item_1037_Description",
-                "rawDisplayName": "Item_1037_Name",
-                "slot": 5
             },
             {
                 "canUse": true,
@@ -1096,178 +184,54 @@
                 "slot": 6
             }
         ],
-        "level": 14,
-        "position": "BOTTOM",
-        "rawChampionName": "game_character_displayname_Jhin",
-        "rawSkinName": "game_character_skin_displayname_Jhin_5",
+        "level": 9,
+        "position": "MIDDLE",
+        "rawChampionName": "game_character_displayname_Maokai",
+        "rawSkinName": "game_character_skin_displayname_Maokai_0",
         "respawnTimer": 0.0,
-        "riotId": "Ellyana#SNE",
-        "riotIdGameName": "Ellyana",
-        "riotIdTagLine": "SNE",
+        "riotId": "Maokai#BOT",
+        "riotIdGameName": "Maokai",
+        "riotIdTagLine": "BOT",
         "runes": {
             "keystone": {
-                "displayName": "Dark Harvest",
-                "id": 8128,
-                "rawDescription": "perk_tooltip_DarkHarvest",
-                "rawDisplayName": "perk_displayname_DarkHarvest"
+                "displayName": "Grasp of the Undying",
+                "id": 8437,
+                "rawDescription": "perk_tooltip_GraspOfTheUndying",
+                "rawDisplayName": "perk_displayname_GraspOfTheUndying"
             },
             "primaryRuneTree": {
-                "displayName": "Domination",
-                "id": 8100,
-                "rawDescription": "perkstyle_tooltip_7200",
-                "rawDisplayName": "perkstyle_displayname_7200"
-            },
-            "secondaryRuneTree": {
-                "displayName": "Precision",
-                "id": 8000,
-                "rawDescription": "perkstyle_tooltip_7201",
-                "rawDisplayName": "perkstyle_displayname_7201"
-            }
-        },
-        "scores": {
-            "assists": 8,
-            "creepScore": 220,
-            "deaths": 2,
-            "kills": 1,
-            "wardScore": 21.4416446685791
-        },
-        "skinID": 5,
-        "skinName": "Dark Cosmic Jhin",
-        "summonerName": "Ellyana#SNE",
-        "summonerSpells": {
-            "summonerSpellOne": {
-                "displayName": "Flash",
-                "rawDescription": "GeneratedTip_SummonerSpell_SummonerFlash_Description",
-                "rawDisplayName": "GeneratedTip_SummonerSpell_SummonerFlash_DisplayName"
-            },
-            "summonerSpellTwo": {
-                "displayName": "Barrier",
-                "rawDescription": "GeneratedTip_SummonerSpell_SummonerBarrier_Description",
-                "rawDisplayName": "GeneratedTip_SummonerSpell_SummonerBarrier_DisplayName"
-            }
-        },
-        "team": "CHAOS"
-    },
-    {
-        "championName": "Senna",
-        "isBot": false,
-        "isDead": false,
-        "items": [
-            {
-                "canUse": true,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Bloodsong",
-                "itemID": 3877,
-                "price": 0,
-                "rawDescription": "GeneratedTip_Item_3877_Description",
-                "rawDisplayName": "Item_3877_Name",
-                "slot": 0
-            },
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Boots of Swiftness",
-                "itemID": 3009,
-                "price": 700,
-                "rawDescription": "GeneratedTip_Item_3009_Description",
-                "rawDisplayName": "Item_3009_Name",
-                "slot": 1
-            },
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Black Cleaver",
-                "itemID": 3071,
-                "price": 225,
-                "rawDescription": "GeneratedTip_Item_3071_Description",
-                "rawDisplayName": "Item_3071_Name",
-                "slot": 2
-            },
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Rapid Firecannon",
-                "itemID": 3094,
-                "price": 850,
-                "rawDescription": "GeneratedTip_Item_3094_Description",
-                "rawDisplayName": "Item_3094_Name",
-                "slot": 3
-            },
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Bandleglass Mirror",
-                "itemID": 4642,
-                "price": 50,
-                "rawDescription": "GeneratedTip_Item_4642_Description",
-                "rawDisplayName": "Item_4642_Name",
-                "slot": 4
-            },
-            {
-                "canUse": true,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Oracle Lens",
-                "itemID": 3364,
-                "price": 0,
-                "rawDescription": "GeneratedTip_Item_3364_Description",
-                "rawDisplayName": "Item_3364_Name",
-                "slot": 6
-            }
-        ],
-        "level": 12,
-        "position": "UTILITY",
-        "rawChampionName": "game_character_displayname_Senna",
-        "rawSkinName": "game_character_skin_displayname_Senna_9",
-        "respawnTimer": 0.0,
-        "riotId": "magicalelmo#0904",
-        "riotIdGameName": "magicalelmo",
-        "riotIdTagLine": "0904",
-        "runes": {
-            "keystone": {
-                "displayName": "Summon Aery",
-                "id": 8214,
-                "rawDescription": "perk_tooltip_SummonAery",
-                "rawDisplayName": "perk_displayname_SummonAery"
-            },
-            "primaryRuneTree": {
-                "displayName": "Sorcery",
-                "id": 8200,
-                "rawDescription": "perkstyle_tooltip_7202",
-                "rawDisplayName": "perkstyle_displayname_7202"
-            },
-            "secondaryRuneTree": {
                 "displayName": "Resolve",
                 "id": 8400,
                 "rawDescription": "perkstyle_tooltip_7204",
                 "rawDisplayName": "perkstyle_displayname_7204"
+            },
+            "secondaryRuneTree": {
+                "displayName": "Sorcery",
+                "id": 8200,
+                "rawDescription": "perkstyle_tooltip_7202",
+                "rawDisplayName": "perkstyle_displayname_7202"
             }
         },
         "scores": {
-            "assists": 9,
-            "creepScore": 50,
-            "deaths": 2,
-            "kills": 3,
-            "wardScore": 70.76183319091797
+            "assists": 0,
+            "creepScore": 40,
+            "deaths": 7,
+            "kills": 4,
+            "wardScore": 7.291436195373535
         },
-        "skinID": 9,
-        "skinName": "Prestige True Damage Senna",
-        "summonerName": "magicalelmo#0904",
+        "skinID": 0,
+        "skinName": "",
+        "summonerName": "Maokai Bot",
         "summonerSpells": {
             "summonerSpellOne": {
-                "displayName": "Heal",
-                "rawDescription": "GeneratedTip_SummonerSpell_SummonerHeal_Description",
-                "rawDisplayName": "GeneratedTip_SummonerSpell_SummonerHeal_DisplayName"
-            },
-            "summonerSpellTwo": {
                 "displayName": "Flash",
                 "rawDescription": "GeneratedTip_SummonerSpell_SummonerFlash_Description",
                 "rawDisplayName": "GeneratedTip_SummonerSpell_SummonerFlash_DisplayName"
+            },
+            "summonerSpellTwo": {
+                "displayName": "Unleashed Teleport",
+                "rawDescription": "GeneratedTip_SummonerSpell_S12_SummonerTeleportUpgrade_Description",
+                "rawDisplayName": "GeneratedTip_SummonerSpell_S12_SummonerTeleportUpgrade_DisplayName"
             }
         },
         "team": "CHAOS"
