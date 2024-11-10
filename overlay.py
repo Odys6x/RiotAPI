@@ -8,8 +8,8 @@ player_url = "https://127.0.0.1:2999/liveclientdata/playerlist"
 event_url = "https://127.0.0.1:2999/liveclientdata/eventdata"
 game_stats_url = "https://127.0.0.1:2999/liveclientdata/gamestats"
 
-player_output_file = "player_data.json"
-event_output_file = "event_data.json"
+player_output_file = "API/player_data.json"
+event_output_file = "API/event_data.json"
 
 
 class Overlay(QWidget):
@@ -148,12 +148,20 @@ class Overlay(QWidget):
         ally_team_name = "Team ORDER" if self.current_view_index == 0 else "Team CHAOS"
         enemy_team_name = "Team CHAOS" if ally_team_name == "Team ORDER" else "Team ORDER"
 
-        gold_diff_text = (
-            f"Gold Difference: {int(self.gold_difference)}\n"
-            f"Leading Team: {self.leading_team}\n"
-            f"{ally_team_name} Gold: {int(self.ally_gold)}\n"
-            f"{enemy_team_name} Gold: {int(self.enemy_gold)}"
-        )
+        if self.gold_difference == 0:
+            gold_diff_text = (
+                f"Gold Difference: {int(self.gold_difference)}\n"
+                f"{ally_team_name} Gold: {int(self.ally_gold)}\n"
+                f"{enemy_team_name} Gold: {int(self.enemy_gold)}"
+            )
+        else:
+            gold_diff_text = (
+                f"Gold Difference: {int(self.gold_difference)}\n"
+                f"Leading Team: {self.leading_team}\n"
+                f"{ally_team_name} Gold: {int(self.ally_gold)}\n"
+                f"{enemy_team_name} Gold: {int(self.enemy_gold)}"
+            )
+
         self.stats_label.setText(gold_diff_text)
 
     def switch_view(self):

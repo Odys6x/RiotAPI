@@ -1,0 +1,1297 @@
+[
+    {
+        "championName": "Yuumi",
+        "isBot": false,
+        "isDead": false,
+        "items": [
+            {
+                "canUse": false,
+                "consumable": false,
+                "count": 1,
+                "displayName": "Luden's Companion",
+                "itemID": 6655,
+                "price": 550,
+                "rawDescription": "GeneratedTip_Item_6655_Description",
+                "rawDisplayName": "Item_6655_Name",
+                "slot": 0
+            },
+            {
+                "canUse": true,
+                "consumable": false,
+                "count": 1,
+                "displayName": "Refillable Potion",
+                "itemID": 2031,
+                "price": 150,
+                "rawDescription": "GeneratedTip_Item_2031_Description",
+                "rawDisplayName": "Item_2031_Name",
+                "slot": 1
+            },
+            {
+                "canUse": false,
+                "consumable": false,
+                "count": 1,
+                "displayName": "Dawncore",
+                "itemID": 6621,
+                "price": 450,
+                "rawDescription": "GeneratedTip_Item_6621_Description",
+                "rawDisplayName": "Item_6621_Name",
+                "slot": 2
+            },
+            {
+                "canUse": false,
+                "consumable": false,
+                "count": 1,
+                "displayName": "Ardent Censer",
+                "itemID": 3504,
+                "price": 700,
+                "rawDescription": "GeneratedTip_Item_3504_Description",
+                "rawDisplayName": "Item_3504_Name",
+                "slot": 3
+            },
+            {
+                "canUse": false,
+                "consumable": false,
+                "count": 1,
+                "displayName": "Shadowflame",
+                "itemID": 4645,
+                "price": 900,
+                "rawDescription": "GeneratedTip_Item_4645_Description",
+                "rawDisplayName": "Item_4645_Name",
+                "slot": 4
+            },
+            {
+                "canUse": false,
+                "consumable": false,
+                "count": 1,
+                "displayName": "Staff of Flowing Water",
+                "itemID": 6616,
+                "price": 800,
+                "rawDescription": "GeneratedTip_Item_6616_Description",
+                "rawDisplayName": "Item_6616_Name",
+                "slot": 5
+            }
+        ],
+        "level": 18,
+        "position": "NONE",
+        "rawChampionName": "game_character_displayname_Yuumi",
+        "rawSkinName": "game_character_skin_displayname_Yuumi_28",
+        "respawnTimer": 0.0,
+        "riotId": "cutiegigshorty#SG2",
+        "riotIdGameName": "cutiegigshorty",
+        "riotIdTagLine": "SG2",
+        "runes": {
+            "keystone": {
+                "displayName": "Summon Aery",
+                "id": 8214,
+                "rawDescription": "perk_tooltip_SummonAery",
+                "rawDisplayName": "perk_displayname_SummonAery"
+            },
+            "primaryRuneTree": {
+                "displayName": "Sorcery",
+                "id": 8200,
+                "rawDescription": "perkstyle_tooltip_7202",
+                "rawDisplayName": "perkstyle_displayname_7202"
+            },
+            "secondaryRuneTree": {
+                "displayName": "Precision",
+                "id": 8000,
+                "rawDescription": "perkstyle_tooltip_7201",
+                "rawDisplayName": "perkstyle_displayname_7201"
+            }
+        },
+        "scores": {
+            "assists": 43,
+            "creepScore": 0,
+            "deaths": 8,
+            "kills": 2,
+            "wardScore": 0.0
+        },
+        "skinID": 28,
+        "skinName": "Bewitching Yuumi",
+        "summonerName": "cutiegigshorty#SG2",
+        "summonerSpells": {
+            "summonerSpellOne": {
+                "displayName": "Exhaust",
+                "rawDescription": "GeneratedTip_SummonerSpell_SummonerExhaust_Description",
+                "rawDisplayName": "GeneratedTip_SummonerSpell_SummonerExhaust_DisplayName"
+            },
+            "summonerSpellTwo": {
+                "displayName": "Clarity",
+                "rawDescription": "GeneratedTip_SummonerSpell_SummonerMana_Description",
+                "rawDisplayName": "GeneratedTip_SummonerSpell_SummonerMana_DisplayName"
+            }
+        },
+        "team": "ORDER"
+    },
+    {
+        "championName": "Camille",
+        "isBot": false,
+        "isDead": false,
+        "items": [
+            {
+                "canUse": false,
+                "consumable": false,
+                "count": 1,
+                "displayName": "Trinity Force",
+                "itemID": 3078,
+                "price": 133,
+                "rawDescription": "GeneratedTip_Item_3078_Description",
+                "rawDisplayName": "Item_3078_Name",
+                "slot": 0
+            },
+            {
+                "canUse": false,
+                "consumable": false,
+                "count": 1,
+                "displayName": "Spirit Visage",
+                "itemID": 3065,
+                "price": 650,
+                "rawDescription": "GeneratedTip_Item_3065_Description",
+                "rawDisplayName": "Item_3065_Name",
+                "slot": 1
+            },
+            {
+                "canUse": true,
+                "consumable": false,
+                "count": 1,
+                "displayName": "Titanic Hydra",
+                "itemID": 3748,
+                "price": 50,
+                "rawDescription": "GeneratedTip_Item_3748_Description",
+                "rawDisplayName": "Item_3748_Name",
+                "slot": 2
+            },
+            {
+                "canUse": false,
+                "consumable": false,
+                "count": 1,
+                "displayName": "Mercury's Treads",
+                "itemID": 3111,
+                "price": 600,
+                "rawDescription": "GeneratedTip_Item_3111_Description",
+                "rawDisplayName": "Item_3111_Name",
+                "slot": 3
+            },
+            {
+                "canUse": false,
+                "consumable": false,
+                "count": 1,
+                "displayName": "Kaenic Rookern",
+                "itemID": 2504,
+                "price": 800,
+                "rawDescription": "GeneratedTip_Item_2504_Description",
+                "rawDisplayName": "Item_2504_Name",
+                "slot": 4
+            },
+            {
+                "canUse": true,
+                "consumable": true,
+                "count": 2,
+                "displayName": "Poro-Snax",
+                "itemID": 2052,
+                "price": 0,
+                "rawDescription": "GeneratedTip_Item_2052_Description",
+                "rawDisplayName": "Item_2052_Name",
+                "slot": 6
+            }
+        ],
+        "level": 18,
+        "position": "NONE",
+        "rawChampionName": "game_character_displayname_Camille",
+        "rawSkinName": "game_character_skin_displayname_Camille_0",
+        "respawnTimer": 0.0,
+        "riotId": "Vuboom#SG2",
+        "riotIdGameName": "Vuboom",
+        "riotIdTagLine": "SG2",
+        "runes": {
+            "keystone": {
+                "displayName": "Conqueror",
+                "id": 8010,
+                "rawDescription": "perk_tooltip_Conqueror",
+                "rawDisplayName": "perk_displayname_Conqueror"
+            },
+            "primaryRuneTree": {
+                "displayName": "Precision",
+                "id": 8000,
+                "rawDescription": "perkstyle_tooltip_7201",
+                "rawDisplayName": "perkstyle_displayname_7201"
+            },
+            "secondaryRuneTree": {
+                "displayName": "Resolve",
+                "id": 8400,
+                "rawDescription": "perkstyle_tooltip_7204",
+                "rawDisplayName": "perkstyle_displayname_7204"
+            }
+        },
+        "scores": {
+            "assists": 18,
+            "creepScore": 40,
+            "deaths": 11,
+            "kills": 13,
+            "wardScore": 0.0
+        },
+        "skinID": 0,
+        "skinName": "",
+        "summonerName": "Vuboom#SG2",
+        "summonerSpells": {
+            "summonerSpellOne": {
+                "displayName": "Chemtech Mark",
+                "rawDescription": "GeneratedTip_SummonerSpell_Crepe_Zaun_Snowball_Description",
+                "rawDisplayName": "GeneratedTip_SummonerSpell_Crepe_Zaun_Snowball_DisplayName"
+            },
+            "summonerSpellTwo": {
+                "displayName": "Flash",
+                "rawDescription": "GeneratedTip_SummonerSpell_SummonerFlash_Description",
+                "rawDisplayName": "GeneratedTip_SummonerSpell_SummonerFlash_DisplayName"
+            }
+        },
+        "team": "ORDER"
+    },
+    {
+        "championName": "Kai'Sa",
+        "isBot": false,
+        "isDead": false,
+        "items": [
+            {
+                "canUse": false,
+                "consumable": false,
+                "count": 1,
+                "displayName": "Luden's Companion",
+                "itemID": 6655,
+                "price": 550,
+                "rawDescription": "GeneratedTip_Item_6655_Description",
+                "rawDisplayName": "Item_6655_Name",
+                "slot": 0
+            },
+            {
+                "canUse": false,
+                "consumable": false,
+                "count": 1,
+                "displayName": "Sorcerer's Shoes",
+                "itemID": 3020,
+                "price": 800,
+                "rawDescription": "GeneratedTip_Item_3020_Description",
+                "rawDisplayName": "Item_3020_Name",
+                "slot": 1
+            },
+            {
+                "canUse": false,
+                "consumable": false,
+                "count": 1,
+                "displayName": "Nashor's Tooth",
+                "itemID": 3115,
+                "price": 600,
+                "rawDescription": "GeneratedTip_Item_3115_Description",
+                "rawDisplayName": "Item_3115_Name",
+                "slot": 2
+            },
+            {
+                "canUse": false,
+                "consumable": false,
+                "count": 1,
+                "displayName": "Shadowflame",
+                "itemID": 4645,
+                "price": 900,
+                "rawDescription": "GeneratedTip_Item_4645_Description",
+                "rawDisplayName": "Item_4645_Name",
+                "slot": 3
+            },
+            {
+                "canUse": false,
+                "consumable": false,
+                "count": 1,
+                "displayName": "Navori Flickerblade",
+                "itemID": 6675,
+                "price": 950,
+                "rawDescription": "GeneratedTip_Item_6675_Description",
+                "rawDisplayName": "Item_6675_Name",
+                "slot": 4
+            },
+            {
+                "canUse": false,
+                "consumable": false,
+                "count": 1,
+                "displayName": "Needlessly Large Rod",
+                "itemID": 1058,
+                "price": 1200,
+                "rawDescription": "GeneratedTip_Item_1058_Description",
+                "rawDisplayName": "Item_1058_Name",
+                "slot": 5
+            },
+            {
+                "canUse": true,
+                "consumable": true,
+                "count": 2,
+                "displayName": "Poro-Snax",
+                "itemID": 2052,
+                "price": 0,
+                "rawDescription": "GeneratedTip_Item_2052_Description",
+                "rawDisplayName": "Item_2052_Name",
+                "slot": 6
+            }
+        ],
+        "level": 18,
+        "position": "NONE",
+        "rawChampionName": "game_character_displayname_Kaisa",
+        "rawSkinName": "game_character_skin_displayname_Kaisa_16",
+        "respawnTimer": 0.0,
+        "riotId": "Chrisle#SG2",
+        "riotIdGameName": "Chrisle",
+        "riotIdTagLine": "SG2",
+        "runes": {
+            "keystone": {
+                "displayName": "Dark Harvest",
+                "id": 8128,
+                "rawDescription": "perk_tooltip_DarkHarvest",
+                "rawDisplayName": "perk_displayname_DarkHarvest"
+            },
+            "primaryRuneTree": {
+                "displayName": "Domination",
+                "id": 8100,
+                "rawDescription": "perkstyle_tooltip_7200",
+                "rawDisplayName": "perkstyle_displayname_7200"
+            },
+            "secondaryRuneTree": {
+                "displayName": "Precision",
+                "id": 8000,
+                "rawDescription": "perkstyle_tooltip_7201",
+                "rawDisplayName": "perkstyle_displayname_7201"
+            }
+        },
+        "scores": {
+            "assists": 22,
+            "creepScore": 70,
+            "deaths": 13,
+            "kills": 12,
+            "wardScore": 0.0
+        },
+        "skinID": 16,
+        "skinName": "iG Kai'Sa",
+        "summonerName": "Chrisle#SG2",
+        "summonerSpells": {
+            "summonerSpellOne": {
+                "displayName": "Ghost",
+                "rawDescription": "GeneratedTip_SummonerSpell_SummonerHaste_Description",
+                "rawDisplayName": "GeneratedTip_SummonerSpell_SummonerHaste_DisplayName"
+            },
+            "summonerSpellTwo": {
+                "displayName": "Flash",
+                "rawDescription": "GeneratedTip_SummonerSpell_SummonerFlash_Description",
+                "rawDisplayName": "GeneratedTip_SummonerSpell_SummonerFlash_DisplayName"
+            }
+        },
+        "team": "ORDER"
+    },
+    {
+        "championName": "Miss Fortune",
+        "isBot": false,
+        "isDead": false,
+        "items": [
+            {
+                "canUse": false,
+                "consumable": false,
+                "count": 1,
+                "displayName": "Bloodthirster",
+                "itemID": 3072,
+                "price": 325,
+                "rawDescription": "GeneratedTip_Item_3072_Description",
+                "rawDisplayName": "Item_3072_Name",
+                "slot": 0
+            },
+            {
+                "canUse": false,
+                "consumable": false,
+                "count": 1,
+                "displayName": "The Collector",
+                "itemID": 6676,
+                "price": 475,
+                "rawDescription": "GeneratedTip_Item_6676_Description",
+                "rawDisplayName": "Item_6676_Name",
+                "slot": 1
+            },
+            {
+                "canUse": false,
+                "consumable": false,
+                "count": 1,
+                "displayName": "Lord Dominik's Regards",
+                "itemID": 3036,
+                "price": 250,
+                "rawDescription": "GeneratedTip_Item_3036_Description",
+                "rawDisplayName": "Item_3036_Name",
+                "slot": 2
+            },
+            {
+                "canUse": false,
+                "consumable": false,
+                "count": 1,
+                "displayName": "Berserker's Greaves",
+                "itemID": 3006,
+                "price": 300,
+                "rawDescription": "GeneratedTip_Item_3006_Description",
+                "rawDisplayName": "Item_3006_Name",
+                "slot": 3
+            },
+            {
+                "canUse": true,
+                "consumable": true,
+                "count": 2,
+                "displayName": "Poro-Snax",
+                "itemID": 2052,
+                "price": 0,
+                "rawDescription": "GeneratedTip_Item_2052_Description",
+                "rawDisplayName": "Item_2052_Name",
+                "slot": 6
+            }
+        ],
+        "level": 14,
+        "position": "NONE",
+        "rawChampionName": "game_character_displayname_MissFortune",
+        "rawSkinName": "game_character_skin_displayname_MissFortune_16",
+        "respawnTimer": 0.0,
+        "riotId": "noadpls #SG2",
+        "riotIdGameName": "noadpls ",
+        "riotIdTagLine": "SG2",
+        "runes": {
+            "keystone": {
+                "displayName": "Hail of Blades",
+                "id": 9923,
+                "rawDescription": "perk_tooltip_HailOfBlades",
+                "rawDisplayName": "perk_displayname_HailOfBlades"
+            },
+            "primaryRuneTree": {
+                "displayName": "Domination",
+                "id": 8100,
+                "rawDescription": "perkstyle_tooltip_7200",
+                "rawDisplayName": "perkstyle_displayname_7200"
+            },
+            "secondaryRuneTree": {
+                "displayName": "Precision",
+                "id": 8000,
+                "rawDescription": "perkstyle_tooltip_7201",
+                "rawDisplayName": "perkstyle_displayname_7201"
+            }
+        },
+        "scores": {
+            "assists": 7,
+            "creepScore": 90,
+            "deaths": 10,
+            "kills": 13,
+            "wardScore": 0.0
+        },
+        "skinID": 16,
+        "skinName": "Gun Goddess Miss Fortune",
+        "summonerName": "noadpls #SG2",
+        "summonerSpells": {
+            "summonerSpellOne": {
+                "displayName": "Heal",
+                "rawDescription": "GeneratedTip_SummonerSpell_SummonerHeal_Description",
+                "rawDisplayName": "GeneratedTip_SummonerSpell_SummonerHeal_DisplayName"
+            },
+            "summonerSpellTwo": {
+                "displayName": "Flash",
+                "rawDescription": "GeneratedTip_SummonerSpell_SummonerFlash_Description",
+                "rawDisplayName": "GeneratedTip_SummonerSpell_SummonerFlash_DisplayName"
+            }
+        },
+        "team": "ORDER"
+    },
+    {
+        "championName": "Urgot",
+        "isBot": false,
+        "isDead": false,
+        "items": [
+            {
+                "canUse": false,
+                "consumable": false,
+                "count": 1,
+                "displayName": "Heartsteel",
+                "itemID": 3084,
+                "price": 400,
+                "rawDescription": "GeneratedTip_Item_3084_Description",
+                "rawDisplayName": "Item_3084_Name",
+                "slot": 0
+            },
+            {
+                "canUse": false,
+                "consumable": false,
+                "count": 1,
+                "displayName": "Mercury's Treads",
+                "itemID": 3111,
+                "price": 600,
+                "rawDescription": "GeneratedTip_Item_3111_Description",
+                "rawDisplayName": "Item_3111_Name",
+                "slot": 1
+            },
+            {
+                "canUse": false,
+                "consumable": false,
+                "count": 1,
+                "displayName": "Thornmail",
+                "itemID": 3075,
+                "price": 450,
+                "rawDescription": "GeneratedTip_Item_3075_Description",
+                "rawDisplayName": "Item_3075_Name",
+                "slot": 2
+            },
+            {
+                "canUse": true,
+                "consumable": false,
+                "count": 1,
+                "displayName": "Tiamat",
+                "itemID": 3077,
+                "price": 500,
+                "rawDescription": "GeneratedTip_Item_3077_Description",
+                "rawDisplayName": "Item_3077_Name",
+                "slot": 3
+            },
+            {
+                "canUse": false,
+                "consumable": false,
+                "count": 1,
+                "displayName": "Kaenic Rookern",
+                "itemID": 2504,
+                "price": 800,
+                "rawDescription": "GeneratedTip_Item_2504_Description",
+                "rawDisplayName": "Item_2504_Name",
+                "slot": 4
+            },
+            {
+                "canUse": false,
+                "consumable": false,
+                "count": 1,
+                "displayName": "Force of Nature",
+                "itemID": 4401,
+                "price": 750,
+                "rawDescription": "GeneratedTip_Item_4401_Description",
+                "rawDisplayName": "Item_4401_Name",
+                "slot": 5
+            },
+            {
+                "canUse": true,
+                "consumable": true,
+                "count": 2,
+                "displayName": "Poro-Snax",
+                "itemID": 2052,
+                "price": 0,
+                "rawDescription": "GeneratedTip_Item_2052_Description",
+                "rawDisplayName": "Item_2052_Name",
+                "slot": 6
+            }
+        ],
+        "level": 18,
+        "position": "NONE",
+        "rawChampionName": "game_character_displayname_Urgot",
+        "rawSkinName": "game_character_skin_displayname_Urgot_0",
+        "respawnTimer": 0.0,
+        "riotId": "kalater#SG2",
+        "riotIdGameName": "kalater",
+        "riotIdTagLine": "SG2",
+        "runes": {
+            "keystone": {
+                "displayName": "Conqueror",
+                "id": 8010,
+                "rawDescription": "perk_tooltip_Conqueror",
+                "rawDisplayName": "perk_displayname_Conqueror"
+            },
+            "primaryRuneTree": {
+                "displayName": "Precision",
+                "id": 8000,
+                "rawDescription": "perkstyle_tooltip_7201",
+                "rawDisplayName": "perkstyle_displayname_7201"
+            },
+            "secondaryRuneTree": {
+                "displayName": "Resolve",
+                "id": 8400,
+                "rawDescription": "perkstyle_tooltip_7204",
+                "rawDisplayName": "perkstyle_displayname_7204"
+            }
+        },
+        "scores": {
+            "assists": 27,
+            "creepScore": 50,
+            "deaths": 13,
+            "kills": 13,
+            "wardScore": 0.0
+        },
+        "skinID": 0,
+        "skinName": "",
+        "summonerName": "kalater#SG2",
+        "summonerSpells": {
+            "summonerSpellOne": {
+                "displayName": "Chemtech Mark",
+                "rawDescription": "GeneratedTip_SummonerSpell_Crepe_Zaun_Snowball_Description",
+                "rawDisplayName": "GeneratedTip_SummonerSpell_Crepe_Zaun_Snowball_DisplayName"
+            },
+            "summonerSpellTwo": {
+                "displayName": "Flash",
+                "rawDescription": "GeneratedTip_SummonerSpell_SummonerFlash_Description",
+                "rawDisplayName": "GeneratedTip_SummonerSpell_SummonerFlash_DisplayName"
+            }
+        },
+        "team": "ORDER"
+    },
+    {
+        "championName": "Lux",
+        "isBot": false,
+        "isDead": true,
+        "items": [
+            {
+                "canUse": false,
+                "consumable": false,
+                "count": 1,
+                "displayName": "Malignance",
+                "itemID": 3118,
+                "price": 650,
+                "rawDescription": "GeneratedTip_Item_3118_Description",
+                "rawDisplayName": "Item_3118_Name",
+                "slot": 0
+            },
+            {
+                "canUse": false,
+                "consumable": false,
+                "count": 1,
+                "displayName": "Rabadon's Deathcap",
+                "itemID": 3089,
+                "price": 1200,
+                "rawDescription": "GeneratedTip_Item_3089_Description",
+                "rawDisplayName": "Item_3089_Name",
+                "slot": 1
+            },
+            {
+                "canUse": false,
+                "consumable": false,
+                "count": 1,
+                "displayName": "Horizon Focus",
+                "itemID": 4628,
+                "price": 600,
+                "rawDescription": "GeneratedTip_Item_4628_Description",
+                "rawDisplayName": "Item_4628_Name",
+                "slot": 2
+            },
+            {
+                "canUse": false,
+                "consumable": false,
+                "count": 1,
+                "displayName": "Sorcerer's Shoes",
+                "itemID": 3020,
+                "price": 800,
+                "rawDescription": "GeneratedTip_Item_3020_Description",
+                "rawDisplayName": "Item_3020_Name",
+                "slot": 3
+            },
+            {
+                "canUse": false,
+                "consumable": false,
+                "count": 1,
+                "displayName": "Shadowflame",
+                "itemID": 4645,
+                "price": 900,
+                "rawDescription": "GeneratedTip_Item_4645_Description",
+                "rawDisplayName": "Item_4645_Name",
+                "slot": 4
+            },
+            {
+                "canUse": false,
+                "consumable": false,
+                "count": 1,
+                "displayName": "Void Staff",
+                "itemID": 3135,
+                "price": 1050,
+                "rawDescription": "GeneratedTip_Item_3135_Description",
+                "rawDisplayName": "Item_3135_Name",
+                "slot": 5
+            },
+            {
+                "canUse": true,
+                "consumable": true,
+                "count": 2,
+                "displayName": "Poro-Snax",
+                "itemID": 2052,
+                "price": 0,
+                "rawDescription": "GeneratedTip_Item_2052_Description",
+                "rawDisplayName": "Item_2052_Name",
+                "slot": 6
+            }
+        ],
+        "level": 18,
+        "position": "NONE",
+        "rawChampionName": "game_character_displayname_Lux",
+        "rawSkinName": "game_character_skin_displayname_Lux_18",
+        "respawnTimer": 23.69936180114746,
+        "riotId": "Zekk#011",
+        "riotIdGameName": "Zekk",
+        "riotIdTagLine": "011",
+        "runes": {
+            "keystone": {
+                "displayName": "Dark Harvest",
+                "id": 8128,
+                "rawDescription": "perk_tooltip_DarkHarvest",
+                "rawDisplayName": "perk_displayname_DarkHarvest"
+            },
+            "primaryRuneTree": {
+                "displayName": "Domination",
+                "id": 8100,
+                "rawDescription": "perkstyle_tooltip_7200",
+                "rawDisplayName": "perkstyle_displayname_7200"
+            },
+            "secondaryRuneTree": {
+                "displayName": "Precision",
+                "id": 8000,
+                "rawDescription": "perkstyle_tooltip_7201",
+                "rawDisplayName": "perkstyle_displayname_7201"
+            }
+        },
+        "scores": {
+            "assists": 24,
+            "creepScore": 60,
+            "deaths": 7,
+            "kills": 25,
+            "wardScore": 0.0
+        },
+        "skinID": 18,
+        "skinName": "Cosmic Lux",
+        "summonerName": "Zekk#011",
+        "summonerSpells": {
+            "summonerSpellOne": {
+                "displayName": "Clarity",
+                "rawDescription": "GeneratedTip_SummonerSpell_SummonerMana_Description",
+                "rawDisplayName": "GeneratedTip_SummonerSpell_SummonerMana_DisplayName"
+            },
+            "summonerSpellTwo": {
+                "displayName": "Flash",
+                "rawDescription": "GeneratedTip_SummonerSpell_SummonerFlash_Description",
+                "rawDisplayName": "GeneratedTip_SummonerSpell_SummonerFlash_DisplayName"
+            }
+        },
+        "team": "CHAOS"
+    },
+    {
+        "championName": "Xerath",
+        "isBot": false,
+        "isDead": true,
+        "items": [
+            {
+                "canUse": false,
+                "consumable": false,
+                "count": 1,
+                "displayName": "Rabadon's Deathcap",
+                "itemID": 3089,
+                "price": 1200,
+                "rawDescription": "GeneratedTip_Item_3089_Description",
+                "rawDisplayName": "Item_3089_Name",
+                "slot": 0
+            },
+            {
+                "canUse": false,
+                "consumable": false,
+                "count": 1,
+                "displayName": "Luden's Companion",
+                "itemID": 6655,
+                "price": 550,
+                "rawDescription": "GeneratedTip_Item_6655_Description",
+                "rawDisplayName": "Item_6655_Name",
+                "slot": 1
+            },
+            {
+                "canUse": false,
+                "consumable": false,
+                "count": 1,
+                "displayName": "Sorcerer's Shoes",
+                "itemID": 3020,
+                "price": 800,
+                "rawDescription": "GeneratedTip_Item_3020_Description",
+                "rawDisplayName": "Item_3020_Name",
+                "slot": 2
+            },
+            {
+                "canUse": false,
+                "consumable": false,
+                "count": 1,
+                "displayName": "Liandry's Torment",
+                "itemID": 6653,
+                "price": 800,
+                "rawDescription": "GeneratedTip_Item_6653_Description",
+                "rawDisplayName": "Item_6653_Name",
+                "slot": 3
+            },
+            {
+                "canUse": false,
+                "consumable": false,
+                "count": 1,
+                "displayName": "Shadowflame",
+                "itemID": 4645,
+                "price": 900,
+                "rawDescription": "GeneratedTip_Item_4645_Description",
+                "rawDisplayName": "Item_4645_Name",
+                "slot": 4
+            },
+            {
+                "canUse": false,
+                "consumable": false,
+                "count": 1,
+                "displayName": "Amplifying Tome",
+                "itemID": 1052,
+                "price": 400,
+                "rawDescription": "GeneratedTip_Item_1052_Description",
+                "rawDisplayName": "Item_1052_Name",
+                "slot": 5
+            }
+        ],
+        "level": 18,
+        "position": "NONE",
+        "rawChampionName": "game_character_displayname_Xerath",
+        "rawSkinName": "game_character_skin_displayname_Xerath_0",
+        "respawnTimer": 0.0,
+        "riotId": "fishing In river#6666",
+        "riotIdGameName": "fishing In river",
+        "riotIdTagLine": "6666",
+        "runes": {
+            "keystone": {
+                "displayName": "Dark Harvest",
+                "id": 8128,
+                "rawDescription": "perk_tooltip_DarkHarvest",
+                "rawDisplayName": "perk_displayname_DarkHarvest"
+            },
+            "primaryRuneTree": {
+                "displayName": "Domination",
+                "id": 8100,
+                "rawDescription": "perkstyle_tooltip_7200",
+                "rawDisplayName": "perkstyle_displayname_7200"
+            },
+            "secondaryRuneTree": {
+                "displayName": "Sorcery",
+                "id": 8200,
+                "rawDescription": "perkstyle_tooltip_7202",
+                "rawDisplayName": "perkstyle_displayname_7202"
+            }
+        },
+        "scores": {
+            "assists": 36,
+            "creepScore": 50,
+            "deaths": 10,
+            "kills": 6,
+            "wardScore": 0.0
+        },
+        "skinID": 0,
+        "skinName": "",
+        "summonerName": "fishing In river#6666",
+        "summonerSpells": {
+            "summonerSpellOne": {
+                "displayName": "Hextech Mark",
+                "rawDescription": "GeneratedTip_SummonerSpell_Crepe_Piltover_Snowball_Description",
+                "rawDisplayName": "GeneratedTip_SummonerSpell_Crepe_Piltover_Snowball_DisplayName"
+            },
+            "summonerSpellTwo": {
+                "displayName": "Flash",
+                "rawDescription": "GeneratedTip_SummonerSpell_SummonerFlash_Description",
+                "rawDisplayName": "GeneratedTip_SummonerSpell_SummonerFlash_DisplayName"
+            }
+        },
+        "team": "CHAOS"
+    },
+    {
+        "championName": "Kha'Zix",
+        "isBot": false,
+        "isDead": true,
+        "items": [
+            {
+                "canUse": true,
+                "consumable": false,
+                "count": 1,
+                "displayName": "Youmuu's Ghostblade",
+                "itemID": 3142,
+                "price": 675,
+                "rawDescription": "GeneratedTip_Item_3142_Description",
+                "rawDisplayName": "Item_3142_Name",
+                "slot": 0
+            },
+            {
+                "canUse": false,
+                "consumable": false,
+                "count": 1,
+                "displayName": "Ionian Boots of Lucidity",
+                "itemID": 3158,
+                "price": 350,
+                "rawDescription": "GeneratedTip_Item_3158_Description",
+                "rawDisplayName": "Item_3158_Name",
+                "slot": 1
+            },
+            {
+                "canUse": false,
+                "consumable": false,
+                "count": 1,
+                "displayName": "Serylda's Grudge",
+                "itemID": 6694,
+                "price": 500,
+                "rawDescription": "GeneratedTip_Item_6694_Description",
+                "rawDisplayName": "Item_6694_Name",
+                "slot": 2
+            },
+            {
+                "canUse": false,
+                "consumable": false,
+                "count": 1,
+                "displayName": "Hubris<br>",
+                "itemID": 126697,
+                "price": 900,
+                "rawDescription": "GeneratedTip_Item_126697_Description",
+                "rawDisplayName": "Item_126697_Name",
+                "slot": 3
+            },
+            {
+                "canUse": false,
+                "consumable": false,
+                "count": 1,
+                "displayName": "Death's Dance",
+                "itemID": 6333,
+                "price": 275,
+                "rawDescription": "GeneratedTip_Item_6333_Description",
+                "rawDisplayName": "Item_6333_Name",
+                "slot": 4
+            },
+            {
+                "canUse": false,
+                "consumable": false,
+                "count": 1,
+                "displayName": "Long Sword",
+                "itemID": 1036,
+                "price": 350,
+                "rawDescription": "GeneratedTip_Item_1036_Description",
+                "rawDisplayName": "Item_1036_Name",
+                "slot": 5
+            },
+            {
+                "canUse": true,
+                "consumable": true,
+                "count": 2,
+                "displayName": "Poro-Snax",
+                "itemID": 2052,
+                "price": 0,
+                "rawDescription": "GeneratedTip_Item_2052_Description",
+                "rawDisplayName": "Item_2052_Name",
+                "slot": 6
+            }
+        ],
+        "level": 18,
+        "position": "NONE",
+        "rawChampionName": "game_character_displayname_Khazix",
+        "rawSkinName": "game_character_skin_displayname_Khazix_4",
+        "respawnTimer": 0.0,
+        "riotId": "Odys6x#6969",
+        "riotIdGameName": "Odys6x",
+        "riotIdTagLine": "6969",
+        "runes": {
+            "keystone": {
+                "displayName": "Dark Harvest",
+                "id": 8128,
+                "rawDescription": "perk_tooltip_DarkHarvest",
+                "rawDisplayName": "perk_displayname_DarkHarvest"
+            },
+            "primaryRuneTree": {
+                "displayName": "Domination",
+                "id": 8100,
+                "rawDescription": "perkstyle_tooltip_7200",
+                "rawDisplayName": "perkstyle_displayname_7200"
+            },
+            "secondaryRuneTree": {
+                "displayName": "Sorcery",
+                "id": 8200,
+                "rawDescription": "perkstyle_tooltip_7202",
+                "rawDisplayName": "perkstyle_displayname_7202"
+            }
+        },
+        "scores": {
+            "assists": 27,
+            "creepScore": 20,
+            "deaths": 16,
+            "kills": 8,
+            "wardScore": 0.0
+        },
+        "skinID": 4,
+        "skinName": "Dark Star Kha'Zix",
+        "summonerName": "Odys6x#6969",
+        "summonerSpells": {
+            "summonerSpellOne": {
+                "displayName": "Ignite",
+                "rawDescription": "GeneratedTip_SummonerSpell_SummonerDot_Description",
+                "rawDisplayName": "GeneratedTip_SummonerSpell_SummonerDot_DisplayName"
+            },
+            "summonerSpellTwo": {
+                "displayName": "Flash",
+                "rawDescription": "GeneratedTip_SummonerSpell_SummonerFlash_Description",
+                "rawDisplayName": "GeneratedTip_SummonerSpell_SummonerFlash_DisplayName"
+            }
+        },
+        "team": "CHAOS"
+    },
+    {
+        "championName": "Seraphine",
+        "isBot": false,
+        "isDead": true,
+        "items": [
+            {
+                "canUse": false,
+                "consumable": false,
+                "count": 1,
+                "displayName": "Blackfire Torch",
+                "itemID": 2503,
+                "price": 700,
+                "rawDescription": "GeneratedTip_Item_2503_Description",
+                "rawDisplayName": "Item_2503_Name",
+                "slot": 0
+            },
+            {
+                "canUse": false,
+                "consumable": false,
+                "count": 1,
+                "displayName": "Liandry's Torment",
+                "itemID": 6653,
+                "price": 800,
+                "rawDescription": "GeneratedTip_Item_6653_Description",
+                "rawDisplayName": "Item_6653_Name",
+                "slot": 1
+            },
+            {
+                "canUse": false,
+                "consumable": false,
+                "count": 1,
+                "displayName": "Sorcerer's Shoes",
+                "itemID": 3020,
+                "price": 800,
+                "rawDescription": "GeneratedTip_Item_3020_Description",
+                "rawDisplayName": "Item_3020_Name",
+                "slot": 2
+            },
+            {
+                "canUse": false,
+                "consumable": false,
+                "count": 1,
+                "displayName": "Rylai's Crystal Scepter",
+                "itemID": 3116,
+                "price": 450,
+                "rawDescription": "GeneratedTip_Item_3116_Description",
+                "rawDisplayName": "Item_3116_Name",
+                "slot": 3
+            },
+            {
+                "canUse": false,
+                "consumable": false,
+                "count": 1,
+                "displayName": "Rabadon's Deathcap",
+                "itemID": 3089,
+                "price": 1200,
+                "rawDescription": "GeneratedTip_Item_3089_Description",
+                "rawDisplayName": "Item_3089_Name",
+                "slot": 4
+            },
+            {
+                "canUse": false,
+                "consumable": false,
+                "count": 1,
+                "displayName": "Oblivion Orb",
+                "itemID": 3916,
+                "price": 400,
+                "rawDescription": "GeneratedTip_Item_3916_Description",
+                "rawDisplayName": "Item_3916_Name",
+                "slot": 5
+            },
+            {
+                "canUse": true,
+                "consumable": true,
+                "count": 2,
+                "displayName": "Poro-Snax",
+                "itemID": 2052,
+                "price": 0,
+                "rawDescription": "GeneratedTip_Item_2052_Description",
+                "rawDisplayName": "Item_2052_Name",
+                "slot": 6
+            }
+        ],
+        "level": 18,
+        "position": "NONE",
+        "rawChampionName": "game_character_displayname_Seraphine",
+        "rawSkinName": "game_character_skin_displayname_Seraphine_3",
+        "respawnTimer": 11.331829071044922,
+        "riotId": "HLE ChaeYoung#HLE",
+        "riotIdGameName": "HLE ChaeYoung",
+        "riotIdTagLine": "HLE",
+        "runes": {
+            "keystone": {
+                "displayName": "Dark Harvest",
+                "id": 8128,
+                "rawDescription": "perk_tooltip_DarkHarvest",
+                "rawDisplayName": "perk_displayname_DarkHarvest"
+            },
+            "primaryRuneTree": {
+                "displayName": "Domination",
+                "id": 8100,
+                "rawDescription": "perkstyle_tooltip_7200",
+                "rawDisplayName": "perkstyle_displayname_7200"
+            },
+            "secondaryRuneTree": {
+                "displayName": "Precision",
+                "id": 8000,
+                "rawDescription": "perkstyle_tooltip_7201",
+                "rawDisplayName": "perkstyle_displayname_7201"
+            }
+        },
+        "scores": {
+            "assists": 34,
+            "creepScore": 50,
+            "deaths": 14,
+            "kills": 9,
+            "wardScore": 0.0
+        },
+        "skinID": 3,
+        "skinName": "K/DA ALL OUT Seraphine Superstar",
+        "summonerName": "HLE ChaeYoung#HLE",
+        "summonerSpells": {
+            "summonerSpellOne": {
+                "displayName": "Hextech Mark",
+                "rawDescription": "GeneratedTip_SummonerSpell_Crepe_Piltover_Snowball_Description",
+                "rawDisplayName": "GeneratedTip_SummonerSpell_Crepe_Piltover_Snowball_DisplayName"
+            },
+            "summonerSpellTwo": {
+                "displayName": "Flash",
+                "rawDescription": "GeneratedTip_SummonerSpell_SummonerFlash_Description",
+                "rawDisplayName": "GeneratedTip_SummonerSpell_SummonerFlash_DisplayName"
+            }
+        },
+        "team": "CHAOS"
+    },
+    {
+        "championName": "Ziggs",
+        "isBot": false,
+        "isDead": true,
+        "items": [
+            {
+                "canUse": false,
+                "consumable": false,
+                "count": 1,
+                "displayName": "Seraph's Embrace",
+                "itemID": 3040,
+                "price": 2900,
+                "rawDescription": "GeneratedTip_Item_3040_Description",
+                "rawDisplayName": "Item_3040_Name",
+                "slot": 0
+            },
+            {
+                "canUse": false,
+                "consumable": false,
+                "count": 1,
+                "displayName": "Sorcerer's Shoes",
+                "itemID": 3020,
+                "price": 800,
+                "rawDescription": "GeneratedTip_Item_3020_Description",
+                "rawDisplayName": "Item_3020_Name",
+                "slot": 1
+            },
+            {
+                "canUse": false,
+                "consumable": false,
+                "count": 1,
+                "displayName": "Liandry's Torment",
+                "itemID": 6653,
+                "price": 800,
+                "rawDescription": "GeneratedTip_Item_6653_Description",
+                "rawDisplayName": "Item_6653_Name",
+                "slot": 2
+            },
+            {
+                "canUse": false,
+                "consumable": false,
+                "count": 1,
+                "displayName": "Luden's Companion",
+                "itemID": 6655,
+                "price": 550,
+                "rawDescription": "GeneratedTip_Item_6655_Description",
+                "rawDisplayName": "Item_6655_Name",
+                "slot": 3
+            },
+            {
+                "canUse": false,
+                "consumable": false,
+                "count": 1,
+                "displayName": "Rabadon's Deathcap",
+                "itemID": 3089,
+                "price": 1200,
+                "rawDescription": "GeneratedTip_Item_3089_Description",
+                "rawDisplayName": "Item_3089_Name",
+                "slot": 4
+            },
+            {
+                "canUse": false,
+                "consumable": false,
+                "count": 1,
+                "displayName": "Blighting Jewel",
+                "itemID": 4630,
+                "price": 700,
+                "rawDescription": "GeneratedTip_Item_4630_Description",
+                "rawDisplayName": "Item_4630_Name",
+                "slot": 5
+            },
+            {
+                "canUse": true,
+                "consumable": true,
+                "count": 2,
+                "displayName": "Poro-Snax",
+                "itemID": 2052,
+                "price": 0,
+                "rawDescription": "GeneratedTip_Item_2052_Description",
+                "rawDisplayName": "Item_2052_Name",
+                "slot": 6
+            }
+        ],
+        "level": 18,
+        "position": "NONE",
+        "rawChampionName": "game_character_displayname_Ziggs",
+        "rawSkinName": "game_character_skin_displayname_Ziggs_0",
+        "respawnTimer": 23.772022247314453,
+        "riotId": "tutu#4968",
+        "riotIdGameName": "tutu",
+        "riotIdTagLine": "4968",
+        "runes": {
+            "keystone": {
+                "displayName": "Dark Harvest",
+                "id": 8128,
+                "rawDescription": "perk_tooltip_DarkHarvest",
+                "rawDisplayName": "perk_displayname_DarkHarvest"
+            },
+            "primaryRuneTree": {
+                "displayName": "Domination",
+                "id": 8100,
+                "rawDescription": "perkstyle_tooltip_7200",
+                "rawDisplayName": "perkstyle_displayname_7200"
+            },
+            "secondaryRuneTree": {
+                "displayName": "Precision",
+                "id": 8000,
+                "rawDescription": "perkstyle_tooltip_7201",
+                "rawDisplayName": "perkstyle_displayname_7201"
+            }
+        },
+        "scores": {
+            "assists": 35,
+            "creepScore": 70,
+            "deaths": 6,
+            "kills": 7,
+            "wardScore": 0.0
+        },
+        "skinID": 0,
+        "skinName": "",
+        "summonerName": "tutu#4968",
+        "summonerSpells": {
+            "summonerSpellOne": {
+                "displayName": "Flash",
+                "rawDescription": "GeneratedTip_SummonerSpell_SummonerFlash_Description",
+                "rawDisplayName": "GeneratedTip_SummonerSpell_SummonerFlash_DisplayName"
+            },
+            "summonerSpellTwo": {
+                "displayName": "Ignite",
+                "rawDescription": "GeneratedTip_SummonerSpell_SummonerDot_Description",
+                "rawDisplayName": "GeneratedTip_SummonerSpell_SummonerDot_DisplayName"
+            }
+        },
+        "team": "CHAOS"
+    }
+]
