@@ -1,7 +1,7 @@
 import pandas as pd
 
 # Load data
-data = pd.read_csv("../match_results_with_objectives.csv")
+data = pd.read_csv("../dataset/match_results_with_objectives.csv")
 # Group by match_id and team_id, aggregate as needed
 team_stats = data.groupby(['match_id', 'team_id', 'outcome']).agg({
     'kills': 'sum',

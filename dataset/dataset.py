@@ -6,7 +6,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler, LabelEncoder
 from torch.utils.data import DataLoader, TensorDataset
 
-df = pd.read_csv("../team_aggregated_stats.csv")
+df = pd.read_csv("team_aggregated_stats.csv")
 
 X = df.drop(['match_id', 'team_id', 'outcome'], axis=1)
 y = df['outcome']
