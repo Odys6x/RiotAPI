@@ -2,15 +2,15 @@ from model import DeepModel,X_train_tensor,train_loader,test_loader,X_test_tenso
 import torch.nn as nn
 import torch
 import torch.optim as optim
-from config import Training
+from config import Training,EPOCH,LR
 
 if Training == True:
     model = DeepModel(input_dim=X_train_tensor.shape[1])
     criterion = nn.BCELoss()
-    optimizer = optim.Adam(model.parameters(), lr=0.001)
+    optimizer = optim.Adam(model.parameters(), lr=LR)
 
 
-    num_epochs = 20
+    num_epochs = EPOCH
     for epoch in range(num_epochs):
         model.train()
         for X_batch, y_batch in train_loader:
