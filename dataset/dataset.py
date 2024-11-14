@@ -1,49 +1,38 @@
-import pandas as pd
 import torch
+import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler, LabelEncoder
 
 
-class LeaguePredictionPreprocessor:
-    def __init__(self, match_data_path):
-        """
-        Initialize preprocessor for League win prediction
-
-        Parameters:
-        match_data_path (str): Path to match data CSV
-        """
-        self.match_data_path = match_data_path
+class AggregatedDataPreprocessor:
+    def __init__(self, file_path):
+        self.file_path = file_path
         self.scaler = StandardScaler()
         self.label_encoder = LabelEncoder()
 
-        # Features available during live game
-        self.live_features = [
+        # Features from aggregated data
+        self.features = [
             'kills', 'deaths', 'assists',
             'total_damage_dealt', 'gold_earned',
-            'cs', 'wards_placed', 'wards_killed',
-            'dragon_kills', 'baron_kills', 'tower_kills'
+            'cs', 'KDA', 'Kill Participation'
         ]
 
-    def load_data(self):
-        """Load and prepare data, focusing on features available during live game"""
-        df = pd.read_csv(self.match_data_path)
+    def prepare_data(self):
+        # Load aggregated data
+        df = pd.read_csv(self.file_path)
 
-        # Select only features available during live game
-        X = df[self.live_features]
+        # Separate features and target
+        X = df[self.features]
         y = df['outcome']
 
-        return X, y
-
-    def preprocess(self, test_size=0.2, random_state=42):
-        """Preprocess data for training"""
-        X, y = self.load_data()
-
-        # Encode target
+        # Encode win/loss
         y_encoded = self.label_encoder.fit_transform(y)
 
         # Split data
         X_train, X_test, y_train, y_test = train_test_split(
-            X, y_encoded, test_size=test_size, random_state=random_state
+            X, y_encoded,
+            test_size=0.2,
+            random_state=42
         )
 
         # Scale features
@@ -63,29 +52,11 @@ class LeaguePredictionPreprocessor:
             'y_test': y_test_tensor
         }
 
-    def preprocess_live_data(self, live_stats):
-        """
-        Preprocess live game data for prediction
-
-        Parameters:
-        live_stats (dict): Dictionary containing current game stats
-        """
-        # Create DataFrame with same structure as training data
-        live_df = pd.DataFrame([live_stats])[self.live_features]
-
-        # Scale using same scaler as training data
-        live_scaled = self.scaler.transform(live_df)
-
-        # Convert to tensor
-        return torch.tensor(live_scaled, dtype=torch.float32)
-
     def get_feature_names(self):
-        """Return features used in the model"""
-        return self.live_features
+        return self.features
 
 
-
-# # Example usage:
+# Example usage:
 # if __name__ == "__main__":
 #     preprocessor = LeaguePredictionPreprocessor("cleaned_match_results.csv.csv")
 #
