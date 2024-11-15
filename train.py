@@ -1,32 +1,45 @@
-from model import DeepModel,X_train_tensor,train_loader,test_loader,X_test_tensor,y_test_tensor
 import torch.nn as nn
 import torch
-import torch.optim as optim
-from config import Training,EPOCH,LR
+from config import Training, EPOCH, LR
+from dataset.dataset import X_train, y_train, X_test, y_test
+from model import SimpleTabularModel
 
-if Training == True:
-    model = DeepModel(input_dim=X_train_tensor.shape[1])
-    criterion = nn.BCELoss()
-    optimizer = optim.Adam(model.parameters(), lr=LR)
+# Initialize model
+input_dim = X_train.shape[1]
+model = SimpleTabularModel(input_dim)
 
+if Training:
+    # Loss and optimizer
+    criterion = nn.CrossEntropyLoss()
+    optimizer = torch.optim.Adam(model.parameters(), lr=LR)
 
-    num_epochs = EPOCH
-    for epoch in range(num_epochs):
+    # Training loop
+    for epoch in range(EPOCH):
         model.train()
-        for X_batch, y_batch in train_loader:
-            optimizer.zero_grad()
-            y_pred = model(X_batch).squeeze()
-            loss = criterion(y_pred, y_batch)
-            loss.backward()
-            optimizer.step()
+        optimizer.zero_grad()
 
-        # Validation
-        model.eval()
-        with torch.no_grad():
-            val_loss = sum(criterion(model(X_test_tensor).squeeze(), y_test_tensor) for _ in test_loader)
-        print(f"Epoch {epoch + 1}/{num_epochs}, Loss: {loss.item()}, Validation Loss: {val_loss.item()}")
+        # Forward pass
+        y_pred = model(X_train).squeeze()
+        loss = criterion(y_pred, y_train)
 
-    print("Training complete.")
+        # Backward pass
+        loss.backward()
+        optimizer.step()
+
+        print(f"Epoch {epoch + 1}, Loss: {loss.item()}")
+
+    # Save model after training
+    torch.save(model.state_dict(), "model.pth")
 
 else:
-    model = DeepModel(input_dim=X_train_tensor.shape[1])
+    # Load trained model for evaluation
+    model.load_state_dict(torch.load("model.pth"))
+    model.eval()
+
+    # Evaluation
+    with torch.no_grad():
+        y_pred_test = model(X_test).squeeze()
+        y_pred_labels = (y_pred_test > 0.5).float()  # Convert probabilities to binary labels
+
+        accuracy = (y_pred_labels == y_test).float().mean()
+        print(f"Test Accuracy: {accuracy.item() * 100:.2f}%")

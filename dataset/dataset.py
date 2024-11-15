@@ -56,26 +56,20 @@ class AggregatedDataPreprocessor:
         return self.features
 
 
-# Example usage:
-# if __name__ == "__main__":
-#     preprocessor = LeaguePredictionPreprocessor("cleaned_match_results.csv.csv")
-#
-#     # Get processed training data
-#     train_data = preprocessor.preprocess()
-#
-#     # Example of processing live data
-#     live_game_stats = {
-#         'kills': 5,
-#         'deaths': 3,
-#         'assists': 7,
-#         'total_damage_dealt': 15000,
-#         'gold_earned': 8000,
-#         'cs': 150,
-#         'wards_placed': 10,
-#         'wards_killed': 2,
-#         'dragon_kills': 1,
-#         'baron_kills': 0,
-#         'tower_kills': 2
-#     }
-#
-#     live_tensor = preprocessor.preprocess_live_data(live_game_stats)
+
+preprocessor = AggregatedDataPreprocessor("team_aggregated_stats.csv")
+
+processed_data = preprocessor.prepare_data()
+
+# Extract the training and testing tensors
+X_train = processed_data['X_train']
+X_test = processed_data['X_test']
+y_train = processed_data['y_train']
+y_test = processed_data['y_test']
+
+# Print the shapes
+print(f"X_train shape: {X_train.shape}")
+print(f"y_train shape: {y_train.shape}")
+print(f"X_test shape: {X_test.shape}")
+print(f"y_test shape: {y_test.shape}")
+
