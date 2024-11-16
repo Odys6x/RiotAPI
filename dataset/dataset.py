@@ -1,75 +1,122 @@
-import torch
 import pandas as pd
+import numpy as np
 from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler, LabelEncoder
+from sklearn.preprocessing import StandardScaler
 
 
-class AggregatedDataPreprocessor:
-    def __init__(self, file_path):
-        self.file_path = file_path
-        self.scaler = StandardScaler()
-        self.label_encoder = LabelEncoder()
+class Preprocessor:
+    def __init__(self, scaling=True):
+        """
+        Initialize the preprocessor with optional scaling.
+        Args:
+            scaling (bool): Whether to scale numerical features.
+        """
+        self.scaling = scaling
+        self.scaler = StandardScaler() if scaling else None
 
-        # Features from aggregated data
-        self.features = [
-            'kills', 'deaths', 'assists',
-            'total_damage_dealt', 'gold_earned',
-            'cs', 'KDA', 'Kill Participation'
-        ]
+    def load_data(self, file_path):
+        """
+        Load the data from a CSV file.
+        Args:
+            file_path (str): Path to the CSV file.
+        Returns:
+            pd.DataFrame: Loaded data.
+        """
+        self.data = pd.read_csv(file_path)
+        return self.data
 
-    def prepare_data(self):
-        # Load aggregated data
-        df = pd.read_csv(self.file_path)
+    def combine_team_stats(self):
+        """
+        Combine stats of both teams into one row per match.
+        Returns:
+            pd.DataFrame: Data with combined team stats.
+        """
+        combined_rows = []
+        grouped = self.data.groupby("match_id")
 
-        # Separate features and target
-        X = df[self.features]
-        y = df['outcome']
+        for match_id, group in grouped:
+            # Check if both teams are present
+            if not ((group['team_id'] == 100).any() and (group['team_id'] == 200).any()):
+                print(f"Skipping match {match_id} due to missing teams")
+                continue
 
-        # Encode win/loss
-        y_encoded = self.label_encoder.fit_transform(y)
+            # Get rows for Team 100 and Team 200
+            try:
+                team_100 = group[group['team_id'] == 100].iloc[0]
+                team_200 = group[group['team_id'] == 200].iloc[0]
+            except IndexError as e:
+                print(f"Skipping match {match_id}: {e}")
+                continue
 
-        # Split data
-        X_train, X_test, y_train, y_test = train_test_split(
-            X, y_encoded,
-            test_size=0.2,
-            random_state=42
-        )
+            # Combine into one row
+            combined_row = {
+                "match_id": match_id,
+                # Team 100 stats
+                "team_100_kills": team_100["kills"],
+                "team_100_deaths": team_100["deaths"],
+                "team_100_assists": team_100["assists"],
+                "team_100_gold": team_100["gold_earned"],
+                "team_100_cs": team_100["cs"],
+                "team_100_kda": team_100["KDA"],
+                "team_100_kp": team_100["Kill Participation"],
+                # Team 200 stats
+                "team_200_kills": team_200["kills"],
+                "team_200_deaths": team_200["deaths"],
+                "team_200_assists": team_200["assists"],
+                "team_200_gold": team_200["gold_earned"],
+                "team_200_cs": team_200["cs"],
+                "team_200_kda": team_200["KDA"],
+                "team_200_kp": team_200["Kill Participation"],
+                # Outcome (1 if Team 100 wins, else 0)
+                "outcome": 1 if team_100["outcome"] == "win" else 0,
+            }
+            combined_rows.append(combined_row)
 
-        # Scale features
-        X_train_scaled = self.scaler.fit_transform(X_train)
-        X_test_scaled = self.scaler.transform(X_test)
+        self.combined_data = pd.DataFrame(combined_rows)
+        return self.combined_data
 
-        # Convert to tensors
-        X_train_tensor = torch.tensor(X_train_scaled, dtype=torch.float32)
-        X_test_tensor = torch.tensor(X_test_scaled, dtype=torch.float32)
-        y_train_tensor = torch.tensor(y_train, dtype=torch.float32)
-        y_test_tensor = torch.tensor(y_test, dtype=torch.float32)
+    def add_features(self):
+        """
+        Add custom features such as differences in stats between teams.
+        Returns:
+            pd.DataFrame: Data with added features.
+        """
+        self.combined_data["gold_diff"] = self.combined_data["team_100_gold"] - self.combined_data["team_200_gold"]
+        self.combined_data["cs_diff"] = self.combined_data["team_100_cs"] - self.combined_data["team_200_cs"]
+        self.combined_data["kda_diff"] = self.combined_data["team_100_kda"] - self.combined_data["team_200_kda"]
+        return self.combined_data
 
-        return {
-            'X_train': X_train_tensor,
-            'X_test': X_test_tensor,
-            'y_train': y_train_tensor,
-            'y_test': y_test_tensor
-        }
+    def split_data(self, test_size=0.15, val_size=0.15, random_state=42):
+        """
+        Split the data into train, validation, and test sets.
+        Args:
+            test_size (float): Proportion of data for testing.
+            val_size (float): Proportion of training data for validation.
+            random_state (int): Seed for reproducibility.
+        Returns:
+            Tuple: Train, validation, and test sets (X_train, X_val, X_test, y_train, y_val, y_test).
+        """
+        X = self.combined_data.drop(columns=["match_id", "outcome"])
+        y = self.combined_data["outcome"]
 
-    def get_feature_names(self):
-        return self.features
+        # Split into train/test
+        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=test_size, random_state=random_state)
 
+        # Further split train into train/validation
+        X_train, X_val, y_train, y_val = train_test_split(X_train, y_train, test_size=val_size,
+                                                          random_state=random_state)
 
+        # Scale features if enabled
+        if self.scaling:
+            X_train = self.scaler.fit_transform(X_train)
+            X_val = self.scaler.transform(X_val)
+            X_test = self.scaler.transform(X_test)
 
-preprocessor = AggregatedDataPreprocessor("team_aggregated_stats.csv")
+        return X_train, X_val, X_test, y_train, y_val, y_test
 
-processed_data = preprocessor.prepare_data()
-
-# Extract the training and testing tensors
-X_train = processed_data['X_train']
-X_test = processed_data['X_test']
-y_train = processed_data['y_train']
-y_test = processed_data['y_test']
-
-# Print the shapes
-print(f"X_train shape: {X_train.shape}")
-print(f"y_train shape: {y_train.shape}")
-print(f"X_test shape: {X_test.shape}")
-print(f"y_test shape: {y_test.shape}")
-
+# Usage Example
+# preprocessor = Preprocessor(scaling=True)
+# raw_data = preprocessor.load_data("data.csv")
+# combined_data = preprocessor.combine_team_stats()
+# combined_data = preprocessor.add_features()
+# X_train, X_val, X_test, y_train, y_val, y_test = preprocessor.split_data()

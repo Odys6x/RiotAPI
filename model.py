@@ -1,23 +1,48 @@
-import torch
 import torch.nn as nn
-from dataset.dataset import preprocessor
 import torch.nn.functional as F
 
-
-class SimpleTabularModel(nn.Module):
+class ComplexTabularModel(nn.Module):
     def __init__(self, input_dim):
-        super(SimpleTabularModel, self).__init__()
-        self.fc1 = nn.Linear(input_dim, 64)
-        self.fc2 = nn.Linear(64, 32)
-        self.fc3 = nn.Linear(32, 2)
+        super(ComplexTabularModel, self).__init__()
+        self.input_layer = nn.Linear(input_dim, 128)
 
+        # Hidden layers
+        self.hidden_layers = nn.Sequential(
+            nn.Linear(128, 256),
+            nn.BatchNorm1d(256),
+            nn.LeakyReLU(),
+            nn.Dropout(0.3),
+
+            nn.Linear(256, 128),
+            nn.BatchNorm1d(128),
+            nn.LeakyReLU(),
+            nn.Dropout(0.3),
+
+            nn.Linear(128, 64),
+            nn.BatchNorm1d(64),
+            nn.LeakyReLU(),
+            nn.Dropout(0.3)
+        )
+
+        # Residual block
+        self.residual_block = nn.Sequential(
+            nn.Linear(64, 64),
+            nn.BatchNorm1d(64),
+            nn.LeakyReLU(),
+            nn.Dropout(0.2)
+        )
+
+        # Output layer (2 output classes: win/lose)
+        self.output_layer = nn.Linear(64, 2)
 
     def forward(self, x):
-        x = F.relu(self.fc1(x))
-        x = F.relu(self.fc2(x))
-        x = F.softmax(self.fc3(x), dim=1)
-        return x
+        x = F.leaky_relu(self.input_layer(x))
+        x = self.hidden_layers(x)
 
-input_dim = len(preprocessor.get_feature_names())
-model = SimpleTabularModel(input_dim)
+        # Skip connection (residual block)
+        residual = self.residual_block(x)
+        x = x + residual
 
+        # Output
+        x = self.output_layer(x)
+        return F.softmax(x, dim=1)
