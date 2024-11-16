@@ -4,28 +4,23 @@ import torch
 from model import ComplexTabularModel
 from train import input_dim
 
-# Sample data: stats for both teams
-# Example Team Stats for Testing (with diverse stats for both teams)
 sample_team_100_stats = {
-    "team_100_kills": 45,
-    "team_100_deaths": 20,
-    "team_100_assists": 50,
-    "team_100_gold": 70000,
-    "team_100_cs": 600,
-    "team_100_kda": 5.0,
-    "team_100_kp": 0.35
+    "team_100_kills": 25,
+    "team_100_deaths": 28,
+    "team_100_assists": 45,
+    "team_100_gold": 65000,
+    "team_100_cs": 300,
+    "team_100_kda": 2.5
 }
 
 sample_team_200_stats = {
-    "team_200_kills": 35,
-    "team_200_deaths": 30,
+    "team_200_kills": 28,
+    "team_200_deaths": 25,
     "team_200_assists": 40,
-    "team_200_gold": 64000,
-    "team_200_cs": 550,
-    "team_200_kda": 3.2,
-    "team_200_kp": 0.25
+    "team_200_gold": 68000,
+    "team_200_cs": 320,
+    "team_200_kda": 3.0
 }
-
 
 # Combine sample stats into a single feature vector
 sample_input = np.array([[
@@ -35,14 +30,12 @@ sample_input = np.array([[
     sample_team_100_stats["team_100_gold"],
     sample_team_100_stats["team_100_cs"],
     sample_team_100_stats["team_100_kda"],
-    sample_team_100_stats["team_100_kp"],
     sample_team_200_stats["team_200_kills"],
     sample_team_200_stats["team_200_deaths"],
     sample_team_200_stats["team_200_assists"],
     sample_team_200_stats["team_200_gold"],
     sample_team_200_stats["team_200_cs"],
-    sample_team_200_stats["team_200_kda"],
-    sample_team_200_stats["team_200_kp"],
+    sample_team_200_stats["team_200_kda"]
 ]])
 
 try:
@@ -59,15 +52,11 @@ try:
     sample_input_tensor = torch.tensor(sample_input_scaled, dtype=torch.float32)
 
     # Make prediction with temperature scaling
-    temperature = 1.5  # Adjust to smooth predictions
     with torch.no_grad():
         prediction = model(sample_input_tensor)
 
-        # Apply temperature scaling
-        prediction_scaled = prediction / temperature
-
         # Apply softmax to get probabilities
-        predicted_probs = torch.softmax(prediction_scaled, dim=1)
+        predicted_probs = torch.softmax(prediction, dim=1)
 
         # Get predicted label
         predicted_label = torch.argmax(predicted_probs, dim=1).item()

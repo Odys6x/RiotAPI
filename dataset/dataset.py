@@ -1,5 +1,6 @@
 import pandas as pd
-import numpy as np
+import seaborn as sns
+from matplotlib import pyplot as plt
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 
@@ -40,40 +41,75 @@ class Preprocessor:
                 print(f"Skipping match {match_id} due to missing teams")
                 continue
 
-            # Get rows for Team 100 and Team 200
-            try:
-                team_100 = group[group['team_id'] == 100].iloc[0]
-                team_200 = group[group['team_id'] == 200].iloc[0]
-            except IndexError as e:
-                print(f"Skipping match {match_id}: {e}")
-                continue
+            # Get aggregated stats for Team 100 and Team 200
+            team_100 = group[group['team_id'] == 100].agg({
+                'kills': 'sum',
+                'deaths': 'sum',
+                'assists': 'sum',
+                'gold_earned': 'sum',
+                'cs': 'sum',
+                'KDA': 'mean',
+                'Kill Participation': 'mean'
+            })
+            team_200 = group[group['team_id'] == 200].agg({
+                'kills': 'sum',
+                'deaths': 'sum',
+                'assists': 'sum',
+                'gold_earned': 'sum',
+                'cs': 'sum',
+                'KDA': 'mean',
+                'Kill Participation': 'mean'
+            })
+
+            # Apply gold scaling by 0.6297
+            team_100_gold_scaled = team_100["gold_earned"] * 0.6297
+            team_200_gold_scaled = team_200["gold_earned"] * 0.6297
+
+            # Determine outcome (1 if Team 100 wins, else 0)
+            outcome = 1 if group[group['team_id'] == 100]['outcome'].iloc[0] == "win" else 0
+            duration = group["game_duration"].iloc[0]
 
             # Combine into one row
             combined_row = {
                 "match_id": match_id,
                 # Team 100 stats
-                "team_100_kills": team_100["kills"],
-                "team_100_deaths": team_100["deaths"],
-                "team_100_assists": team_100["assists"],
-                "team_100_gold": team_100["gold_earned"],
-                "team_100_cs": team_100["cs"],
+                "team_100_kills": team_100["kills"]/duration,
+                "team_100_deaths": team_100["deaths"]/duration,
+                "team_100_assists": team_100["assists"]/duration,
+                "team_100_gold": team_100_gold_scaled/duration,  # Scaled gold for Team 100
+                "team_100_cs": team_100["cs"]/duration,
                 "team_100_kda": team_100["KDA"],
-                "team_100_kp": team_100["Kill Participation"],
                 # Team 200 stats
-                "team_200_kills": team_200["kills"],
-                "team_200_deaths": team_200["deaths"],
-                "team_200_assists": team_200["assists"],
-                "team_200_gold": team_200["gold_earned"],
-                "team_200_cs": team_200["cs"],
+                "team_200_kills": team_200["kills"]/duration,
+                "team_200_deaths": team_200["deaths"]/duration,
+                "team_200_assists": team_200["assists"]/duration,
+                "team_200_gold": team_200_gold_scaled/duration,  # Scaled gold for Team 200
+                "team_200_cs": team_200["cs"]/duration,
                 "team_200_kda": team_200["KDA"],
-                "team_200_kp": team_200["Kill Participation"],
                 # Outcome (1 if Team 100 wins, else 0)
-                "outcome": 1 if team_100["outcome"] == "win" else 0,
+                "outcome": outcome
             }
             combined_rows.append(combined_row)
 
         self.combined_data = pd.DataFrame(combined_rows)
         return self.combined_data
+
+    def plot_feature_importance(self):
+        """
+        Plot a heatmap to show feature importance by correlating with the outcome.
+        """
+        # Combine the features and outcome into one DataFrame
+        feature_data = self.combined_data.drop(columns=["match_id"])
+        feature_data["outcome"] = self.combined_data["outcome"]
+
+        # Compute the correlation matrix
+        correlation_matrix = feature_data.corr()
+
+        # Plot the heatmap
+        plt.figure(figsize=(12, 8))
+        sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', fmt='.2f', linewidths=0.5)
+        plt.title("Correlation Heatmap of Features with Outcome")
+        plt.show()
 
     def add_features(self):
         """
@@ -81,9 +117,9 @@ class Preprocessor:
         Returns:
             pd.DataFrame: Data with added features.
         """
-        self.combined_data["gold_diff"] = self.combined_data["team_100_gold"] - self.combined_data["team_200_gold"]
-        self.combined_data["cs_diff"] = self.combined_data["team_100_cs"] - self.combined_data["team_200_cs"]
-        self.combined_data["kda_diff"] = self.combined_data["team_100_kda"] - self.combined_data["team_200_kda"]
+        # Calculate Gold Per Minute for each team
+        self.combined_data["team_100_gpm"] = self.combined_data["team_100_gold"] / (self.combined_data["game_duration"] / 60)
+        self.combined_data["team_200_gpm"] = self.combined_data["team_200_gold"] / (self.combined_data["game_duration"] / 60)
         return self.combined_data
 
     def split_data(self, test_size=0.15, val_size=0.15, random_state=42):

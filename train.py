@@ -9,7 +9,7 @@ from model import ComplexTabularModel
 
 # Preprocessor steps
 preprocessor = Preprocessor(scaling=True)
-raw_data = preprocessor.load_data("dataset/team_aggregated_stats.csv")
+raw_data = preprocessor.load_data("dataset/match_results_with_objectives.csv")
 combined_data = preprocessor.combine_team_stats()
 X_train, X_val, X_test, y_train, y_val, y_test = preprocessor.split_data()
 
@@ -35,7 +35,7 @@ input_dim = X_train.shape[1]  # Number of features
 model = ComplexTabularModel(input_dim)
 
 # Loss and optimizer
-criterion = nn.CrossEntropyLoss()
+criterion = nn.CrossEntropyLoss(weight=torch.tensor([1.0, 3.0]))
 optimizer = torch.optim.Adam(model.parameters(), lr=LR)
 
 if Training:
