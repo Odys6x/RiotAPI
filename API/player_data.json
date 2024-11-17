@@ -1,6 +1,6 @@
 [
     {
-        "championName": "Riven",
+        "championName": "Ambessa",
         "isBot": false,
         "isDead": false,
         "items": [
@@ -16,50 +16,6 @@
                 "slot": 0
             },
             {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Eclipse",
-                "itemID": 6692,
-                "price": 625,
-                "rawDescription": "GeneratedTip_Item_6692_Description",
-                "rawDisplayName": "Item_6692_Name",
-                "slot": 1
-            },
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Mercury's Treads",
-                "itemID": 3111,
-                "price": 600,
-                "rawDescription": "GeneratedTip_Item_3111_Description",
-                "rawDisplayName": "Item_3111_Name",
-                "slot": 2
-            },
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Caulfield's Warhammer",
-                "itemID": 3133,
-                "price": 100,
-                "rawDescription": "GeneratedTip_Item_3133_Description",
-                "rawDisplayName": "Item_3133_Name",
-                "slot": 3
-            },
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Tunneler",
-                "itemID": 2021,
-                "price": 400,
-                "rawDescription": "GeneratedTip_Item_2021_Description",
-                "rawDisplayName": "Item_2021_Name",
-                "slot": 4
-            },
-            {
                 "canUse": true,
                 "consumable": false,
                 "count": 1,
@@ -71,49 +27,49 @@
                 "slot": 6
             }
         ],
-        "level": 11,
-        "position": "TOP",
-        "rawChampionName": "game_character_displayname_Riven",
-        "rawSkinName": "game_character_skin_displayname_Riven_58",
+        "level": 8,
+        "position": "",
+        "rawChampionName": "game_character_displayname_Ambessa",
+        "rawSkinName": "game_character_skin_displayname_Ambessa_0",
         "respawnTimer": 0.0,
-        "riotId": "MeatBall#666",
-        "riotIdGameName": "MeatBall",
-        "riotIdTagLine": "666",
+        "riotId": "Odys6x#6969",
+        "riotIdGameName": "Odys6x",
+        "riotIdTagLine": "6969",
         "runes": {
             "keystone": {
-                "displayName": "Conqueror",
-                "id": 8010,
-                "rawDescription": "perk_tooltip_Conqueror",
-                "rawDisplayName": "perk_displayname_Conqueror"
+                "displayName": "Electrocute",
+                "id": 8112,
+                "rawDescription": "perk_tooltip_Electrocute",
+                "rawDisplayName": "perk_displayname_Electrocute"
             },
             "primaryRuneTree": {
-                "displayName": "Precision",
-                "id": 8000,
-                "rawDescription": "perkstyle_tooltip_7201",
-                "rawDisplayName": "perkstyle_displayname_7201"
+                "displayName": "Domination",
+                "id": 8100,
+                "rawDescription": "perkstyle_tooltip_7200",
+                "rawDisplayName": "perkstyle_displayname_7200"
             },
             "secondaryRuneTree": {
-                "displayName": "Inspiration",
-                "id": 8300,
-                "rawDescription": "perkstyle_tooltip_7203",
-                "rawDisplayName": "perkstyle_displayname_7203"
+                "displayName": "Resolve",
+                "id": 8400,
+                "rawDescription": "perkstyle_tooltip_7204",
+                "rawDisplayName": "perkstyle_displayname_7204"
             }
         },
         "scores": {
-            "assists": 2,
-            "creepScore": 130,
-            "deaths": 7,
-            "kills": 2,
-            "wardScore": 3.7314600944519043
+            "assists": 0,
+            "creepScore": 30,
+            "deaths": 3,
+            "kills": 1,
+            "wardScore": 0.0
         },
-        "skinID": 58,
-        "skinName": "Broken Covenant Riven",
-        "summonerName": "MeatBall#666",
+        "skinID": 0,
+        "skinName": "",
+        "summonerName": "Odys6x#6969",
         "summonerSpells": {
             "summonerSpellOne": {
-                "displayName": "Unleashed Teleport",
-                "rawDescription": "GeneratedTip_SummonerSpell_S12_SummonerTeleportUpgrade_Description",
-                "rawDisplayName": "GeneratedTip_SummonerSpell_S12_SummonerTeleportUpgrade_DisplayName"
+                "displayName": "Ignite",
+                "rawDescription": "GeneratedTip_SummonerSpell_SummonerDot_Description",
+                "rawDisplayName": "GeneratedTip_SummonerSpell_SummonerDot_DisplayName"
             },
             "summonerSpellTwo": {
                 "displayName": "Flash",
@@ -124,317 +80,80 @@
         "team": "ORDER"
     },
     {
-        "championName": "Zac",
-        "isBot": false,
+        "championName": "Sona",
+        "isBot": true,
         "isDead": true,
         "items": [
             {
                 "canUse": false,
                 "consumable": false,
                 "count": 1,
-                "displayName": "Spirit Visage",
-                "itemID": 3065,
-                "price": 650,
-                "rawDescription": "GeneratedTip_Item_3065_Description",
-                "rawDisplayName": "Item_3065_Name",
+                "displayName": "Doran's Ring",
+                "itemID": 1056,
+                "price": 400,
+                "rawDescription": "GeneratedTip_Item_1056_Description",
+                "rawDisplayName": "Item_1056_Name",
                 "slot": 0
-            },
-            {
-                "canUse": true,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Hextech Rocketbelt",
-                "itemID": 3152,
-                "price": 700,
-                "rawDescription": "GeneratedTip_Item_3152_Description",
-                "rawDisplayName": "Item_3152_Name",
-                "slot": 1
             },
             {
                 "canUse": false,
                 "consumable": false,
                 "count": 1,
-                "displayName": "Sunfire Aegis",
-                "itemID": 3068,
-                "price": 1000,
-                "rawDescription": "GeneratedTip_Item_3068_Description",
-                "rawDisplayName": "Item_3068_Name",
+                "displayName": "Boots",
+                "itemID": 1001,
+                "price": 300,
+                "rawDescription": "GeneratedTip_Item_1001_Description",
+                "rawDisplayName": "Item_1001_Name",
+                "slot": 1
+            },
+            {
+                "canUse": true,
+                "consumable": true,
+                "count": 1,
+                "displayName": "Control Ward",
+                "itemID": 2055,
+                "price": 75,
+                "rawDescription": "GeneratedTip_Item_2055_Description",
+                "rawDisplayName": "Item_2055_Name",
                 "slot": 2
             },
             {
                 "canUse": false,
                 "consumable": false,
                 "count": 1,
-                "displayName": "Amplifying Tome",
-                "itemID": 1052,
+                "displayName": "Tear of the Goddess",
+                "itemID": 3070,
                 "price": 400,
-                "rawDescription": "GeneratedTip_Item_1052_Description",
-                "rawDisplayName": "Item_1052_Name",
+                "rawDescription": "GeneratedTip_Item_3070_Description",
+                "rawDisplayName": "Item_3070_Name",
                 "slot": 3
             },
             {
                 "canUse": false,
                 "consumable": false,
                 "count": 1,
-                "displayName": "Ionian Boots of Lucidity",
-                "itemID": 3158,
-                "price": 350,
-                "rawDescription": "GeneratedTip_Item_3158_Description",
-                "rawDisplayName": "Item_3158_Name",
+                "displayName": "Fiendish Codex",
+                "itemID": 3108,
+                "price": 200,
+                "rawDescription": "GeneratedTip_Item_3108_Description",
+                "rawDisplayName": "Item_3108_Name",
+                "slot": 4
+            },
+            {
+                "canUse": false,
+                "consumable": false,
+                "count": 1,
+                "displayName": "Sapphire Crystal",
+                "itemID": 1027,
+                "price": 300,
+                "rawDescription": "GeneratedTip_Item_1027_Description",
+                "rawDisplayName": "Item_1027_Name",
                 "slot": 5
             },
             {
                 "canUse": true,
                 "consumable": false,
                 "count": 1,
-                "displayName": "Oracle Lens",
-                "itemID": 3364,
-                "price": 0,
-                "rawDescription": "GeneratedTip_Item_3364_Description",
-                "rawDisplayName": "Item_3364_Name",
-                "slot": 6
-            }
-        ],
-        "level": 15,
-        "position": "JUNGLE",
-        "rawChampionName": "game_character_displayname_Zac",
-        "rawSkinName": "game_character_skin_displayname_Zac_19",
-        "respawnTimer": 20.867746353149414,
-        "riotId": "timecrash#3374",
-        "riotIdGameName": "timecrash",
-        "riotIdTagLine": "3374",
-        "runes": {
-            "keystone": {
-                "displayName": "Conqueror",
-                "id": 8010,
-                "rawDescription": "perk_tooltip_Conqueror",
-                "rawDisplayName": "perk_displayname_Conqueror"
-            },
-            "primaryRuneTree": {
-                "displayName": "Precision",
-                "id": 8000,
-                "rawDescription": "perkstyle_tooltip_7201",
-                "rawDisplayName": "perkstyle_displayname_7201"
-            },
-            "secondaryRuneTree": {
-                "displayName": "Resolve",
-                "id": 8400,
-                "rawDescription": "perkstyle_tooltip_7204",
-                "rawDisplayName": "perkstyle_displayname_7204"
-            }
-        },
-        "scores": {
-            "assists": 7,
-            "creepScore": 130,
-            "deaths": 12,
-            "kills": 3,
-            "wardScore": 18.10053253173828
-        },
-        "skinID": 19,
-        "skinName": "Empyrean Zac",
-        "summonerName": "timecrash#3374",
-        "summonerSpells": {
-            "summonerSpellOne": {
-                "displayName": "Flash",
-                "rawDescription": "GeneratedTip_SummonerSpell_SummonerFlash_Description",
-                "rawDisplayName": "GeneratedTip_SummonerSpell_SummonerFlash_DisplayName"
-            },
-            "summonerSpellTwo": {
-                "displayName": "Primal Smite",
-                "rawDescription": "GeneratedTip_SummonerSpell_SummonerSmiteAvatarOffensive_Description",
-                "rawDisplayName": "GeneratedTip_SummonerSpell_SummonerSmiteAvatarOffensive_DisplayName"
-            }
-        },
-        "team": "ORDER"
-    },
-    {
-        "championName": "Smolder",
-        "isBot": false,
-        "isDead": true,
-        "items": [
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Rapid Firecannon",
-                "itemID": 3094,
-                "price": 850,
-                "rawDescription": "GeneratedTip_Item_3094_Description",
-                "rawDisplayName": "Item_3094_Name",
-                "slot": 0
-            },
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Trinity Force",
-                "itemID": 3078,
-                "price": 133,
-                "rawDescription": "GeneratedTip_Item_3078_Description",
-                "rawDisplayName": "Item_3078_Name",
-                "slot": 1
-            },
-            {
-                "canUse": true,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Zhonya's Hourglass",
-                "itemID": 3157,
-                "price": 450,
-                "rawDescription": "GeneratedTip_Item_3157_Description",
-                "rawDisplayName": "Item_3157_Name",
-                "slot": 2
-            },
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Muramana",
-                "itemID": 3042,
-                "price": 2900,
-                "rawDescription": "GeneratedTip_Item_3042_Description",
-                "rawDisplayName": "Item_3042_Name",
-                "slot": 3
-            },
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Ionian Boots of Lucidity",
-                "itemID": 3158,
-                "price": 350,
-                "rawDescription": "GeneratedTip_Item_3158_Description",
-                "rawDisplayName": "Item_3158_Name",
-                "slot": 4
-            },
-            {
-                "canUse": true,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Farsight Alteration",
-                "itemID": 3363,
-                "price": 0,
-                "rawDescription": "GeneratedTip_Item_3363_Description",
-                "rawDisplayName": "Item_3363_Name",
-                "slot": 6
-            }
-        ],
-        "level": 17,
-        "position": "MIDDLE",
-        "rawChampionName": "game_character_displayname_Smolder",
-        "rawSkinName": "game_character_skin_displayname_Smolder_0",
-        "respawnTimer": 24.16614532470703,
-        "riotId": "DJOrbitDecker#1076",
-        "riotIdGameName": "DJOrbitDecker",
-        "riotIdTagLine": "1076",
-        "runes": {
-            "keystone": {
-                "displayName": "Grasp of the Undying",
-                "id": 8437,
-                "rawDescription": "perk_tooltip_GraspOfTheUndying",
-                "rawDisplayName": "perk_displayname_GraspOfTheUndying"
-            },
-            "primaryRuneTree": {
-                "displayName": "Resolve",
-                "id": 8400,
-                "rawDescription": "perkstyle_tooltip_7204",
-                "rawDisplayName": "perkstyle_displayname_7204"
-            },
-            "secondaryRuneTree": {
-                "displayName": "Precision",
-                "id": 8000,
-                "rawDescription": "perkstyle_tooltip_7201",
-                "rawDisplayName": "perkstyle_displayname_7201"
-            }
-        },
-        "scores": {
-            "assists": 7,
-            "creepScore": 240,
-            "deaths": 9,
-            "kills": 9,
-            "wardScore": 23.00503921508789
-        },
-        "skinID": 0,
-        "skinName": "",
-        "summonerName": "DJOrbitDecker#1076",
-        "summonerSpells": {
-            "summonerSpellOne": {
-                "displayName": "Unleashed Teleport",
-                "rawDescription": "GeneratedTip_SummonerSpell_S12_SummonerTeleportUpgrade_Description",
-                "rawDisplayName": "GeneratedTip_SummonerSpell_S12_SummonerTeleportUpgrade_DisplayName"
-            },
-            "summonerSpellTwo": {
-                "displayName": "Flash",
-                "rawDescription": "GeneratedTip_SummonerSpell_SummonerFlash_Description",
-                "rawDisplayName": "GeneratedTip_SummonerSpell_SummonerFlash_DisplayName"
-            }
-        },
-        "team": "ORDER"
-    },
-    {
-        "championName": "Ziggs",
-        "isBot": false,
-        "isDead": false,
-        "items": [
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Sorcerer's Shoes",
-                "itemID": 3020,
-                "price": 800,
-                "rawDescription": "GeneratedTip_Item_3020_Description",
-                "rawDisplayName": "Item_3020_Name",
-                "slot": 0
-            },
-            {
-                "canUse": true,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Zhonya's Hourglass",
-                "itemID": 3157,
-                "price": 450,
-                "rawDescription": "GeneratedTip_Item_3157_Description",
-                "rawDisplayName": "Item_3157_Name",
-                "slot": 1
-            },
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Liandry's Torment",
-                "itemID": 6653,
-                "price": 800,
-                "rawDescription": "GeneratedTip_Item_6653_Description",
-                "rawDisplayName": "Item_6653_Name",
-                "slot": 2
-            },
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Horizon Focus",
-                "itemID": 4628,
-                "price": 600,
-                "rawDescription": "GeneratedTip_Item_4628_Description",
-                "rawDisplayName": "Item_4628_Name",
-                "slot": 3
-            },
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Luden's Companion",
-                "itemID": 6655,
-                "price": 550,
-                "rawDescription": "GeneratedTip_Item_6655_Description",
-                "rawDisplayName": "Item_6655_Name",
-                "slot": 4
-            },
-            {
-                "canUse": true,
-                "consumable": false,
-                "count": 1,
                 "displayName": "Stealth Ward",
                 "itemID": 3340,
                 "price": 0,
@@ -443,14 +162,14 @@
                 "slot": 6
             }
         ],
-        "level": 17,
-        "position": "BOTTOM",
-        "rawChampionName": "game_character_displayname_Ziggs",
-        "rawSkinName": "game_character_skin_displayname_Ziggs_0",
-        "respawnTimer": 0.0,
-        "riotId": "87GODKiLLerDemon#666",
-        "riotIdGameName": "87GODKiLLerDemon",
-        "riotIdTagLine": "666",
+        "level": 8,
+        "position": "MIDDLE",
+        "rawChampionName": "game_character_displayname_Sona",
+        "rawSkinName": "game_character_skin_displayname_Sona_0",
+        "respawnTimer": 8.383729934692383,
+        "riotId": "Sona#BOT",
+        "riotIdGameName": "Sona",
+        "riotIdTagLine": "BOT",
         "runes": {
             "keystone": {
                 "displayName": "Arcane Comet",
@@ -465,831 +184,32 @@
                 "rawDisplayName": "perkstyle_displayname_7202"
             },
             "secondaryRuneTree": {
-                "displayName": "Precision",
-                "id": 8000,
-                "rawDescription": "perkstyle_tooltip_7201",
-                "rawDisplayName": "perkstyle_displayname_7201"
+                "displayName": "Domination",
+                "id": 8100,
+                "rawDescription": "perkstyle_tooltip_7200",
+                "rawDisplayName": "perkstyle_displayname_7200"
             }
         },
         "scores": {
-            "assists": 3,
-            "creepScore": 240,
-            "deaths": 12,
-            "kills": 5,
-            "wardScore": 22.435142517089844
+            "assists": 0,
+            "creepScore": 10,
+            "deaths": 1,
+            "kills": 3,
+            "wardScore": 1.4607828855514526
         },
         "skinID": 0,
         "skinName": "",
-        "summonerName": "87GODKiLLerDemon#666",
+        "summonerName": "Sona Bot",
         "summonerSpells": {
             "summonerSpellOne": {
+                "displayName": "Flash",
+                "rawDescription": "GeneratedTip_SummonerSpell_SummonerFlash_Description",
+                "rawDisplayName": "GeneratedTip_SummonerSpell_SummonerFlash_DisplayName"
+            },
+            "summonerSpellTwo": {
                 "displayName": "Heal",
                 "rawDescription": "GeneratedTip_SummonerSpell_SummonerHeal_Description",
                 "rawDisplayName": "GeneratedTip_SummonerSpell_SummonerHeal_DisplayName"
-            },
-            "summonerSpellTwo": {
-                "displayName": "Flash",
-                "rawDescription": "GeneratedTip_SummonerSpell_SummonerFlash_Description",
-                "rawDisplayName": "GeneratedTip_SummonerSpell_SummonerFlash_DisplayName"
-            }
-        },
-        "team": "ORDER"
-    },
-    {
-        "championName": "Tahm Kench",
-        "isBot": false,
-        "isDead": true,
-        "items": [
-            {
-                "canUse": true,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Celestial Opposition",
-                "itemID": 3869,
-                "price": 0,
-                "rawDescription": "GeneratedTip_Item_3869_Description",
-                "rawDisplayName": "Item_3869_Name",
-                "slot": 0
-            },
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Plated Steelcaps",
-                "itemID": 3047,
-                "price": 600,
-                "rawDescription": "GeneratedTip_Item_3047_Description",
-                "rawDisplayName": "Item_3047_Name",
-                "slot": 1
-            },
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Heartsteel",
-                "itemID": 3084,
-                "price": 400,
-                "rawDescription": "GeneratedTip_Item_3084_Description",
-                "rawDisplayName": "Item_3084_Name",
-                "slot": 2
-            },
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Thornmail",
-                "itemID": 3075,
-                "price": 450,
-                "rawDescription": "GeneratedTip_Item_3075_Description",
-                "rawDisplayName": "Item_3075_Name",
-                "slot": 3
-            },
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Sunfire Aegis",
-                "itemID": 3068,
-                "price": 1000,
-                "rawDescription": "GeneratedTip_Item_3068_Description",
-                "rawDisplayName": "Item_3068_Name",
-                "slot": 4
-            },
-            {
-                "canUse": true,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Stealth Ward",
-                "itemID": 3340,
-                "price": 0,
-                "rawDescription": "GeneratedTip_Item_3340_Description",
-                "rawDisplayName": "Item_3340_Name",
-                "slot": 6
-            }
-        ],
-        "level": 15,
-        "position": "UTILITY",
-        "rawChampionName": "game_character_displayname_TahmKench",
-        "rawSkinName": "game_character_skin_displayname_TahmKench_0",
-        "respawnTimer": 0.9234542846679688,
-        "riotId": "Odys6x#6969",
-        "riotIdGameName": "Odys6x",
-        "riotIdTagLine": "6969",
-        "runes": {
-            "keystone": {
-                "displayName": "Grasp of the Undying",
-                "id": 8437,
-                "rawDescription": "perk_tooltip_GraspOfTheUndying",
-                "rawDisplayName": "perk_displayname_GraspOfTheUndying"
-            },
-            "primaryRuneTree": {
-                "displayName": "Resolve",
-                "id": 8400,
-                "rawDescription": "perkstyle_tooltip_7204",
-                "rawDisplayName": "perkstyle_displayname_7204"
-            },
-            "secondaryRuneTree": {
-                "displayName": "Domination",
-                "id": 8100,
-                "rawDescription": "perkstyle_tooltip_7200",
-                "rawDisplayName": "perkstyle_displayname_7200"
-            }
-        },
-        "scores": {
-            "assists": 6,
-            "creepScore": 30,
-            "deaths": 12,
-            "kills": 6,
-            "wardScore": 30.71236228942871
-        },
-        "skinID": 0,
-        "skinName": "",
-        "summonerName": "Odys6x#6969",
-        "summonerSpells": {
-            "summonerSpellOne": {
-                "displayName": "Exhaust",
-                "rawDescription": "GeneratedTip_SummonerSpell_SummonerExhaust_Description",
-                "rawDisplayName": "GeneratedTip_SummonerSpell_SummonerExhaust_DisplayName"
-            },
-            "summonerSpellTwo": {
-                "displayName": "Flash",
-                "rawDescription": "GeneratedTip_SummonerSpell_SummonerFlash_Description",
-                "rawDisplayName": "GeneratedTip_SummonerSpell_SummonerFlash_DisplayName"
-            }
-        },
-        "team": "ORDER"
-    },
-    {
-        "championName": "Gnar",
-        "isBot": false,
-        "isDead": false,
-        "items": [
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Kindlegem",
-                "itemID": 3067,
-                "price": 150,
-                "rawDescription": "GeneratedTip_Item_3067_Description",
-                "rawDisplayName": "Item_3067_Name",
-                "slot": 0
-            },
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Plated Steelcaps",
-                "itemID": 3047,
-                "price": 600,
-                "rawDescription": "GeneratedTip_Item_3047_Description",
-                "rawDisplayName": "Item_3047_Name",
-                "slot": 1
-            },
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Trinity Force",
-                "itemID": 3078,
-                "price": 133,
-                "rawDescription": "GeneratedTip_Item_3078_Description",
-                "rawDisplayName": "Item_3078_Name",
-                "slot": 2
-            },
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Sterak's Gage",
-                "itemID": 3053,
-                "price": 775,
-                "rawDescription": "GeneratedTip_Item_3053_Description",
-                "rawDisplayName": "Item_3053_Name",
-                "slot": 3
-            },
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Wit's End",
-                "itemID": 3091,
-                "price": 550,
-                "rawDescription": "GeneratedTip_Item_3091_Description",
-                "rawDisplayName": "Item_3091_Name",
-                "slot": 4
-            },
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Phage",
-                "itemID": 3044,
-                "price": 350,
-                "rawDescription": "GeneratedTip_Item_3044_Description",
-                "rawDisplayName": "Item_3044_Name",
-                "slot": 5
-            },
-            {
-                "canUse": true,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Oracle Lens",
-                "itemID": 3364,
-                "price": 0,
-                "rawDescription": "GeneratedTip_Item_3364_Description",
-                "rawDisplayName": "Item_3364_Name",
-                "slot": 6
-            }
-        ],
-        "level": 18,
-        "position": "TOP",
-        "rawChampionName": "game_character_displayname_Gnar",
-        "rawSkinName": "game_character_skin_displayname_Gnar_15",
-        "respawnTimer": 0.0,
-        "riotId": "Excalibur#Fate",
-        "riotIdGameName": "Excalibur",
-        "riotIdTagLine": "Fate",
-        "runes": {
-            "keystone": {
-                "displayName": "Grasp of the Undying",
-                "id": 8437,
-                "rawDescription": "perk_tooltip_GraspOfTheUndying",
-                "rawDisplayName": "perk_displayname_GraspOfTheUndying"
-            },
-            "primaryRuneTree": {
-                "displayName": "Resolve",
-                "id": 8400,
-                "rawDescription": "perkstyle_tooltip_7204",
-                "rawDisplayName": "perkstyle_displayname_7204"
-            },
-            "secondaryRuneTree": {
-                "displayName": "Precision",
-                "id": 8000,
-                "rawDescription": "perkstyle_tooltip_7201",
-                "rawDisplayName": "perkstyle_displayname_7201"
-            }
-        },
-        "scores": {
-            "assists": 10,
-            "creepScore": 220,
-            "deaths": 7,
-            "kills": 8,
-            "wardScore": 22.771564483642578
-        },
-        "skinID": 15,
-        "skinName": "Astronaut Gnar",
-        "summonerName": "Excalibur#Fate",
-        "summonerSpells": {
-            "summonerSpellOne": {
-                "displayName": "Unleashed Teleport",
-                "rawDescription": "GeneratedTip_SummonerSpell_S12_SummonerTeleportUpgrade_Description",
-                "rawDisplayName": "GeneratedTip_SummonerSpell_S12_SummonerTeleportUpgrade_DisplayName"
-            },
-            "summonerSpellTwo": {
-                "displayName": "Flash",
-                "rawDescription": "GeneratedTip_SummonerSpell_SummonerFlash_Description",
-                "rawDisplayName": "GeneratedTip_SummonerSpell_SummonerFlash_DisplayName"
-            }
-        },
-        "team": "CHAOS"
-    },
-    {
-        "championName": "Rek'Sai",
-        "isBot": false,
-        "isDead": false,
-        "items": [
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Axiom Arc",
-                "itemID": 6696,
-                "price": 613,
-                "rawDescription": "GeneratedTip_Item_6696_Description",
-                "rawDisplayName": "Item_6696_Name",
-                "slot": 0
-            },
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Edge of Night",
-                "itemID": 3814,
-                "price": 850,
-                "rawDescription": "GeneratedTip_Item_3814_Description",
-                "rawDisplayName": "Item_3814_Name",
-                "slot": 1
-            },
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Hubris",
-                "itemID": 6697,
-                "price": 950,
-                "rawDescription": "GeneratedTip_Item_6697_Description",
-                "rawDisplayName": "Item_6697_Name",
-                "slot": 2
-            },
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Ionian Boots of Lucidity",
-                "itemID": 3158,
-                "price": 350,
-                "rawDescription": "GeneratedTip_Item_3158_Description",
-                "rawDisplayName": "Item_3158_Name",
-                "slot": 3
-            },
-            {
-                "canUse": true,
-                "consumable": true,
-                "count": 1,
-                "displayName": "Control Ward",
-                "itemID": 2055,
-                "price": 75,
-                "rawDescription": "GeneratedTip_Item_2055_Description",
-                "rawDisplayName": "Item_2055_Name",
-                "slot": 4
-            },
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Steel Sigil",
-                "itemID": 2019,
-                "price": 150,
-                "rawDescription": "GeneratedTip_Item_2019_Description",
-                "rawDisplayName": "Item_2019_Name",
-                "slot": 5
-            },
-            {
-                "canUse": true,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Stealth Ward",
-                "itemID": 3340,
-                "price": 0,
-                "rawDescription": "GeneratedTip_Item_3340_Description",
-                "rawDisplayName": "Item_3340_Name",
-                "slot": 6
-            }
-        ],
-        "level": 17,
-        "position": "JUNGLE",
-        "rawChampionName": "game_character_displayname_RekSai",
-        "rawSkinName": "game_character_skin_displayname_RekSai_1",
-        "respawnTimer": 0.0,
-        "riotId": "Panda Zephyr#PANDA",
-        "riotIdGameName": "Panda Zephyr",
-        "riotIdTagLine": "PANDA",
-        "runes": {
-            "keystone": {
-                "displayName": "Hail of Blades",
-                "id": 9923,
-                "rawDescription": "perk_tooltip_HailOfBlades",
-                "rawDisplayName": "perk_displayname_HailOfBlades"
-            },
-            "primaryRuneTree": {
-                "displayName": "Domination",
-                "id": 8100,
-                "rawDescription": "perkstyle_tooltip_7200",
-                "rawDisplayName": "perkstyle_displayname_7200"
-            },
-            "secondaryRuneTree": {
-                "displayName": "Inspiration",
-                "id": 8300,
-                "rawDescription": "perkstyle_tooltip_7203",
-                "rawDisplayName": "perkstyle_displayname_7203"
-            }
-        },
-        "scores": {
-            "assists": 11,
-            "creepScore": 70,
-            "deaths": 4,
-            "kills": 11,
-            "wardScore": 28.666757583618164
-        },
-        "skinID": 1,
-        "skinName": "Eternum Rek'Sai",
-        "summonerName": "Panda Zephyr#PANDA",
-        "summonerSpells": {
-            "summonerSpellOne": {
-                "displayName": "Primal Smite",
-                "rawDescription": "GeneratedTip_SummonerSpell_SummonerSmiteAvatarOffensive_Description",
-                "rawDisplayName": "GeneratedTip_SummonerSpell_SummonerSmiteAvatarOffensive_DisplayName"
-            },
-            "summonerSpellTwo": {
-                "displayName": "Flash",
-                "rawDescription": "GeneratedTip_SummonerSpell_SummonerFlash_Description",
-                "rawDisplayName": "GeneratedTip_SummonerSpell_SummonerFlash_DisplayName"
-            }
-        },
-        "team": "CHAOS"
-    },
-    {
-        "championName": "Yone",
-        "isBot": false,
-        "isDead": false,
-        "items": [
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Infinity Edge",
-                "itemID": 3031,
-                "price": 825,
-                "rawDescription": "GeneratedTip_Item_3031_Description",
-                "rawDisplayName": "Item_3031_Name",
-                "slot": 0
-            },
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Blade of The Ruined King",
-                "itemID": 3153,
-                "price": 725,
-                "rawDescription": "GeneratedTip_Item_3153_Description",
-                "rawDisplayName": "Item_3153_Name",
-                "slot": 1
-            },
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Plated Steelcaps",
-                "itemID": 3047,
-                "price": 600,
-                "rawDescription": "GeneratedTip_Item_3047_Description",
-                "rawDisplayName": "Item_3047_Name",
-                "slot": 2
-            },
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Immortal Shieldbow",
-                "itemID": 6673,
-                "price": 825,
-                "rawDescription": "GeneratedTip_Item_6673_Description",
-                "rawDisplayName": "Item_6673_Name",
-                "slot": 3
-            },
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Negatron Cloak",
-                "itemID": 1057,
-                "price": 450,
-                "rawDescription": "GeneratedTip_Item_1057_Description",
-                "rawDisplayName": "Item_1057_Name",
-                "slot": 4
-            },
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Dagger",
-                "itemID": 1042,
-                "price": 250,
-                "rawDescription": "GeneratedTip_Item_1042_Description",
-                "rawDisplayName": "Item_1042_Name",
-                "slot": 5
-            },
-            {
-                "canUse": true,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Stealth Ward",
-                "itemID": 3340,
-                "price": 0,
-                "rawDescription": "GeneratedTip_Item_3340_Description",
-                "rawDisplayName": "Item_3340_Name",
-                "slot": 6
-            }
-        ],
-        "level": 17,
-        "position": "MIDDLE",
-        "rawChampionName": "game_character_displayname_Yone",
-        "rawSkinName": "game_character_skin_displayname_Yone_10",
-        "respawnTimer": 0.0,
-        "riotId": "DerpySmile#5505",
-        "riotIdGameName": "DerpySmile",
-        "riotIdTagLine": "5505",
-        "runes": {
-            "keystone": {
-                "displayName": "Conqueror",
-                "id": 8010,
-                "rawDescription": "perk_tooltip_Conqueror",
-                "rawDisplayName": "perk_displayname_Conqueror"
-            },
-            "primaryRuneTree": {
-                "displayName": "Precision",
-                "id": 8000,
-                "rawDescription": "perkstyle_tooltip_7201",
-                "rawDisplayName": "perkstyle_displayname_7201"
-            },
-            "secondaryRuneTree": {
-                "displayName": "Resolve",
-                "id": 8400,
-                "rawDescription": "perkstyle_tooltip_7204",
-                "rawDisplayName": "perkstyle_displayname_7204"
-            }
-        },
-        "scores": {
-            "assists": 12,
-            "creepScore": 200,
-            "deaths": 7,
-            "kills": 5,
-            "wardScore": 16.83890151977539
-        },
-        "skinID": 10,
-        "skinName": "Battle Academia Yone",
-        "summonerName": "DerpySmile#5505",
-        "summonerSpells": {
-            "summonerSpellOne": {
-                "displayName": "Unleashed Teleport",
-                "rawDescription": "GeneratedTip_SummonerSpell_S12_SummonerTeleportUpgrade_Description",
-                "rawDisplayName": "GeneratedTip_SummonerSpell_S12_SummonerTeleportUpgrade_DisplayName"
-            },
-            "summonerSpellTwo": {
-                "displayName": "Flash",
-                "rawDescription": "GeneratedTip_SummonerSpell_SummonerFlash_Description",
-                "rawDisplayName": "GeneratedTip_SummonerSpell_SummonerFlash_DisplayName"
-            }
-        },
-        "team": "CHAOS"
-    },
-    {
-        "championName": "Ashe",
-        "isBot": false,
-        "isDead": false,
-        "items": [
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Mortal Reminder",
-                "itemID": 3033,
-                "price": 350,
-                "rawDescription": "GeneratedTip_Item_3033_Description",
-                "rawDisplayName": "Item_3033_Name",
-                "slot": 0
-            },
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Kraken Slayer",
-                "itemID": 6672,
-                "price": 425,
-                "rawDescription": "GeneratedTip_Item_6672_Description",
-                "rawDisplayName": "Item_6672_Name",
-                "slot": 1
-            },
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Berserker's Greaves",
-                "itemID": 3006,
-                "price": 300,
-                "rawDescription": "GeneratedTip_Item_3006_Description",
-                "rawDisplayName": "Item_3006_Name",
-                "slot": 2
-            },
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Phantom Dancer",
-                "itemID": 3046,
-                "price": 950,
-                "rawDescription": "GeneratedTip_Item_3046_Description",
-                "rawDisplayName": "Item_3046_Name",
-                "slot": 3
-            },
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Bloodthirster",
-                "itemID": 3072,
-                "price": 325,
-                "rawDescription": "GeneratedTip_Item_3072_Description",
-                "rawDisplayName": "Item_3072_Name",
-                "slot": 4
-            },
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Pickaxe",
-                "itemID": 1037,
-                "price": 875,
-                "rawDescription": "GeneratedTip_Item_1037_Description",
-                "rawDisplayName": "Item_1037_Name",
-                "slot": 5
-            },
-            {
-                "canUse": true,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Farsight Alteration",
-                "itemID": 3363,
-                "price": 0,
-                "rawDescription": "GeneratedTip_Item_3363_Description",
-                "rawDisplayName": "Item_3363_Name",
-                "slot": 6
-            }
-        ],
-        "level": 17,
-        "position": "BOTTOM",
-        "rawChampionName": "game_character_displayname_Ashe",
-        "rawSkinName": "game_character_skin_displayname_Ashe_9",
-        "respawnTimer": 0.0,
-        "riotId": "peachh#mochi",
-        "riotIdGameName": "peachh",
-        "riotIdTagLine": "mochi",
-        "runes": {
-            "keystone": {
-                "displayName": "Lethal Tempo",
-                "id": 8008,
-                "rawDescription": "perk_tooltip_LethalTempo",
-                "rawDisplayName": "perk_displayname_LethalTempo"
-            },
-            "primaryRuneTree": {
-                "displayName": "Precision",
-                "id": 8000,
-                "rawDescription": "perkstyle_tooltip_7201",
-                "rawDisplayName": "perkstyle_displayname_7201"
-            },
-            "secondaryRuneTree": {
-                "displayName": "Inspiration",
-                "id": 8300,
-                "rawDescription": "perkstyle_tooltip_7203",
-                "rawDisplayName": "perkstyle_displayname_7203"
-            }
-        },
-        "scores": {
-            "assists": 12,
-            "creepScore": 210,
-            "deaths": 2,
-            "kills": 14,
-            "wardScore": 17.709138870239258
-        },
-        "skinID": 9,
-        "skinName": "Worlds 2017 Ashe",
-        "summonerName": "peachh#mochi",
-        "summonerSpells": {
-            "summonerSpellOne": {
-                "displayName": "Barrier",
-                "rawDescription": "GeneratedTip_SummonerSpell_SummonerBarrier_Description",
-                "rawDisplayName": "GeneratedTip_SummonerSpell_SummonerBarrier_DisplayName"
-            },
-            "summonerSpellTwo": {
-                "displayName": "Flash",
-                "rawDescription": "GeneratedTip_SummonerSpell_SummonerFlash_Description",
-                "rawDisplayName": "GeneratedTip_SummonerSpell_SummonerFlash_DisplayName"
-            }
-        },
-        "team": "CHAOS"
-    },
-    {
-        "championName": "Brand",
-        "isBot": false,
-        "isDead": false,
-        "items": [
-            {
-                "canUse": true,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Zaz'Zak's Realmspike",
-                "itemID": 3871,
-                "price": 0,
-                "rawDescription": "GeneratedTip_Item_3871_Description",
-                "rawDisplayName": "Item_3871_Name",
-                "slot": 0
-            },
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Sorcerer's Shoes",
-                "itemID": 3020,
-                "price": 800,
-                "rawDescription": "GeneratedTip_Item_3020_Description",
-                "rawDisplayName": "Item_3020_Name",
-                "slot": 1
-            },
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Liandry's Torment",
-                "itemID": 6653,
-                "price": 800,
-                "rawDescription": "GeneratedTip_Item_6653_Description",
-                "rawDisplayName": "Item_6653_Name",
-                "slot": 2
-            },
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Blackfire Torch",
-                "itemID": 2503,
-                "price": 700,
-                "rawDescription": "GeneratedTip_Item_2503_Description",
-                "rawDisplayName": "Item_2503_Name",
-                "slot": 3
-            },
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Dark Seal",
-                "itemID": 1082,
-                "price": 350,
-                "rawDescription": "GeneratedTip_Item_1082_Description",
-                "rawDisplayName": "Item_1082_Name",
-                "slot": 4
-            },
-            {
-                "canUse": false,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Rylai's Crystal Scepter",
-                "itemID": 3116,
-                "price": 450,
-                "rawDescription": "GeneratedTip_Item_3116_Description",
-                "rawDisplayName": "Item_3116_Name",
-                "slot": 5
-            },
-            {
-                "canUse": true,
-                "consumable": false,
-                "count": 1,
-                "displayName": "Oracle Lens",
-                "itemID": 3364,
-                "price": 0,
-                "rawDescription": "GeneratedTip_Item_3364_Description",
-                "rawDisplayName": "Item_3364_Name",
-                "slot": 6
-            }
-        ],
-        "level": 16,
-        "position": "UTILITY",
-        "rawChampionName": "game_character_displayname_Brand",
-        "rawSkinName": "game_character_skin_displayname_Brand_0",
-        "respawnTimer": 0.0,
-        "riotId": "AsTori#Tori",
-        "riotIdGameName": "AsTori",
-        "riotIdTagLine": "Tori",
-        "runes": {
-            "keystone": {
-                "displayName": "Dark Harvest",
-                "id": 8128,
-                "rawDescription": "perk_tooltip_DarkHarvest",
-                "rawDisplayName": "perk_displayname_DarkHarvest"
-            },
-            "primaryRuneTree": {
-                "displayName": "Domination",
-                "id": 8100,
-                "rawDescription": "perkstyle_tooltip_7200",
-                "rawDisplayName": "perkstyle_displayname_7200"
-            },
-            "secondaryRuneTree": {
-                "displayName": "Sorcery",
-                "id": 8200,
-                "rawDescription": "perkstyle_tooltip_7202",
-                "rawDisplayName": "perkstyle_displayname_7202"
-            }
-        },
-        "scores": {
-            "assists": 22,
-            "creepScore": 60,
-            "deaths": 7,
-            "kills": 14,
-            "wardScore": 78.4415054321289
-        },
-        "skinID": 0,
-        "skinName": "",
-        "summonerName": "AsTori#Tori",
-        "summonerSpells": {
-            "summonerSpellOne": {
-                "displayName": "Flash",
-                "rawDescription": "GeneratedTip_SummonerSpell_SummonerFlash_Description",
-                "rawDisplayName": "GeneratedTip_SummonerSpell_SummonerFlash_DisplayName"
-            },
-            "summonerSpellTwo": {
-                "displayName": "Ignite",
-                "rawDescription": "GeneratedTip_SummonerSpell_SummonerDot_Description",
-                "rawDisplayName": "GeneratedTip_SummonerSpell_SummonerDot_DisplayName"
             }
         },
         "team": "CHAOS"

@@ -35,7 +35,7 @@ input_dim = X_train.shape[1]  # Number of features
 model = ComplexTabularModel(input_dim)
 
 # Loss and optimizer
-criterion = nn.CrossEntropyLoss(weight=torch.tensor([1.0, 3.0]))
+criterion = nn.CrossEntropyLoss(label_smoothing=0.1)
 optimizer = torch.optim.Adam(model.parameters(), lr=LR)
 
 if Training:

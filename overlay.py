@@ -22,7 +22,7 @@ from train import input_dim  # Input dimension for the model
 class Overlay(QWidget):
     def __init__(self):
         super().__init__()
-        self.views = ["order_stats", "chaos_stats", "gold_diff", "win_percentage"]  # Added win_percentage view
+        self.views = ["order_stats", "chaos_stats", "gold_diff", "win_percentage", "team_stats"]  # Added team_stats view
         self.current_view_index = 0
 
         # Set up the transparent window for the overlay
@@ -78,10 +78,56 @@ class Overlay(QWidget):
                     self.display_gold_difference()
                 elif current_view == "win_percentage":
                     self.display_win_percentage()  # Ensure this triggers model evaluation
+                elif current_view == "team_stats":
+                    self.display_team_stats()  # New view for team stats
             else:
                 self.stats_label.setText("No player data found.")
         except Exception as e:
             self.stats_label.setText(f"Error: {str(e)}")
+
+    def display_team_stats(self):
+        # Calculate team ORDER stats
+        team_order_kills = sum(
+            player['scores'].get('kills', 0) for player in self.player_data if player['team'] == 'ORDER')
+        team_order_deaths = sum(
+            player['scores'].get('deaths', 0) for player in self.player_data if player['team'] == 'ORDER')
+        team_order_assists = sum(
+            player['scores'].get('assists', 0) for player in self.player_data if player['team'] == 'ORDER')
+        team_order_gold = self.ally_gold  # Already calculated
+        team_order_cs = sum(
+            player['scores'].get('minionsKilled', 0) for player in self.player_data if player['team'] == 'ORDER')
+        team_order_kda = team_order_kills / (
+            team_order_deaths if team_order_deaths > 0 else 1)  # Avoid division by zero
+
+        # Calculate team CHAOS stats
+        team_chaos_kills = sum(
+            player['scores'].get('kills', 0) for player in self.player_data if player['team'] == 'CHAOS')
+        team_chaos_deaths = sum(
+            player['scores'].get('deaths', 0) for player in self.player_data if player['team'] == 'CHAOS')
+        team_chaos_assists = sum(
+            player['scores'].get('assists', 0) for player in self.player_data if player['team'] == 'CHAOS')
+        team_chaos_gold = self.enemy_gold  # Already calculated
+        team_chaos_cs = sum(
+            player['scores'].get('minionsKilled', 0) for player in self.player_data if player['team'] == 'CHAOS')
+        team_chaos_kda = team_chaos_kills / (
+            team_chaos_deaths if team_chaos_deaths > 0 else 1)  # Avoid division by zero
+
+        # Display stats for Team ORDER
+        team_order_stats = (
+            f"Team ORDER Stats:\n"
+            f"Kills: {team_order_kills}, Deaths: {team_order_deaths}, Assists: {team_order_assists},\n"
+            f"Gold: {team_order_gold}, CS: {team_order_cs}, KDA: {team_order_kda:.2f}"
+        )
+
+        # Display stats for Team CHAOS
+        team_chaos_stats = (
+            f"Team CHAOS Stats:\n"
+            f"Kills: {team_chaos_kills}, Deaths: {team_chaos_deaths}, Assists: {team_chaos_assists},\n"
+            f"Gold: {team_chaos_gold}, CS: {team_chaos_cs}, KDA: {team_chaos_kda:.2f}"
+        )
+
+        # Update the label with both team stats
+        self.stats_label.setText(f"{team_order_stats}\n\n{team_chaos_stats}")
 
     def fetch_player_data(self):
         try:
@@ -238,7 +284,8 @@ class Overlay(QWidget):
         # Predict the win percentage
         with torch.no_grad():
             prediction = self.model(sample_input_tensor)
-            predicted_probs = torch.softmax(prediction, dim=1)
+            temperature = 3.0  # Adjust as needed
+            predicted_probs = torch.softmax(prediction / temperature, dim=1)
 
         # Extract the win probabilities for Team ORDER and Team CHAOS
         team_100_prob = predicted_probs[0][1].item()  # Team ORDER win probability
@@ -264,11 +311,7 @@ class Overlay(QWidget):
             player['scores'].get('minionsKilled', 0) for player in self.player_data if player['team'] == 'ORDER')
         team_order_kda = team_order_kills / (
             team_order_deaths if team_order_deaths > 0 else 1)  # Avoid division by zero
-        team_order_kp = (team_order_kills + team_order_assists) / (
-                    team_order_kills + team_order_assists + team_order_deaths) if (
-                                                                                              team_order_kills + team_order_assists + team_order_deaths) > 0 else 0
 
-        # Calculate statistics for Team CHAOS
         team_chaos_kills = sum(
             player['scores'].get('kills', 0) for player in self.player_data if player['team'] == 'CHAOS')
         team_chaos_deaths = sum(
@@ -280,9 +323,7 @@ class Overlay(QWidget):
             player['scores'].get('minionsKilled', 0) for player in self.player_data if player['team'] == 'CHAOS')
         team_chaos_kda = team_chaos_kills / (
             team_chaos_deaths if team_chaos_deaths > 0 else 1)  # Avoid division by zero
-        team_chaos_kp = (team_chaos_kills + team_chaos_assists) / (
-                    team_chaos_kills + team_chaos_assists + team_chaos_deaths) if (
-                    team_chaos_kills + team_chaos_assists + team_chaos_deaths) > 0 else 0
+
 
         # Combine all the features into a single vector
         sample_input = [

@@ -5,24 +5,24 @@ from model import ComplexTabularModel
 from train import input_dim
 
 sample_team_100_stats = {
-    "team_100_kills": 25,
+    "team_100_kills": 18,
     "team_100_deaths": 28,
-    "team_100_assists": 45,
-    "team_100_gold": 65000,
-    "team_100_cs": 300,
-    "team_100_kda": 2.5
+    "team_100_assists": 35,
+    "team_100_gold": 12000,
+    "team_100_cs": 270,
+    "team_100_kda": 1.7
 }
 
 sample_team_200_stats = {
-    "team_200_kills": 28,
-    "team_200_deaths": 25,
-    "team_200_assists": 40,
-    "team_200_gold": 68000,
-    "team_200_cs": 320,
-    "team_200_kda": 3.0
+    "team_200_kills": 33,
+    "team_200_deaths": 12,
+    "team_200_assists": 60,
+    "team_200_gold": 16000,
+    "team_200_cs": 340,
+    "team_200_kda": 4.2
 }
 
-# Combine sample stats into a single feature vector
+
 sample_input = np.array([[
     sample_team_100_stats["team_100_kills"],
     sample_team_100_stats["team_100_deaths"],
@@ -55,8 +55,8 @@ try:
     with torch.no_grad():
         prediction = model(sample_input_tensor)
 
-        # Apply softmax to get probabilities
-        predicted_probs = torch.softmax(prediction, dim=1)
+        temperature = 3.0  # Adjust as needed
+        predicted_probs = torch.softmax(prediction / temperature, dim=1)
 
         # Get predicted label
         predicted_label = torch.argmax(predicted_probs, dim=1).item()

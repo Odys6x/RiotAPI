@@ -43,6 +43,7 @@ class ComplexTabularModel(nn.Module):
         residual = self.residual_block(x)
         x = x + residual
 
-        # Output
+        # Output logits (do not apply softmax here)
         x = self.output_layer(x)
-        return F.softmax(x, dim=1)
+        return x
+

@@ -73,18 +73,18 @@ class Preprocessor:
             combined_row = {
                 "match_id": match_id,
                 # Team 100 stats
-                "team_100_kills": team_100["kills"]/duration,
-                "team_100_deaths": team_100["deaths"]/duration,
-                "team_100_assists": team_100["assists"]/duration,
-                "team_100_gold": team_100_gold_scaled/duration,  # Scaled gold for Team 100
-                "team_100_cs": team_100["cs"]/duration,
+                "team_100_kills": team_100["kills"],
+                "team_100_deaths": team_100["deaths"],
+                "team_100_assists": team_100["assists"],
+                "team_100_gold": team_100_gold_scaled,  # Scaled gold for Team 100
+                "team_100_cs": team_100["cs"],
                 "team_100_kda": team_100["KDA"],
                 # Team 200 stats
-                "team_200_kills": team_200["kills"]/duration,
-                "team_200_deaths": team_200["deaths"]/duration,
-                "team_200_assists": team_200["assists"]/duration,
-                "team_200_gold": team_200_gold_scaled/duration,  # Scaled gold for Team 200
-                "team_200_cs": team_200["cs"]/duration,
+                "team_200_kills": team_200["kills"],
+                "team_200_deaths": team_200["deaths"],
+                "team_200_assists": team_200["assists"],
+                "team_200_gold": team_200_gold_scaled,  # Scaled gold for Team 200
+                "team_200_cs": team_200["cs"],
                 "team_200_kda": team_200["KDA"],
                 # Outcome (1 if Team 100 wins, else 0)
                 "outcome": outcome
