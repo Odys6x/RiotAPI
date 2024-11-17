@@ -3,62 +3,211 @@ import json
 import requests
 import torch
 import joblib
-from PyQt5.QtWidgets import QApplication, QWidget, QLabel
-from PyQt5.QtCore import Qt, QTimer
+from PyQt5.QtWidgets import QApplication
+from PyQt5.QtCore import Qt, QTimer, QUrl
+from PyQt5.QtWebEngineWidgets import QWebEngineView
+from http.server import HTTPServer, SimpleHTTPRequestHandler
+import threading
 
-# URLs for fetching live data
-player_url = "https://127.0.0.1:2999/liveclientdata/playerlist"
-event_url = "https://127.0.0.1:2999/liveclientdata/eventdata"
-game_stats_url = "https://127.0.0.1:2999/liveclientdata/gamestats"
 
-# File paths for saving data
-player_output_file = "API/player_data.json"
-event_output_file = "API/event_data.json"
+class DataHandler(SimpleHTTPRequestHandler):
+    def do_GET(self):
+        if self.path == '/api/game-data':
+            self.send_response(200)
+            self.send_header('Content-type', 'application/json')
+            self.send_header('Access-Control-Allow-Origin', '*')
+            self.end_headers()
 
-# Load your trained model and scaler here
-from model import ComplexTabularModel  # Your model import (update if necessary)
-from train import input_dim  # Input dimension for the model
+            data = self.server.overlay_instance.get_current_game_data()
+            self.wfile.write(json.dumps(data).encode())
+            return
 
-class Overlay(QWidget):
+        # Serve your React build files
+        if self.path == '/':
+            self.path = '/build/index.html'
+        elif not self.path.startswith('/build/'):
+            self.path = f'/build{self.path}'
+
+        return super().do_GET()
+
+
+class Overlay(QWebEngineView):
     def __init__(self):
         super().__init__()
-        self.views = ["order_stats", "chaos_stats", "gold_diff", "win_percentage", "team_stats"]  # Added team_stats view
-        self.current_view_index = 0
 
-        # Set up the transparent window for the overlay
-        self.setAttribute(Qt.WA_TranslucentBackground)
+        # Set up window properties
         self.setWindowFlags(Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint | Qt.WindowTransparentForInput)
-        self.setStyleSheet("background-color: rgba(0, 0, 0, 50);")
+        self.setAttribute(Qt.WA_TranslucentBackground)
 
-        # Stats label to show text info
-        self.stats_label = QLabel(self)
-        self.stats_label.setStyleSheet("color: white; font-size: 20px;")
-        self.stats_label.setAlignment(Qt.AlignCenter)
-        self.stats_label.setGeometry(50, 50, 1100, 75)
-        self.stats_label.setText("Overlay Loaded!")
-        self.stats_label.show()
+        # URLs for fetching live data
+        self.player_url = "https://127.0.0.1:2999/liveclientdata/playerlist"
+        self.event_url = "https://127.0.0.1:2999/liveclientdata/eventdata"
+        self.game_stats_url = "https://127.0.0.1:2999/liveclientdata/gamestats"
 
-        # Timer to fetch data every second
-        self.timer = QTimer(self)
-        self.timer.timeout.connect(self.update_data)
-        self.timer.start(1000)
-
-        # Timer to switch between views every 15 seconds
-        self.switch_view_timer = QTimer(self)
-        self.switch_view_timer.timeout.connect(self.switch_view)
-        self.switch_view_timer.start(15000)
-
+        # Initialize data storage
         self.player_data = []
         self.event_data = []
         self.ally_gold = 0
         self.enemy_gold = 0
-        self.gold_difference = 0
 
-        # Load the trained model and scaler
-        self.model = ComplexTabularModel(input_dim=input_dim)
-        self.model.load_state_dict(torch.load("model/model.pth"))  # Update the model path
-        self.model.eval()  # Set model to evaluation mode
-        self.scaler = joblib.load("model/scaler.pkl")  # Load the scaler
+        # Load ML model and scaler
+        self.load_model()
+
+        # Set up local server to serve React app
+        self.setup_local_server()
+
+        # Load the React application
+        self.load_react_app()
+
+        # Set up data update timer
+        self.timer = QTimer(self)
+        self.timer.timeout.connect(self.update_data)
+        self.timer.start(1000)  # Update every second
+
+    def process_game_data(self, player_data, game_stats):
+        """Process the game data for React component consumption"""
+        if not player_data:
+            return {}
+
+        order_team = [p for p in player_data if p['team'] == 'ORDER']
+        chaos_team = [p for p in player_data if p['team'] == 'CHAOS']
+
+        # Calculate team stats
+        order_stats = self.calculate_team_stats(order_team)
+        chaos_stats = self.calculate_team_stats(chaos_team)
+
+        # Calculate win probability if model is available
+        win_probability = self.calculate_win_probability(order_stats, chaos_stats)
+
+        game_time = game_stats.get('gameTime', 0)
+
+        return {
+            'orderTeam': {
+                'gold': order_stats['total_gold'],
+                'kills': order_stats['kills'],
+                'deaths': order_stats['deaths'],
+                'assists': order_stats['assists'],
+                'cs': order_stats['cs'],
+                'players': [{
+                    'name': p['summonerName'],
+                    'champion': p['championName'],
+                    'kills': p['scores']['kills'],
+                    'deaths': p['scores']['deaths'],
+                    'assists': p['scores']['assists'],
+                    'gold': self.estimate_gold(p['summonerName'],
+                                               p['scores'].get('minionsKilled', 0),
+                                               p['scores'].get('wardScore', 0),
+                                               game_time),
+                    'cs': p['scores'].get('minionsKilled', 0)
+                } for p in order_team]
+            },
+            'chaosTeam': {
+                'gold': chaos_stats['total_gold'],
+                'kills': chaos_stats['kills'],
+                'deaths': chaos_stats['deaths'],
+                'assists': chaos_stats['assists'],
+                'cs': chaos_stats['cs'],
+                'players': [{
+                    'name': p['summonerName'],
+                    'champion': p['championName'],
+                    'kills': p['scores']['kills'],
+                    'deaths': p['scores']['deaths'],
+                    'assists': p['scores']['assists'],
+                    'gold': self.estimate_gold(p['summonerName'],
+                                               p['scores'].get('minionsKilled', 0),
+                                               p['scores'].get('wardScore', 0),
+                                               game_time),
+                    'cs': p['scores'].get('minionsKilled', 0)
+                } for p in chaos_team]
+            },
+            'winProbability': win_probability,
+            'gameTime': game_time
+        }
+
+    def calculate_team_stats(self, team):
+        """Calculate aggregate stats for a team"""
+        game_time = 0  # You might want to pass this from game_stats
+        total_gold = sum(self.estimate_gold(p['summonerName'],
+                                            p['scores'].get('minionsKilled', 0),
+                                            p['scores'].get('wardScore', 0),
+                                            game_time) for p in team)
+        return {
+            'total_gold': total_gold,
+            'kills': sum(p['scores'].get('kills', 0) for p in team),
+            'deaths': sum(p['scores'].get('deaths', 0) for p in team),
+            'assists': sum(p['scores'].get('assists', 0) for p in team),
+            'cs': sum(p['scores'].get('minionsKilled', 0) for p in team)
+        }
+
+    def calculate_win_probability(self, order_stats, chaos_stats):
+        """Calculate win probability using the ML model"""
+        if not self.model or not self.scaler:
+            return {'order': 50, 'chaos': 50}
+
+        input_data = [
+            order_stats['kills'],
+            order_stats['deaths'],
+            order_stats['assists'],
+            order_stats['total_gold'],
+            order_stats['cs'],
+            order_stats['kills'] / max(order_stats['deaths'], 1),  # KDA
+            chaos_stats['kills'],
+            chaos_stats['deaths'],
+            chaos_stats['assists'],
+            chaos_stats['total_gold'],
+            chaos_stats['cs'],
+            chaos_stats['kills'] / max(chaos_stats['deaths'], 1)  # KDA
+        ]
+
+        try:
+            input_scaled = self.scaler.transform([input_data])
+            input_tensor = torch.tensor(input_scaled, dtype=torch.float32)
+
+            with torch.no_grad():
+                prediction = self.model(input_tensor)
+                probs = torch.softmax(prediction / 3.0, dim=1)  # Temperature scaling
+
+            order_prob = probs[0][1].item() * 100
+            chaos_prob = probs[0][0].item() * 100
+
+            return {
+                'order': round(order_prob, 1),
+                'chaos': round(chaos_prob, 1)
+            }
+        except Exception as e:
+            print(f"Error calculating win probability: {e}")
+            return {'order': 50, 'chaos': 50}
+
+    # Your existing methods remain the same...
+    def load_model(self):
+        try:
+            state_dict = torch.load("model/model.pth", weights_only=True)
+            from model import ComplexTabularModel
+            self.model = ComplexTabularModel(input_dim=12)
+            self.model.load_state_dict(state_dict)
+            self.model.eval()
+            self.scaler = joblib.load("model/scaler.pkl")
+        except Exception as e:
+            print(f"Error loading model: {e}")
+            self.model = None
+            self.scaler = None
+
+    def setup_local_server(self):
+        try:
+            server = HTTPServer(('localhost', 8000), DataHandler)
+            server.overlay_instance = self
+            server_thread = threading.Thread(target=server.serve_forever)
+            server_thread.daemon = True
+            server_thread.start()
+        except Exception as e:
+            print(f"Error setting up server: {e}")
+
+    def load_react_app(self):
+        try:
+            self.setUrl(QUrl("http://localhost:8000"))
+            self.setGeometry(400, 0, 1200, 300)
+        except Exception as e:
+            print(f"Error loading React app: {e}")
 
     def update_data(self):
         try:
@@ -66,112 +215,43 @@ class Overlay(QWidget):
             game_stats = self.fetch_game_stats()
             self.event_data = self.fetch_event_data()
 
-            if self.player_data:
-                game_time = game_stats.get("gameTime", 0)
-                current_view = self.views[self.current_view_index]
+            if self.player_data and game_stats:
+                processed_data = self.process_game_data(self.player_data, game_stats)
+                self.page().runJavaScript(f"window.updateGameData({json.dumps(processed_data)})")
 
-                if current_view == "order_stats":
-                    self.display_game_data(self.player_data, game_time, "ORDER", "Team ORDER")
-                elif current_view == "chaos_stats":
-                    self.display_game_data(self.player_data, game_time, "CHAOS", "Team CHAOS")
-                elif current_view == "gold_diff":
-                    self.display_gold_difference()
-                elif current_view == "win_percentage":
-                    self.display_win_percentage()  # Ensure this triggers model evaluation
-                elif current_view == "team_stats":
-                    self.display_team_stats()  # New view for team stats
-            else:
-                self.stats_label.setText("No player data found.")
         except Exception as e:
-            self.stats_label.setText(f"Error: {str(e)}")
-
-    def display_team_stats(self):
-        if self.current_view_index == 0:  # Ally is ORDER
-            team_order_gold = self.ally_gold
-            team_chaos_gold = self.enemy_gold
-        else:  # Ally is CHAOS
-            team_order_gold = self.enemy_gold
-            team_chaos_gold = self.ally_gold
-        team_order_kills = sum(
-            player['scores'].get('kills', 0) for player in self.player_data if player['team'] == 'ORDER')
-        team_order_deaths = sum(
-            player['scores'].get('deaths', 0) for player in self.player_data if player['team'] == 'ORDER')
-        team_order_assists = sum(
-            player['scores'].get('assists', 0) for player in self.player_data if player['team'] == 'ORDER')
-        team_order_cs = sum(
-            player['scores'].get('creepScore', 0) for player in self.player_data if player['team'] == 'ORDER')
-        team_order_kda = team_order_kills / (
-            team_order_deaths if team_order_deaths > 0 else 1)  # Avoid division by zero
-
-        # Calculate team CHAOS stats
-        team_chaos_kills = sum(
-            player['scores'].get('kills', 0) for player in self.player_data if player['team'] == 'CHAOS')
-        team_chaos_deaths = sum(
-            player['scores'].get('deaths', 0) for player in self.player_data if player['team'] == 'CHAOS')
-        team_chaos_assists = sum(
-            player['scores'].get('assists', 0) for player in self.player_data if player['team'] == 'CHAOS')
-        team_chaos_cs = sum(
-            player['scores'].get('creepScore', 0) for player in self.player_data if player['team'] == 'CHAOS')
-        team_chaos_kda = team_chaos_kills / (
-            team_chaos_deaths if team_chaos_deaths > 0 else 1)  # Avoid division by zero
-
-        # Display stats for Team ORDER
-        team_order_stats = (
-            f"Team ORDER Stats:\n"
-            f"Kills: {team_order_kills}, Deaths: {team_order_deaths}, Assists: {team_order_assists},\n"
-            f"Gold: {team_order_gold}, CS: {team_order_cs}, KDA: {team_order_kda:.2f}"
-        )
-
-        # Display stats for Team CHAOS
-        team_chaos_stats = (
-            f"Team CHAOS Stats:\n"
-            f"Kills: {team_chaos_kills}, Deaths: {team_chaos_deaths}, Assists: {team_chaos_assists},\n"
-            f"Gold: {team_chaos_gold}, CS: {team_chaos_cs}, KDA: {team_chaos_kda:.2f}"
-        )
-
-        # Update the label with both team stats
-        self.stats_label.setText(f"{team_order_stats}\n\n{team_chaos_stats}")
+            print(f"Error updating data: {e}")
 
     def fetch_player_data(self):
         try:
-            response = requests.get(player_url, verify=False)
+            response = requests.get(self.player_url, verify=False)
             response.raise_for_status()
-            data = response.json()
-
-            with open(player_output_file, 'w') as f:
-                json.dump(data, f, indent=4)
-
-            return data
+            return response.json()
         except requests.exceptions.RequestException as e:
-            print(f"An error occurred while fetching player data: {e}")
+            print(f"Error fetching player data: {e}")
             return None
-
-    def fetch_game_stats(self):
-        try:
-            response = requests.get(game_stats_url, verify=False)
-            response.raise_for_status()
-            game_stats = response.json()
-
-            with open(event_output_file, 'w') as f:
-                json.dump(game_stats, f, indent=4)
-
-            return game_stats
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred while fetching game stats: {e}")
-            return {}
 
     def fetch_event_data(self):
         try:
-            response = requests.get(event_url, verify=False)
+            response = requests.get(self.event_url, verify=False)
             response.raise_for_status()
             data = response.json()
-            events = data["Events"]
-
-            return events
+            return data.get("Events", [])
         except requests.exceptions.RequestException as e:
-            print(f"An error occurred while fetching event data: {e}")
+            print(f"Error fetching event data: {e}")
             return []
+
+    def fetch_game_stats(self):
+        try:
+            response = requests.get(self.game_stats_url, verify=False)
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"Error fetching game stats: {e}")
+            return {}
+
     def estimate_gold(self, player_name, minions_killed, wards_killed, game_time):
+        """Estimate player gold based on various factors"""
         passive_gold_per_10_seconds = 20.4
         starting_gold = 500
 
@@ -186,18 +266,17 @@ class Overlay(QWidget):
         gold_from_events = self.calculate_event_gold(player_name)
 
         total_gold = starting_gold + passive_gold + gold_from_minions + gold_from_ward_kills + gold_from_events
-        return total_gold
+        return int(total_gold)
 
     def calculate_event_gold(self, player_name):
+        """Calculate gold from game events"""
         base_player_name = player_name.split("#")[0]
         event_gold = 0
 
         for event in self.event_data:
             if event.get("Acer") == base_player_name and event["EventName"] == "Ace":
                 event_gold += 150
-                continue
-
-            if event.get("KillerName") == base_player_name:
+            elif event.get("KillerName") == base_player_name:
                 if event["EventName"] == "DragonKill":
                     event_gold += 300
                 elif event["EventName"] == "BaronKill":
@@ -218,162 +297,13 @@ class Overlay(QWidget):
 
         return event_gold
 
-    def display_game_data(self, player_data, game_time, team_name, display_team_name):
-        # Identify team and opposing team players
-        team = [p for p in player_data if p['team'] == team_name]
-        opposing_team = [p for p in player_data if p['team'] != team_name]
-
-        # Calculate total gold for both teams
-        self.ally_gold = int(sum(self.estimate_gold(player['summonerName'], player['scores'].get('creepScore', 0),
-                                                    player['scores'].get('wardScore', 0), game_time) for player in
-                                 team))
-        self.enemy_gold = int(sum(self.estimate_gold(player['summonerName'], player['scores'].get('creepScore', 0),
-                                                     player['scores'].get('wardScore', 0), game_time) for player in
-                                  opposing_team))
-
-        # Display stats for the selected team
-        player_stats = [f"{display_team_name}: Total Gold: {self.ally_gold}"]
-        for player in team:
-            # Calculate estimated gold for each player
-            estimated_gold = int(self.estimate_gold(player['summonerName'], player['scores'].get('creepScore', 0),
-                                                    player['scores'].get('wardScore', 0), game_time))
-
-            # Retrieve KDA stats
-            kills = player['scores'].get('kills', 0)
-            deaths = player['scores'].get('deaths', 0)
-            assists = player['scores'].get('assists', 0)
-            kda_score = f"{kills}/{deaths}/{assists}"
-
-            # Format player stats
-            stats = (f"{player['championName']} ({player['summonerName']}): "
-                     f"KDA: {kda_score}, Estimated Gold: {estimated_gold}")
-            player_stats.append(stats)
-
-        # Determine gold difference and leading team
-        self.gold_difference = abs(self.ally_gold - self.enemy_gold)
-        self.leading_team = display_team_name if self.ally_gold > self.enemy_gold else (
-            "Team CHAOS" if display_team_name == "Team ORDER" else "Team ORDER")
-
-        # Update stats label with player stats
-        self.stats_label.setText("\n".join(player_stats))
-
-    def display_gold_difference(self):
-        ally_team_name = "Team ORDER" if self.current_view_index == 0 else "Team CHAOS"
-        enemy_team_name = "Team CHAOS" if ally_team_name == "Team ORDER" else "Team ORDER"
-
-        if self.gold_difference == 0:
-            gold_diff_text = (
-                f"Gold Difference: {int(self.gold_difference)}\n"
-                f"{ally_team_name} Gold: {int(self.ally_gold)}\n"
-                f"{enemy_team_name} Gold: {int(self.enemy_gold)}"
-            )
-        else:
-            gold_diff_text = (
-                f"Gold Difference: {int(self.gold_difference)}\n"
-                f"Leading Team: {self.leading_team}\n"
-                f"{ally_team_name} Gold: {int(self.ally_gold)}\n"
-                f"{enemy_team_name} Gold: {int(self.enemy_gold)}"
-            )
-
-        self.stats_label.setText(gold_diff_text)
-
-    def display_win_percentage(self):
-        # Prepare the input data for the model
-        sample_input = self.prepare_model_input()
-
-        # Scale the input data using the scaler
-        sample_input_scaled = self.scaler.transform([sample_input])
-
-        # Convert to tensor
-        sample_input_tensor = torch.tensor(sample_input_scaled, dtype=torch.float32)
-
-        # Predict the win percentage
-        with torch.no_grad():
-            prediction = self.model(sample_input_tensor)
-            temperature = 3.0  # Adjust as needed
-            predicted_probs = torch.softmax(prediction / temperature, dim=1)
-
-        # Extract the win probabilities for Team ORDER and Team CHAOS
-        team_100_prob = predicted_probs[0][1].item()  # Team ORDER win probability
-        team_200_prob = predicted_probs[0][0].item()  # Team CHAOS win probability
-
-        win_percentage_text = (
-            f"Team ORDER Win: {team_100_prob * 100:.2f}%\n"
-            f"Team CHAOS Win: {team_200_prob * 100:.2f}%"
-        )
-
-        self.stats_label.setText(win_percentage_text)
-
-
-
-    def prepare_model_input(self):
-        # Calculate statistics for Team ORDE
-        if self.current_view_index == 0:  # Ally is ORDER
-            team_order_gold = self.ally_gold
-            team_chaos_gold = self.enemy_gold
-        else:  # Ally is CHAOS
-            team_order_gold = self.enemy_gold
-            team_chaos_gold = self.ally_gold
-        team_order_kills = sum(
-            player['scores'].get('kills', 0) for player in self.player_data if player['team'] == 'ORDER')
-        team_order_deaths = sum(
-            player['scores'].get('deaths', 0) for player in self.player_data if player['team'] == 'ORDER')
-        team_order_assists = sum(
-            player['scores'].get('assists', 0) for player in self.player_data if player['team'] == 'ORDER')
-        print(team_order_gold)
-        team_order_cs = sum(
-            player['scores'].get('creepScore', 0) for player in self.player_data if player['team'] == 'ORDER')
-        team_order_kda = team_order_kills / (
-            team_order_deaths if team_order_deaths > 0 else 1)  # Avoid division by zero
-
-        team_chaos_kills = sum(
-            player['scores'].get('kills', 0) for player in self.player_data if player['team'] == 'CHAOS')
-        team_chaos_deaths = sum(
-            player['scores'].get('deaths', 0) for player in self.player_data if player['team'] == 'CHAOS')
-        team_chaos_assists = sum(
-            player['scores'].get('assists', 0) for player in self.player_data if player['team'] == 'CHAOS')
-        print(team_chaos_gold)
-        team_chaos_cs = sum(
-            player['scores'].get('creepScore', 0) for player in self.player_data if player['team'] == 'CHAOS')
-        team_chaos_kda = team_chaos_kills / (
-            team_chaos_deaths if team_chaos_deaths > 0 else 1)  # Avoid division by zero
-
-
-        # Combine all the features into a single vector
-        sample_input = [
-            team_order_kills,
-            team_order_deaths,
-            team_order_assists,
-            team_order_gold,
-            team_order_cs,
-            team_order_kda,
-            team_chaos_kills,
-            team_chaos_deaths,
-            team_chaos_assists,
-            team_chaos_gold,
-            team_chaos_cs,
-            team_chaos_kda
-        ]
-
-        return sample_input
-
-    def switch_view(self):
-        self.current_view_index = (self.current_view_index + 1) % len(self.views)
-
-        # If switching to win_percentage view, force model evaluation
-        if self.views[self.current_view_index] == "win_percentage":
-            self.display_win_percentage()  # Re-trigger win percentage display
-
-    def paintEvent(self, event):
-        pass
-
 
 if __name__ == '__main__':
+    import urllib3
+
+    urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
     app = QApplication(sys.argv)
     overlay = Overlay()
-
-    overlay.setGeometry(400, 0, 1200, 800)
-    overlay.stats_label.setGeometry(50, 50, 1100, 205)
-
     overlay.show()
     sys.exit(app.exec_())
