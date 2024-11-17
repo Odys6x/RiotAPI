@@ -5,21 +5,21 @@ from model import ComplexTabularModel
 from train import input_dim
 
 sample_team_100_stats = {
-    "team_100_kills": 18,
-    "team_100_deaths": 28,
-    "team_100_assists": 35,
-    "team_100_gold": 12000,
-    "team_100_cs": 270,
-    "team_100_kda": 1.7
+    "team_100_kills": 29,
+    "team_100_deaths": 13,
+    "team_100_assists": 20,
+    "team_100_gold": 17720,
+    "team_100_cs": 210,
+    "team_100_kda": 2.23
 }
 
 sample_team_200_stats = {
-    "team_200_kills": 33,
-    "team_200_deaths": 12,
-    "team_200_assists": 60,
-    "team_200_gold": 16000,
-    "team_200_cs": 340,
-    "team_200_kda": 4.2
+    "team_200_kills": 13,
+    "team_200_deaths": 30,
+    "team_200_assists": 9,
+    "team_200_gold": 17789,
+    "team_200_cs": 110,
+    "team_200_kda": 0.43
 }
 
 

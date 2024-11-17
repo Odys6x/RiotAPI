@@ -86,16 +86,20 @@ class Overlay(QWidget):
             self.stats_label.setText(f"Error: {str(e)}")
 
     def display_team_stats(self):
-        # Calculate team ORDER stats
+        if self.current_view_index == 0:  # Ally is ORDER
+            team_order_gold = self.ally_gold
+            team_chaos_gold = self.enemy_gold
+        else:  # Ally is CHAOS
+            team_order_gold = self.enemy_gold
+            team_chaos_gold = self.ally_gold
         team_order_kills = sum(
             player['scores'].get('kills', 0) for player in self.player_data if player['team'] == 'ORDER')
         team_order_deaths = sum(
             player['scores'].get('deaths', 0) for player in self.player_data if player['team'] == 'ORDER')
         team_order_assists = sum(
             player['scores'].get('assists', 0) for player in self.player_data if player['team'] == 'ORDER')
-        team_order_gold = self.ally_gold  # Already calculated
         team_order_cs = sum(
-            player['scores'].get('minionsKilled', 0) for player in self.player_data if player['team'] == 'ORDER')
+            player['scores'].get('creepScore', 0) for player in self.player_data if player['team'] == 'ORDER')
         team_order_kda = team_order_kills / (
             team_order_deaths if team_order_deaths > 0 else 1)  # Avoid division by zero
 
@@ -106,9 +110,8 @@ class Overlay(QWidget):
             player['scores'].get('deaths', 0) for player in self.player_data if player['team'] == 'CHAOS')
         team_chaos_assists = sum(
             player['scores'].get('assists', 0) for player in self.player_data if player['team'] == 'CHAOS')
-        team_chaos_gold = self.enemy_gold  # Already calculated
         team_chaos_cs = sum(
-            player['scores'].get('minionsKilled', 0) for player in self.player_data if player['team'] == 'CHAOS')
+            player['scores'].get('creepScore', 0) for player in self.player_data if player['team'] == 'CHAOS')
         team_chaos_kda = team_chaos_kills / (
             team_chaos_deaths if team_chaos_deaths > 0 else 1)  # Avoid division by zero
 
@@ -214,22 +217,25 @@ class Overlay(QWidget):
                     event_gold += 200
 
         return event_gold
+
     def display_game_data(self, player_data, game_time, team_name, display_team_name):
+        # Identify team and opposing team players
         team = [p for p in player_data if p['team'] == team_name]
         opposing_team = [p for p in player_data if p['team'] != team_name]
 
-        self.ally_gold = int(sum(self.estimate_gold(player['summonerName'], player['scores'].get('minionsKilled', 0),
+        # Calculate total gold for both teams
+        self.ally_gold = int(sum(self.estimate_gold(player['summonerName'], player['scores'].get('creepScore', 0),
                                                     player['scores'].get('wardScore', 0), game_time) for player in
                                  team))
-
-        self.enemy_gold = int(sum(self.estimate_gold(player['summonerName'], player['scores'].get('minionsKilled', 0),
+        self.enemy_gold = int(sum(self.estimate_gold(player['summonerName'], player['scores'].get('creepScore', 0),
                                                      player['scores'].get('wardScore', 0), game_time) for player in
                                   opposing_team))
 
+        # Display stats for the selected team
         player_stats = [f"{display_team_name}: Total Gold: {self.ally_gold}"]
         for player in team:
-            # Calculate estimated gold
-            estimated_gold = int(self.estimate_gold(player['summonerName'], player['scores'].get('minionsKilled', 0),
+            # Calculate estimated gold for each player
+            estimated_gold = int(self.estimate_gold(player['summonerName'], player['scores'].get('creepScore', 0),
                                                     player['scores'].get('wardScore', 0), game_time))
 
             # Retrieve KDA stats
@@ -238,17 +244,17 @@ class Overlay(QWidget):
             assists = player['scores'].get('assists', 0)
             kda_score = f"{kills}/{deaths}/{assists}"
 
-            # Format player stats including KDA and estimated gold
+            # Format player stats
             stats = (f"{player['championName']} ({player['summonerName']}): "
                      f"KDA: {kda_score}, Estimated Gold: {estimated_gold}")
             player_stats.append(stats)
 
-        # Calculate gold difference and determine leading team
+        # Determine gold difference and leading team
         self.gold_difference = abs(self.ally_gold - self.enemy_gold)
         self.leading_team = display_team_name if self.ally_gold > self.enemy_gold else (
             "Team CHAOS" if display_team_name == "Team ORDER" else "Team ORDER")
 
-        # Update label to display player stats with KDA
+        # Update stats label with player stats
         self.stats_label.setText("\n".join(player_stats))
 
     def display_gold_difference(self):
@@ -298,17 +304,25 @@ class Overlay(QWidget):
 
         self.stats_label.setText(win_percentage_text)
 
+
+
     def prepare_model_input(self):
-        # Calculate statistics for Team ORDER
+        # Calculate statistics for Team ORDE
+        if self.current_view_index == 0:  # Ally is ORDER
+            team_order_gold = self.ally_gold
+            team_chaos_gold = self.enemy_gold
+        else:  # Ally is CHAOS
+            team_order_gold = self.enemy_gold
+            team_chaos_gold = self.ally_gold
         team_order_kills = sum(
             player['scores'].get('kills', 0) for player in self.player_data if player['team'] == 'ORDER')
         team_order_deaths = sum(
             player['scores'].get('deaths', 0) for player in self.player_data if player['team'] == 'ORDER')
         team_order_assists = sum(
             player['scores'].get('assists', 0) for player in self.player_data if player['team'] == 'ORDER')
-        team_order_gold = self.ally_gold  # Already calculated
+        print(team_order_gold)
         team_order_cs = sum(
-            player['scores'].get('minionsKilled', 0) for player in self.player_data if player['team'] == 'ORDER')
+            player['scores'].get('creepScore', 0) for player in self.player_data if player['team'] == 'ORDER')
         team_order_kda = team_order_kills / (
             team_order_deaths if team_order_deaths > 0 else 1)  # Avoid division by zero
 
@@ -318,9 +332,9 @@ class Overlay(QWidget):
             player['scores'].get('deaths', 0) for player in self.player_data if player['team'] == 'CHAOS')
         team_chaos_assists = sum(
             player['scores'].get('assists', 0) for player in self.player_data if player['team'] == 'CHAOS')
-        team_chaos_gold = self.enemy_gold  # Already calculated
+        print(team_chaos_gold)
         team_chaos_cs = sum(
-            player['scores'].get('minionsKilled', 0) for player in self.player_data if player['team'] == 'CHAOS')
+            player['scores'].get('creepScore', 0) for player in self.player_data if player['team'] == 'CHAOS')
         team_chaos_kda = team_chaos_kills / (
             team_chaos_deaths if team_chaos_deaths > 0 else 1)  # Avoid division by zero
 
