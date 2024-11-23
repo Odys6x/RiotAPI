@@ -6,6 +6,29 @@ from sklearn.metrics import classification_report
 from config import Training, EPOCH, LR, BATCH_SIZE
 from dataset.dataset import Preprocessor
 from model import ComplexTabularModel
+from torch.optim.lr_scheduler import StepLR
+from torch.cuda.amp import autocast, GradScaler  # Import AMP
+
+
+# Focal Loss Implementation
+class FocalLoss(nn.Module):
+    def __init__(self, alpha=1.0, gamma=2.0, reduction='mean'):
+        super(FocalLoss, self).__init__()
+        self.alpha = alpha  # Scaling factor for imbalance
+        self.gamma = gamma  # Focusing parameter
+        self.reduction = reduction
+
+    def forward(self, inputs, targets):
+        CE_loss = nn.CrossEntropyLoss(reduction='none')(inputs, targets)
+        pt = torch.exp(-CE_loss)  # Probability of the true class
+        focal_loss = self.alpha * ((1 - pt) ** self.gamma) * CE_loss
+
+        if self.reduction == 'mean':
+            return focal_loss.mean()
+        elif self.reduction == 'sum':
+            return focal_loss.sum()
+        else:
+            return focal_loss
 
 # Preprocessor steps
 preprocessor = Preprocessor(scaling=True)
@@ -34,27 +57,41 @@ test_loader = DataLoader(test_dataset, batch_size=BATCH_SIZE)
 input_dim = X_train.shape[1]  # Number of features
 model = ComplexTabularModel(input_dim)
 
-# Loss and optimizer
-criterion = nn.CrossEntropyLoss(label_smoothing=0.1)
+# Loss, optimizer, scheduler, and scaler
+criterion = FocalLoss(alpha=1.0, gamma=2.0)  # Replace with Focal Loss
 optimizer = torch.optim.Adam(model.parameters(), lr=LR)
+scheduler = StepLR(optimizer, step_size=10, gamma=0.1)
+scaler = GradScaler()  # Initialize scaler for mixed precision
 
 if Training:
+    # Early Stopping Parameters
+    patience = 5  # Number of epochs to wait for improvement
+    best_val_accuracy = 0  # Track the best validation accuracy
+    early_stop_counter = 0  # Counter for early stopping
+
     for epoch in range(EPOCH):
         model.train()  # Switch to training mode
         epoch_loss = 0
         for batch_X, batch_y in train_loader:
             optimizer.zero_grad()
 
-            # Forward pass
-            y_pred = model(batch_X)
-            loss = criterion(y_pred, batch_y)
+            # Mixed Precision Training
+            with autocast():
+                y_pred = model(batch_X)  # Forward pass
+                loss = criterion(y_pred, batch_y)  # Compute loss
 
-            # Backward pass
-            loss.backward()
-            optimizer.step()
+            # Scaled backward pass
+            scaler.scale(loss).backward()
+            scaler.step(optimizer)
+            scaler.update()
+
             epoch_loss += loss.item()
 
         print(f"Epoch {epoch + 1}/{EPOCH}, Loss: {epoch_loss:.4f}")
+
+        # Step the learning rate scheduler
+        scheduler.step()
+        print(f"Current Learning Rate: {scheduler.get_last_lr()}")
 
         # Evaluate on validation set
         model.eval()  # Switch to evaluation mode
@@ -70,10 +107,25 @@ if Training:
         val_accuracy = correct / total * 100
         print(f"Validation Accuracy: {val_accuracy:.2f}%")
 
-    # Save the model after training
+        # Early Stopping Check
+        if val_accuracy > best_val_accuracy:
+            best_val_accuracy = val_accuracy
+            early_stop_counter = 0
+            # Save the best model
+            torch.save(model.state_dict(), "model/best_model.pth")
+            print("New best model saved.")
+        else:
+            early_stop_counter += 1
+            print(f"No improvement. Early stopping counter: {early_stop_counter}/{patience}")
+
+        if early_stop_counter >= patience:
+            print("Early stopping triggered. Training stopped.")
+            break
+
+    # Save the final model (optional, if different from best_model)
     joblib.dump(preprocessor.scaler, 'model/scaler.pkl')
     torch.save(model.state_dict(), "model/model.pth")
-    print("Model saved!")
+    print("Final model saved!")
 
 else:
     # Load trained model for evaluation
