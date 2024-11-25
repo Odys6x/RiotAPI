@@ -8,6 +8,7 @@ from dataset.dataset import Preprocessor
 from model import ComplexTabularModel
 from torch.optim.lr_scheduler import LambdaLR
 from torch.cuda.amp import autocast, GradScaler
+import torch_optimizer as optim  # Required for RAdam
 
 # Focal Loss Implementation
 class FocalLoss(nn.Module):
@@ -52,12 +53,19 @@ model = ComplexTabularModel(input_dim)
 
 # Loss, optimizer, and scaler
 criterion = FocalLoss(alpha=1.0, gamma=2.0)
-optimizer = torch.optim.Adam(model.parameters(), lr=LR)
+
+# Advanced Optimizers
+# Option 1: AdamW
+# optimizer = torch.optim.AdamW(model.parameters(), lr=LR, weight_decay=1e-4)
+
+# Option 2: RAdam
+optimizer = optim.RAdam(model.parameters(), lr=LR, weight_decay=1e-4)
+
 scaler = GradScaler()
 
 # Warm-Up Scheduler
 def warmup_lambda(epoch):
-    if epoch < 5:  # First 5 epochs are for warm-up
+    if epoch < 5:
         return epoch / 5
     return 0.1 ** ((epoch - 5) // 10)
 
@@ -83,7 +91,7 @@ if Training:
 
         print(f"Epoch {epoch + 1}/{EPOCH}, Loss: {epoch_loss:.4f}")
 
-        # Step the warm-up scheduler
+        # Step the scheduler
         scheduler.step()
         print(f"Current Learning Rate: {scheduler.get_last_lr()}")
 
