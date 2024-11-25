@@ -6,22 +6,29 @@ from sklearn.metrics import classification_report
 from config import Training, EPOCH, LR, BATCH_SIZE
 from dataset.dataset import Preprocessor
 from model import ComplexTabularModel
-from torch.optim.lr_scheduler import LambdaLR
-from torch.cuda.amp import autocast, GradScaler
+from torch.optim.lr_scheduler import StepLR
+from torch.cuda.amp import autocast, GradScaler  # Import AMP
+
 
 # Focal Loss Implementation
 class FocalLoss(nn.Module):
     def __init__(self, alpha=1.0, gamma=2.0, reduction='mean'):
         super(FocalLoss, self).__init__()
-        self.alpha = alpha
-        self.gamma = gamma
+        self.alpha = alpha  # Scaling factor for imbalance
+        self.gamma = gamma  # Focusing parameter
         self.reduction = reduction
 
     def forward(self, inputs, targets):
         CE_loss = nn.CrossEntropyLoss(reduction='none')(inputs, targets)
-        pt = torch.exp(-CE_loss)
+        pt = torch.exp(-CE_loss)  # Probability of the true class
         focal_loss = self.alpha * ((1 - pt) ** self.gamma) * CE_loss
-        return focal_loss.mean() if self.reduction == 'mean' else focal_loss.sum()
+
+        if self.reduction == 'mean':
+            return focal_loss.mean()
+        elif self.reduction == 'sum':
+            return focal_loss.sum()
+        else:
+            return focal_loss
 
 # Preprocessor steps
 preprocessor = Preprocessor(scaling=True)
@@ -31,7 +38,7 @@ X_train, X_val, X_test, y_train, y_val, y_test = preprocessor.split_data()
 
 # Convert to PyTorch tensors
 X_train = torch.tensor(X_train, dtype=torch.float32)
-y_train = torch.tensor(y_train.values, dtype=torch.long)
+y_train = torch.tensor(y_train.values, dtype=torch.long)  # Ensure labels are integers
 X_val = torch.tensor(X_val, dtype=torch.float32)
 y_val = torch.tensor(y_val.values, dtype=torch.long)
 X_test = torch.tensor(X_test, dtype=torch.float32)
@@ -47,48 +54,47 @@ val_loader = DataLoader(val_dataset, batch_size=BATCH_SIZE)
 test_loader = DataLoader(test_dataset, batch_size=BATCH_SIZE)
 
 # Model
-input_dim = X_train.shape[1]
+input_dim = X_train.shape[1]  # Number of features
 model = ComplexTabularModel(input_dim)
 
-# Loss, optimizer, and scaler
-criterion = FocalLoss(alpha=1.0, gamma=2.0)
+# Loss, optimizer, scheduler, and scaler
+criterion = FocalLoss(alpha=1.0, gamma=2.0)  # Replace with Focal Loss
 optimizer = torch.optim.Adam(model.parameters(), lr=LR)
-scaler = GradScaler()
-
-# Warm-Up Scheduler
-def warmup_lambda(epoch):
-    if epoch < 5:  # First 5 epochs are for warm-up
-        return epoch / 5
-    return 0.1 ** ((epoch - 5) // 10)
-
-scheduler = LambdaLR(optimizer, lr_lambda=warmup_lambda)
+scheduler = StepLR(optimizer, step_size=10, gamma=0.1)
+scaler = GradScaler()  # Initialize scaler for mixed precision
 
 if Training:
-    patience = 5
-    best_val_accuracy = 0
-    early_stop_counter = 0
+    # Early Stopping Parameters
+    patience = 5  # Number of epochs to wait for improvement
+    best_val_accuracy = 0  # Track the best validation accuracy
+    early_stop_counter = 0  # Counter for early stopping
 
     for epoch in range(EPOCH):
-        model.train()
+        model.train()  # Switch to training mode
         epoch_loss = 0
         for batch_X, batch_y in train_loader:
             optimizer.zero_grad()
+
+            # Mixed Precision Training
             with autocast():
-                y_pred = model(batch_X)
-                loss = criterion(y_pred, batch_y)
+                y_pred = model(batch_X)  # Forward pass
+                loss = criterion(y_pred, batch_y)  # Compute loss
+
+            # Scaled backward pass
             scaler.scale(loss).backward()
             scaler.step(optimizer)
             scaler.update()
+
             epoch_loss += loss.item()
 
         print(f"Epoch {epoch + 1}/{EPOCH}, Loss: {epoch_loss:.4f}")
 
-        # Step the warm-up scheduler
+        # Step the learning rate scheduler
         scheduler.step()
         print(f"Current Learning Rate: {scheduler.get_last_lr()}")
 
-        # Validation
-        model.eval()
+        # Evaluate on validation set
+        model.eval()  # Switch to evaluation mode
         correct = 0
         total = 0
         with torch.no_grad():
@@ -101,10 +107,11 @@ if Training:
         val_accuracy = correct / total * 100
         print(f"Validation Accuracy: {val_accuracy:.2f}%")
 
-        # Early Stopping
+        # Early Stopping Check
         if val_accuracy > best_val_accuracy:
             best_val_accuracy = val_accuracy
             early_stop_counter = 0
+            # Save the best model
             torch.save(model.state_dict(), "model/best_model.pth")
             print("New best model saved.")
         else:
@@ -115,15 +122,18 @@ if Training:
             print("Early stopping triggered. Training stopped.")
             break
 
+    # Save the final model (optional, if different from best_model)
     joblib.dump(preprocessor.scaler, 'model/scaler.pkl')
     torch.save(model.state_dict(), "model/model.pth")
     print("Final model saved!")
 
 else:
+    # Load trained model for evaluation
     model = ComplexTabularModel(input_dim=input_dim)
     model.load_state_dict(torch.load("model/model.pth"))
     model.eval()
 
+    # Final testing on test set
     correct = 0
     total = 0
     y_pred_all = []
@@ -141,5 +151,6 @@ else:
     test_accuracy = correct / total * 100
     print(f"Test Accuracy: {test_accuracy:.2f}%")
 
+    # Print classification report
     print("\nClassification Report:")
     print(classification_report(y_test_all, y_pred_all, target_names=['Team 200 Wins', 'Team 100 Wins']))
