@@ -8,9 +8,8 @@ from dataset.dataset import Preprocessor
 from model import ComplexTabularModel
 from torch.optim.lr_scheduler import LambdaLR
 from torch.cuda.amp import autocast, GradScaler
-import torch_optimizer as optim  # Required for RAdam
+import torch_optimizer as optim
 
-# Focal Loss Implementation
 class FocalLoss(nn.Module):
     def __init__(self, alpha=1.0, gamma=2.0, reduction='mean'):
         super(FocalLoss, self).__init__()
@@ -24,13 +23,11 @@ class FocalLoss(nn.Module):
         focal_loss = self.alpha * ((1 - pt) ** self.gamma) * CE_loss
         return focal_loss.mean() if self.reduction == 'mean' else focal_loss.sum()
 
-# Preprocessor steps
 preprocessor = Preprocessor(scaling=True)
 raw_data = preprocessor.load_data("dataset/match_results_with_objectives.csv")
 combined_data = preprocessor.combine_team_stats()
 X_train, X_val, X_test, y_train, y_val, y_test = preprocessor.split_data()
 
-# Convert to PyTorch tensors
 X_train = torch.tensor(X_train, dtype=torch.float32)
 y_train = torch.tensor(y_train.values, dtype=torch.long)
 X_val = torch.tensor(X_val, dtype=torch.float32)
@@ -38,7 +35,6 @@ y_val = torch.tensor(y_val.values, dtype=torch.long)
 X_test = torch.tensor(X_test, dtype=torch.float32)
 y_test = torch.tensor(y_test.values, dtype=torch.long)
 
-# Create DataLoaders
 train_dataset = TensorDataset(X_train, y_train)
 val_dataset = TensorDataset(X_val, y_val)
 test_dataset = TensorDataset(X_test, y_test)
@@ -47,23 +43,15 @@ train_loader = DataLoader(train_dataset, batch_size=BATCH_SIZE, shuffle=True)
 val_loader = DataLoader(val_dataset, batch_size=BATCH_SIZE)
 test_loader = DataLoader(test_dataset, batch_size=BATCH_SIZE)
 
-# Model
 input_dim = X_train.shape[1]
 model = ComplexTabularModel(input_dim)
 
-# Loss, optimizer, and scaler
 criterion = FocalLoss(alpha=1.0, gamma=2.0)
 
-# Advanced Optimizers
-# Option 1: AdamW
-# optimizer = torch.optim.AdamW(model.parameters(), lr=LR, weight_decay=1e-4)
-
-# Option 2: RAdam
 optimizer = optim.RAdam(model.parameters(), lr=LR, weight_decay=1e-4)
 
 scaler = GradScaler()
 
-# Warm-Up Scheduler
 def warmup_lambda(epoch):
     if epoch < 5:
         return epoch / 5
@@ -91,11 +79,9 @@ if Training:
 
         print(f"Epoch {epoch + 1}/{EPOCH}, Loss: {epoch_loss:.4f}")
 
-        # Step the scheduler
         scheduler.step()
         print(f"Current Learning Rate: {scheduler.get_last_lr()}")
 
-        # Validation
         model.eval()
         correct = 0
         total = 0
@@ -109,7 +95,6 @@ if Training:
         val_accuracy = correct / total * 100
         print(f"Validation Accuracy: {val_accuracy:.2f}%")
 
-        # Early Stopping
         if val_accuracy > best_val_accuracy:
             best_val_accuracy = val_accuracy
             early_stop_counter = 0
